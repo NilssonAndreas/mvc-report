@@ -48,8 +48,9 @@ body {
 }
 
 .report {
-    text-align: start;
-    margin-left: 5%;
+
+    margin-left: 12rem;
+    margin-right: 12rem;
 }
 
 .footer {

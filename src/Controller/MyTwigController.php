@@ -44,14 +44,11 @@ class MyTwigController extends AbstractController
     }
 
     /**
-     * @Route("/about", name="about")
+     * @Route("about", name="about")
      */
     public function about(): Response
     {
-        $test = 100;
-
-        return $this->render('about.twig', [
-            'test' => $test,
+        return $this->render('about.html.twig', [
         ]);
     }
 
@@ -60,10 +57,7 @@ class MyTwigController extends AbstractController
      */
     public function report(): Response
     {
-        $test = 200;
-
-        return $this->render('report.twig', [
-            'test' => $test,
+        return $this->render('report.html.twig', [
         ]);
     }
 }
