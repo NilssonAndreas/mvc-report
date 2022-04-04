@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block css %}
+            <link rel="stylesheet" href="css/app.css">
+        {% endblock css %}
+
+    </head>
+    <body>
+        <header>
+            <div class="h-div">
+                {# <img class="h-image" src="img/php.png" alt="Bild av php + elefant"> #}
+                <div class="h-text">
+                    <h1>MVC</h1>
+                    <p>annt21</p>
+                </div>
+            </div>
+            <nav class="navbar">
+                <a href="{{ url("home") }}"> Index</a>
+                <a href="{{ url("about") }}"> About</a>
+                <a href="{{ url("report") }}"> Report </a>
+            </nav>
+        </header>
+
+        {% block body %}
+        
+        {% endblock %}
+    </body>
+    {% include "footer.twig" %}
+    
+</html>

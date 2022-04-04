@@ -1,0 +1,7 @@
+body {
+    background-color: lightgray;
+    border: solid black 10px;
+}
+.content {
+    background-color: pink;
+}

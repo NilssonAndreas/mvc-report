@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+{% block title %}
+    Home
+{% endblock title %}
+
+{% block body %}
+    
+
+<div class="content">
+    <h1>Välkommen till min me-sida för mvc-kursen</h1>
+
+    <p>
+        
+        Den är skapad av mig Andreas Nilsson (annt21) <br>
+        Jag bor i ("på") jämjö och pluggar webprogrammering på BTH. 
+    </p>
+    <img class="sm-img" src="./img/me.jpg" alt="me-picture">
+        <h2>Dagens datum: {{ today }}</h2>
+        
+    <div class="holder">
+        <div class="advice">
+            <h3>Random advice of the day:</h3>  {{ advice }}
+        </div>
+    </div>
+</div>
+{% endblock body %}
