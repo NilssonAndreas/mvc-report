@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card{% endblock %}
+
+{% block body %}
+<h1>{{ title }}</h1>
+
+<table class="deck-table">
+    {% for suits in deck|batch(13, 'No item') %}
+        <tr>
+            {% for cards in suits %}
+                <td>{{ cards }}</td>
+            {% endfor %}
+        </tr>
+  
+    {% endfor %}
+</table>
+
+
+{# <p><a href="{{ link_to_roll }}">Roll the dice five times</a>.</p> #}
+
+{% endblock %}

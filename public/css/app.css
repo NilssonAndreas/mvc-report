@@ -83,6 +83,18 @@ body {
 .sm-img {
     max-width: 200px;
 }
+
+.deck-table{
+    border-spacing: 10px;
+    border-collapse: separate;
+    text-align: center;
+}
+
+.deck-table td{
+    border: 2px solid black;
+    width: 2rem;
+    height: 2rem;
+}
 @media screen and (max-width: 600px) {
     .h-div {
         height: 20%;
