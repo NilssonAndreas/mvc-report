@@ -5,7 +5,19 @@
 {% block body %}
 <h1>{{ title }}</h1>
 
-<h2> Your card is: {{ draw }}</h2>
+{% if draw is iterable %}
+    <table class="deck-table">
+        {% for suits in draw|batch(13) %}
+            <tr>
+                {% for cards in suits %}
+                    <td>{{ cards }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <h2> Your card is: {{ draw }}</h2>
+{% endif %}
 <h4>
    Number of cards left:  {{ count }}
 </h4>

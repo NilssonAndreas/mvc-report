@@ -68,4 +68,25 @@ class CardController extends AbstractController
         ];
         return $this->render('card/draw.html.twig', $data);
     }
+
+    /**
+     * @Route("/card/deck/draw/{numRolls}", name="deck-multiRoll")
+     */
+    public function multiRoll(int $numRolls): Response
+    {
+        $deck = new \App\Cards\Deck();
+
+        $draw = [];
+        for ($i = 1; $i <= $numRolls; $i++) {
+            $draw[] = $deck->draw();
+        }
+        $count = $deck->countCards();
+        $data = [
+            'title' => 'Dice rolled many times',
+            'numRolls' => $numRolls,
+            'draw' => $draw,
+            'count' => $count
+        ];
+        return $this->render('card/draw.html.twig', $data);
+    }
 }
