@@ -51,4 +51,21 @@ class CardController extends AbstractController
         ];
         return $this->render('card/card.html.twig', $data);
     }
+
+    /**
+     * @Route("/card/deck/draw", name="deck-draw")
+     */
+    public function draw(): Response
+    {
+        $deck = new \App\Cards\Deck();
+        $draw = $deck->draw();
+        $count = $deck->countCards();
+        $data = [
+            'title' => 'Current-Deck',
+            'draw' => $draw,
+            'count' => $count
+
+        ];
+        return $this->render('card/draw.html.twig', $data);
+    }
 }

@@ -23,7 +23,18 @@ class Deck
         return $this->deck;
     }
 
-    public function reset(): array
+    public function draw(): string
+    {
+        $removed = array_shift($this->deck);
+        return $removed;
+    }
+
+    public function countCards(): int
+    {
+        return sizeof($this->deck);
+    }
+
+    public function reset(): void
     {
         $this->deck = new \App\Cards\Card();
         $this->deck = $this->deck->getSet();
