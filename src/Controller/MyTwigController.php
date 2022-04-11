@@ -8,7 +8,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MyTwigController extends AbstractController
 {
-    
     /**
      * @Route("/", name="home")
      */
@@ -33,13 +32,13 @@ class MyTwigController extends AbstractController
         $response = curl_exec($curl);
         $err = curl_error($curl);
         curl_close($curl);
-        
+
         $response = json_decode($response, true);
 
-    return $this->render('home.html.twig', [
+        return $this->render('home.html.twig', [
         'today' => $today,
         'advice' => $response['slip']['advice'],
-        
+
     ]);
     }
 
