@@ -13,6 +13,7 @@ class LuckyControllerJson
     /**
      * @Route(
      * "/card/api/deck",
+     * name="api-sort",
      * methods={"GET","HEAD"}
      * )
      */
@@ -33,6 +34,7 @@ class LuckyControllerJson
      /**
      * @Route(
      * "card/api/deck/shuffle",
+     * name="api-shuffle",
      * methods={"POST"}
      * )
      */
