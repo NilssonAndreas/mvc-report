@@ -5,6 +5,8 @@ namespace App\Controller\card;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class CardController extends AbstractController
@@ -12,9 +14,7 @@ class CardController extends AbstractController
     /**
      * @Route(
      *      "/card/",
-     *      name="card-home",
-     *      methods={"GET","HEAD"}
-     * )
+     *      name="card-home")
      */
     public function home(): Response
     {
@@ -40,7 +40,7 @@ class CardController extends AbstractController
     /**
      * @Route("/card/deck/shuffle", name="deck-shuffle")
      */
-    public function shuffle(): Response
+    public function shuffle(SessionInterface $session): Response
     {
         $deck = new \App\Cards\Deck();
         $deck->shuffleDeck();
@@ -49,32 +49,35 @@ class CardController extends AbstractController
             'title' => 'Current-Deck',
             'deck' => $deck->get()
         ];
+        $session->set("myDeck", $deck);
         return $this->render('card/card.html.twig', $data);
     }
 
     /**
-     * @Route("/card/deck/draw", name="deck-draw")
-     */
-    public function draw(): Response
+    * @Route(
+    * "/card/deck/draw",
+    *  name="deck-draw",
+    *  methods={"GET", "HEAD"})
+    */
+    public function draw(SessionInterface $session): Response
     {
-        $deck = new \App\Cards\Deck();
-        $draw = $deck->draw();
+        $deck = $session->get("myDeck") ?? new \App\Cards\Deck();
         $count = $deck->countCards();
         $data = [
-            'title' => 'Current-Deck',
-            'draw' => $draw,
+            'title' => 'Dice rolled many times',
+            'draw' => $deck->draw(),
             'count' => $count
-
         ];
+        $session->set("myDeck", $deck);
         return $this->render('card/draw.html.twig', $data);
     }
 
     /**
      * @Route("/card/deck/draw/{numRolls}", name="deck-multiRoll")
      */
-    public function multiRoll(int $numRolls): Response
+    public function multiDraw(int $numRolls, SessionInterface $session): Response
     {
-        $deck = new \App\Cards\Deck();
+        $deck = $session->get("myDeck") ?? new \App\Cards\Deck();
 
         $draw = [];
         for ($i = 1; $i <= $numRolls; $i++) {
@@ -82,11 +85,12 @@ class CardController extends AbstractController
         }
         $count = $deck->countCards();
         $data = [
-            'title' => 'Dice rolled many times',
+            'title' => 'This is your draw',
             'numRolls' => $numRolls,
             'draw' => $draw,
             'count' => $count
         ];
+        $session->set("myDeck", $deck);
         return $this->render('card/draw.html.twig', $data);
     }
 }
