@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class LuckyControllerJson
 {
-    // private $deck;
+    private  object $deck;
 
     /**
      * @Route(
@@ -16,12 +16,11 @@ class LuckyControllerJson
      * methods={"GET","HEAD"}
      * )
      */
-    public function number(): Response
+    public function sortedDeck(): Response
     {
-        $deck = new \App\Cards\Deck();
-        
+        $this->deck = new \App\Cards\Deck();
         $data = [
-            'deck' => $deck->get()
+            'deck' => $this->deck->get()
         ];
 
         $response = new Response();
@@ -30,5 +29,26 @@ class LuckyControllerJson
 
         return $response;
     }
+
+     /**
+     * @Route(
+     * "card/api/deck/shuffle",
+     * methods={"POST"}
+     * )
+     */
+    public function shuffleDeck(): Response
+    {
+        $this->deck = new \App\Cards\Deck();
+        $data = [
+            'deck' => $this->deck->shuffleDeck()
+        ];
+
+        $response = new Response();
+        $response->setContent(json_encode($data));
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
+    }
+   
 
 }
