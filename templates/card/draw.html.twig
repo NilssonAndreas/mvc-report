@@ -5,8 +5,6 @@
 {% block body %}
 <h1>{{ title }}</h1>
 
-<form method="post">
-
 {% if draw is iterable %}
     <table class="deck-table">
         {% for suits in draw|batch(13) %}

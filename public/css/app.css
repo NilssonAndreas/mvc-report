@@ -95,6 +95,20 @@ body {
     width: 2rem;
     height: 2rem;
 }
+
+.gameBoard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.Player-holder {
+    text-align: center;
+    background-color: bisque;
+}
+
 @media screen and (max-width: 600px) {
     .h-div {
         height: 20%;

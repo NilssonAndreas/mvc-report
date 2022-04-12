@@ -4,7 +4,7 @@ namespace App\Cards;
 
 class Deck
 {
-    protected $deck = [];
+    protected $deck;
 
     public function __construct()
     {
@@ -23,13 +23,13 @@ class Deck
         return $this->deck;
     }
 
-    public function draw(): string
+    public function draw(): ?string
     {
         $removed = array_shift($this->deck);
         return $removed;
     }
 
-    public function countCards(): int
+    public function countCards(): ?int
     {
         return sizeof($this->deck);
     }

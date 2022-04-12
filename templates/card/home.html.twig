@@ -12,8 +12,7 @@
 <button><a href="{{ url("deck-shuffle") }}"> Shuffle</a></button>
 <button><a href="{{ url("deck-draw") }}"> Draw</a></button>
 <button><a href="{{ url("deck-multiRoll", {numRolls: 5}) }}"> MultiDraw</a></button>
-<button><a href="{{ url("home") }}"> Deck2</a></button>
+<button><a href="{{ url("deck-deal",{numPlayer: 2, numCards: 5}) }}"> Deal</a></button>
 
-{# <p><a href="{{ link_to_roll }}">Roll the dice five times</a>.</p> #}
 
 {% endblock %}

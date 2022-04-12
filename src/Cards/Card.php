@@ -4,6 +4,7 @@ namespace App\Cards;
 
 class Card
 {
+
     protected $FULL_SET = [];
     protected $SUITS = [
         "♥",

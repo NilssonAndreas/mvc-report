@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Deal{% endblock %}
+
+{% block body %}
+<h1>{{ title }}</h1>
+
+    <div class="gameBoard">
+        {% for player in players %}
+        <div class="Player-holder">
+        <table class="deck-table">
+            <div>
+                {{player.name}}
+            </div>
+            
+            <tr>
+                {% for cards in player.cards %}
+                <td class="cards">{{cards}}</td>
+                {% endfor %}
+            </tr>
+        </table>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
