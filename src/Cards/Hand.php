@@ -8,7 +8,7 @@ class Hand
 
     public function __construct()
     {
-      $this->hand = [];
+        $this->hand = [];
     }
 
     public function addCardToHand($cards): void
@@ -32,5 +32,4 @@ class Hand
     {
         $this->hand = [];
     }
-
 }

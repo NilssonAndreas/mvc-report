@@ -8,6 +8,8 @@
 /var/
 /vendor/
 /tools/
+.php-cs-fixer.cache
+
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###

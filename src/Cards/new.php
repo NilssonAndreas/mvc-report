@@ -23,7 +23,6 @@ class _newPlayer
 
     public function addCardToHand($cards): void
     {
-
         $this->hand = array_merge($this->hand, $cards);
     }
 
@@ -33,6 +32,4 @@ class _newPlayer
             unset($this->hand[$key]);
         }
     }
-
-
 }

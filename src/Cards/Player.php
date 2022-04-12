@@ -25,6 +25,4 @@ class Player
     {
         $this->hand->addCardToHand($cards);
     }
-
-
 }

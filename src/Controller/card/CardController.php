@@ -56,8 +56,7 @@ class CardController extends AbstractController
     /**
     * @Route(
     * "/card/deck/draw",
-    *  name="deck-draw",
-    *  methods={"GET", "HEAD"})
+    *  name="deck-draw")
     */
     public function draw(SessionInterface $session): Response
     {
@@ -98,13 +97,11 @@ class CardController extends AbstractController
     /**
      * @Route(
      * "/card/deck/deal/{numPlayer}/{numCards}",
-     *  name="deck-deal",
-     * methods={"GET", "HEAD"})
+     *  name="deck-deal")
      * )
      */
     public function playerDeal(int $numPlayer, int $numCards): Response
     {
-
         $deck = new \App\Cards\Deck();
         $deck->shuffleDeck();
         $players = [];
@@ -112,14 +109,13 @@ class CardController extends AbstractController
             $newPlayer = new \App\Cards\Player();
             $cards = [];
             for ($x = 1; $x <= $numCards; $x++) {
-               $cards[] = $deck->draw();
+                $cards[] = $deck->draw();
             }
             $newPlayer->addCards($cards);
             $players[] = [
                 'name' => "Player: {$i}",
                 'cards' => $newPlayer->getCards()
             ];
-            
         }
 
         $count = $deck->countCards();
@@ -132,5 +128,18 @@ class CardController extends AbstractController
         ];
 
         return $this->render('card/deal.html.twig', $data);
+    }
+
+    /**
+     * @Route("/card/deck2", name="card-deck2")
+     */
+    public function deck2(): Response
+    {
+        $deck = new \App\Cards\DeckWith2Jokers();
+        $data = [
+            'title' => 'Joker',
+            'deck' => $deck->get()
+        ];
+        return $this->render('card/card.html.twig', $data);
     }
 }

@@ -43,6 +43,11 @@ body {
     background-color: lightgray;
 }
 
+.body {
+    margin-bottom: 2rem;
+   
+}
+
 .content {
     text-align: center;
 }
