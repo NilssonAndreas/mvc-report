@@ -31,6 +31,52 @@
             Hur smidigt det är att jobba med ramverk. Samt att PHP verkar ha ett stort community som bryr sig om språket. Det finns bra med dokumentation att tillgå.
         </P>
         <h4>Kmom02</h4>
+        <p>
+            Arv är en av de vanligaste objektorienterade konstruktionerna.
+            Den ärvande klassen utökar, eller specialiserar, basklassen. Basklassen kallas även superklass och den ärvande klassen kallas subklass.<br> <a href="https://dbwebb.se/guide/kom-igang-med-objektorienterad-programmering-i-php/arv-med-grafisk-tarning"> Dbwebb om Arv</a>
+        </p>
+        <p>
+            Komposition är när ett object använder sig utav ett annat, det är ett sätt att kombinera object och data typer. <br>
+            <br>
+            Relationen har-en, has-a, kallas “object composition”. En variant av objekt komposition är “objekt aggregat” där skillnaden är hur stark kopplingen är mellan objekten. Komposition innebär en stark koppling och aggregat innebär en svagare koppling mellan objekten<br>
+            <a href="https://dbwebb.se/guide/kom-igang-med-objektorienterad-programmering-i-php/komposition-med-en-tarningshand"> Dbwebb om komposition</a>
+        </p>
+        <p>
+            Trait består av metoder och medlemsvariabler vilka kan användas för att utöka funktionaliteten av en klass. <br>
+            Man kan tänka på trait som kodmoduler som är återanvändbara i flera klasser. Ett trait kan lösa funktioner som många olika klasser skulle kunna ha nytta av. Ett trait kan ofta återanvändas av olika typer av klasser. <br>
+            <a href="https://dbwebb.se/guide/kom-igang-med-objektorienterad-programmering-i-php/vad-ar-trait"> Dbwebb om trait</a>
+        </p>
+        <p>
+            Interface är ett kontrakt där en klass lovar att erbjuda en viss uppsättning metoder. <br>
+            En klass kan implementera ett interface, det innebär att klassen förbinder sig att erbjuda ett API som motsvaras av interfacet. <br>
+            <a href="https://dbwebb.se/guide/kom-igang-med-objektorienterad-programmering-i-php/vad-ar-interface"> Dbwebb om Interface</a> <br>
+
+            Det hjälper oss att bygga på vår kod med att fortfarande hålla den bakåtkompatibel.
+        </p>
+
+        <p>
+            I klassen Card valde jag att skapa tre stycken arrayer. En för färgerna(suits) och en för värdena(ranks). Den tredje arrayen innehåller alla korten och den fylls via loopar i konstruktorn. Klassen har tre stycken metoder för att få ut de tre olika arrayerna. Jag har inte implementerat några setters men det kan vara bra att göra beroende på vad man ska använda korten till.
+        </p>
+        <p>
+            I Deck klassen så skapar jag ett Card objekt i konstruktorn för att sedan skriva över den till en array med alla korten. <br>
+            Metoderna i klassen jobbar sedan med arrayen. <br>
+            DeckWith2Jokers ärver ifrån deck och lägger sedan till två jokarar i konstruktorn. 
+        </p>
+        <p>
+            Hand klassen har en array som den kan fylla med kort(strängar),
+            metoderna jobbar sedan med arrayer för att lägga till och ta bort. För att lägga till korten valde jag att köra array_merge(). Så att man då skickar in en array med alla kort man vill lägga till.
+        </p>
+
+        <p>
+            I Player klassen instanciera jag ett Hand-objekt i konstruktorn och jobbar sedan med det i metoderna. Här har jag inte implementerat något sätt att ta bort kort men det är en förbättringsmöjlighet.
+            Jag la inte till något sätt för players att hålla poäng men det kan möjligen behövas beroende på vilka spel man ska använda. 
+        </p>
+        <p>
+            Fsörbättringsmöjlighet finns onekligen i alla klasser. Ett bra alternativ hade nog varit att skapa ett interface för Card. Då kan man lägga till många olika kortlekar beroende på vad man ska spela.
+        </p>
+        <p>
+            TIL: Håll dig till uppgiften, sväva inte iväg och skapa massa onödigt.
+        </p>
         <h4>Kmom03</h4>
         <h4>Kmom04</h4>
         <h4>Kmom05</h4>
@@ -39,17 +85,3 @@
     </div>
 </div>
 {% endblock body %}
-
-
-
-
-
-
-
-{# Berätta kort om PHPs modell för klasser och objekt. Vilka är de grunder man 
-
-Med tanke på artikeln “PHP The Right Way”, vilka delar in den finner du extra intressanta och värdefulla? Är det några särskilda områden som du känner att du vill veta mer om? Lyft fram några delar av artikeln som du känner mer värdefulla.
-
-Vilken är din TIL för detta kmom?
-
-TIL är en akronym för “Today I Learned” vilket leksamt anspelar på att det finns alltid nya saker att lära sig, varje dag. Man brukar lyfta upp saker man lärt sig och där man kanske hajade till lite extra över dess nyttighet eller enkelhet, eller så var det bara en ny lärdom för dagen som man vill notera. #}

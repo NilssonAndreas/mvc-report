@@ -64,7 +64,7 @@ class CardController extends AbstractController
         $card = $deck->draw();
         $count = $deck->countCards();
         $data = [
-            'title' => 'Dice rolled many times',
+            'title' => 'Your Draw',
             'draw' => $card,
             'count' => $count
         ];
