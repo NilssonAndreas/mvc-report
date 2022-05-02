@@ -5,6 +5,7 @@ namespace App\Cards;
 class Player
 {
     protected object $hand;
+    protected int $score;
 
     public function __construct()
     {
@@ -21,8 +22,23 @@ class Player
         return $this->hand->showHand();
     }
 
-    public function addCards($cards)
+    public function addCards($cards): void
     {
         $this->hand->addCardToHand($cards);
+    }
+
+    public function addScore($scoreToAdd): void
+    {
+        $this->$score = $this->$score + $scoreToAdd;
+    }
+
+    public function getScore(): int
+    {
+        return $this->$score;
+    }
+
+    public function resetScore(): void
+    {
+        $this->$score = 0;
     }
 }

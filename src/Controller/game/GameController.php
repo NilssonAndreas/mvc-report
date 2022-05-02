@@ -29,10 +29,10 @@ class GameController extends AbstractController
      */
     public function start(): Response
     {
-        // $deck = new \App\Cards\Deck();
+        $deck = new \App\Cards\Deck();
         $data = [
             'title' => 'Game-Start',
-            // 'deck' => $deck->get()
+            'deck' => $deck->get()
         ];
         return $this->render('game/start.html.twig', $data);
     }
