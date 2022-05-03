@@ -16,11 +16,16 @@ class GameController extends AbstractController
      *      "/game/",
      *      name="game-home")
      */
-    public function home(): Response
+    public function home(SessionInterface $session): Response
     {
+        $player = new \App\Cards\Player();
+        $deck = new \App\Cards\Deck();
+        $deck->shuffleDeck();
+        $game = new \App\Cards\Game($player, 2, $deck);
         $data = [
             'title' => 'Game'
         ];
+        $session->set("myGame", $game);
         return $this->render('game/home.html.twig', $data);
     }
 
@@ -29,14 +34,19 @@ class GameController extends AbstractController
      */
     public function start(SessionInterface $session): Response
     {
-        $player = new \App\Cards\Player();
-        $deck = new \App\Cards\Deck();
-        $game = new \App\Cards\Game($player, 2, $deck);
+        $game = $session->get("myGame") ?? new \App\Cards\Game($player, 2, $deck);
+        $myDeck = $game->getDeck();
+        $draw = $myDeck->draw();
+        $player = $game->getSpecificPlayer(1);
+        $player->addCards([$draw]);
         $data = [
             'title' => 'Game-Start',
-            'players' => $game->getPlayers()
+            'game' => $game,
+            'deck' => $game->getDeck(),
+            'player' => $player,
+            'draw' => $draw
         ];
-        $session->set("myGame", $game);
+        
         return $this->render('game/start.html.twig', $data);
     }
 

@@ -10,6 +10,7 @@ class Player
     public function __construct()
     {
         $this->hand = new \App\Cards\Hand();
+        $this->score = 0;
     }
 
     public function numberOfCards(): int
@@ -29,16 +30,16 @@ class Player
 
     public function addScore($scoreToAdd): void
     {
-        $this->$score = $this->$score + $scoreToAdd;
+        $this->score += $scoreToAdd;
     }
 
     public function getScore(): int
     {
-        return $this->$score;
+        return $this->score;
     }
 
     public function resetScore(): void
     {
-        $this->$score = 0;
+        $this->score = 0;
     }
 }
