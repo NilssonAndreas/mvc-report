@@ -27,13 +27,16 @@ class GameController extends AbstractController
     /**
      * @Route("/game/start", name="game-start")
      */
-    public function start(): Response
+    public function start(SessionInterface $session): Response
     {
+        $player = new \App\Cards\Player();
         $deck = new \App\Cards\Deck();
+        $game = new \App\Cards\Game($player, 2, $deck);
         $data = [
             'title' => 'Game-Start',
-            'deck' => $deck->get()
+            'players' => $game->getPlayers()
         ];
+        $session->set("myGame", $game);
         return $this->render('game/start.html.twig', $data);
     }
 
