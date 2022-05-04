@@ -7,6 +7,7 @@ class Game
     protected $player;
     protected $bank;
     protected $deck;
+    protected bool $bust = false;
 
     public function __construct(Player $newPlayer, Deck $newDeck)
     {
@@ -25,13 +26,21 @@ class Game
         return $this->deck;
     }
 
+    public function getBust(): bool
+    {
+        return $this->bust;
+    }
+
     public function setGameState(): void
     {
         $draw = $this->deck->draw();
         $this->player->addCards([$draw]);
         $this->setScore();
-        $scoreState = $this->checkScore();
+        $scoreState = $this->checkIfBust();
         echo($scoreState);
+        if ($this->bust == true){
+            echo("   NOW IS FALSE");
+        }
     }
 
     private function setScore(): void
@@ -63,10 +72,11 @@ class Game
         }
     }
 
-    private function checkScore(): string
+    private function checkIfBust(): string
     {
         $score = $this->player->getScore();
         if ($score > 21) {
+            $this->bust = true;
             return "Bust";
         }
         return "score: $score";
