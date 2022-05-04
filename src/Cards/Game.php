@@ -4,15 +4,14 @@ namespace App\Cards;
 
 class Game
 {
-
     protected $player;
     protected $bank;
     protected $deck;
-    
-    public function __construct( Player $newPlayer, Deck $newDeck)
+
+    public function __construct(Player $newPlayer, Deck $newDeck)
     {
-        $this->player = new $newPlayer;
-        $this->deck = new $newDeck;
+        $this->player = new $newPlayer();
+        $this->deck = new $newDeck();
         $this->deck->shuffleDeck();
     }
 
@@ -24,7 +23,6 @@ class Game
     public function getDeck(): object
     {
         return $this->deck;
-        
     }
 
     public function setGameState(): void
@@ -38,12 +36,10 @@ class Game
 
     private function setScore(): void
     {
-        
         $cards = $this->player->getCards();
         $this->player->resetScore();
-        foreach($cards as $card) {
-
-            if( intval($card[0]) > 1) {
+        foreach ($cards as $card) {
+            if (intval($card[0]) > 1) {
                 $this->player->addScore(intval($card[0]));
             }
 
@@ -70,7 +66,7 @@ class Game
     private function checkScore(): string
     {
         $score = $this->player->getScore();
-        if($score > 21){
+        if ($score > 21) {
             return "Bust";
         }
         return "score: $score";

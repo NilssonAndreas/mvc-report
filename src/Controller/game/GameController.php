@@ -20,7 +20,7 @@ class GameController extends AbstractController
     {
         $player = new \App\Cards\Player();
         $deck = new \App\Cards\Deck();
-        $game = new \App\Cards\Game( $player, $deck);
+        $game = new \App\Cards\Game($player, $deck);
         $data = [
             'title' => 'Game'
         ];
