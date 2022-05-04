@@ -20,7 +20,6 @@ class GameController extends AbstractController
     {
         $player = new \App\Cards\Player();
         $deck = new \App\Cards\Deck();
-        $deck->shuffleDeck();
         $game = new \App\Cards\Game($player, $deck);
         $data = [
             'title' => 'Game'
@@ -35,16 +34,10 @@ class GameController extends AbstractController
     public function start(SessionInterface $session): Response
     {
         $game = $session->get("myGame") ?? new \App\Cards\Game($player, $deck);
-        $myDeck = $game->getDeck();
-        $draw = $myDeck->draw();
-        $player = $game->getPlayer();
-        $player->addCards([$draw]);
         $game->setGameState();
         $data = [
             'title' => 'Game-Start',
             'game' => $game,
-            'deck' => $myDeck,
-            'player' => $player
         ];
         $session->set("myGame", $game);
         return $this->render('game/start.html.twig', $data);

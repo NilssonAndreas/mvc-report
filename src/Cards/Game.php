@@ -12,7 +12,8 @@ class Game
     public function __construct( Player $newPlayer, Deck $newDeck)
     {
         $this->player = new $newPlayer;
-        $this->deck = $newDeck;
+        $this->deck = new $newDeck;
+        $this->deck->shuffleDeck();
     }
 
     public function getPlayer(): object
@@ -28,8 +29,11 @@ class Game
 
     public function setGameState(): void
     {
+        $draw = $this->deck->draw();
+        $this->player->addCards([$draw]);
         $this->setScore();
-        $this->checkScore();
+        $scoreState = $this->checkScore();
+        echo($scoreState);
     }
 
     private function setScore()
@@ -66,7 +70,6 @@ class Game
     private function checkScore(): string
     {
         $score = $this->player->getScore();
-        echo($score);
         if($score > 21){
             return "Bust";
         }

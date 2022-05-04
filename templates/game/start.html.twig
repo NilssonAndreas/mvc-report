@@ -11,7 +11,7 @@
     <p>
         Take card
     </p>
-    <button><a href="{{ url("game-start") }}"> Start</a></button>
+    <button><a href="{{ url("game-home") }}"> Stop</a></button>
     {# <button><a href="{{ url("deck-shuffle") }}"> Shuffle</a></button>
     <button><a href="{{ url("deck-draw") }}"> Draw</a></button>
     <button><a href="{{ url("deck-multiRoll", {numRolls: 5}) }}"> MultiDraw</a></button>
@@ -29,7 +29,7 @@
                 <a href="{{ url("game-start") }}"> Draw</a>
             </button>
         
-            {% for cards in player.cards %}
+            {% for cards in game.getPlayer().getCards() %}
                 <td class="cards">{{cards}}</td>
             {% endfor %}
             
@@ -37,7 +37,7 @@
 
 </div>
 <div >
-    {% for cards in deck.get %}
+    {% for cards in game.getDeck().get() %}
             <td class="cards">{{cards}}</td>
     {% endfor %}
 </div>
