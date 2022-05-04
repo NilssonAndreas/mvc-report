@@ -5,45 +5,19 @@ namespace App\Cards;
 class Game
 {
 
-    protected $players = [];
+    protected $player;
     protected $bank;
     protected $deck;
     
-    public function __construct( Player $player, int $numberOfPlayers, Deck $newDeck)
+    public function __construct( Player $newPlayer, Deck $newDeck)
     {
-        foreach (range(1, $numberOfPlayers) as $number) {
-            $this->players[$number] = new $player;
-        }
+        $this->player = new $newPlayer;
         $this->deck = $newDeck;
     }
 
-    public function getPlayers(): array
+    public function getPlayer(): object
     {
-        return $this->players;
-    }
-
-    public function addScoreToPlayer(int $id, int $score): void
-    {
-        $this->players[$id]->addScore();
-    }
-    
-    public function addCardsToPlayer(int $id, int $numberOfCards): void
-    {
-        $cardArray = [];
-        foreach ( range(1, $numberOfCards) as $index) {
-            $cardArray[$index] = $this->deck->draw();
-        }
-        $this->players[$id]->addCards($cardArray);
-    }
-
-    public function getScoreForPlayer(int $id): int
-    {
-        return $this->players[$id]->getScore();
-    }
-
-    public function getSpecificPlayer(int $id): object
-    {
-        return $this->players[$id];
+        return $this->player;
     }
 
     public function getDeck(): object
@@ -55,48 +29,47 @@ class Game
     public function setGameState(): void
     {
         $this->setScore();
+        $this->checkScore();
     }
 
     private function setScore()
     {
-        foreach ($this->players as $key=>$value){
-            $cards = $value->getCards();
-            $value->resetScore();
-            foreach($cards as $card) {
+        
+        $cards = $this->player->getCards();
+        $this->player->resetScore();
+        foreach($cards as $card) {
 
-                if( intval($card[0]) > 1) {
-                    $value->addScore(intval($card[0]));
-                }
-
-                switch ($card[0]) {
-                    case 'A':
-                        $value->addScore(1);
-                        break;
-                    case 'K':
-                        $value->addScore(13);
-                        break;
-                    case 'Q':
-                        $value->addScore(12);
-                        break;
-                    case 'J':
-                        $value->addScore(11);
-                        break;
-                    case 1:
-                        $value->addScore(10);
-                        break;
-                }
+            if( intval($card[0]) > 1) {
+                $this->player->addScore(intval($card[0]));
             }
-        };
+
+            switch ($card[0]) {
+                case 'A':
+                    $this->player->addScore(1);
+                    break;
+                case 'K':
+                    $this->player->addScore(13);
+                    break;
+                case 'Q':
+                    $this->player->addScore(12);
+                    break;
+                case 'J':
+                    $this->player->addScore(11);
+                    break;
+                case 1:
+                    $this->player->addScore(10);
+                    break;
+            }
+        }
     }
 
-    private function checkScore(int $id): string
+    private function checkScore(): string
     {
-        $player = $this->getSpecificPlayer($id);
-        $score = $player->getScore();
+        $score = $this->player->getScore();
+        echo($score);
         if($score > 21){
             return "Bust";
         }
         return "score: $score";
-        
     }
 }

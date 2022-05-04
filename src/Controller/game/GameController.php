@@ -21,7 +21,7 @@ class GameController extends AbstractController
         $player = new \App\Cards\Player();
         $deck = new \App\Cards\Deck();
         $deck->shuffleDeck();
-        $game = new \App\Cards\Game($player, 1, $deck);
+        $game = new \App\Cards\Game($player, $deck);
         $data = [
             'title' => 'Game'
         ];
@@ -34,15 +34,16 @@ class GameController extends AbstractController
      */
     public function start(SessionInterface $session): Response
     {
-        $game = $session->get("myGame") ?? new \App\Cards\Game($player, 1, $deck);
+        $game = $session->get("myGame") ?? new \App\Cards\Game($player, $deck);
         $myDeck = $game->getDeck();
-        $game->addCardsToPlayer(1, 1);
-        $player = $game->getSpecificPlayer(1);
+        $draw = $myDeck->draw();
+        $player = $game->getPlayer();
+        $player->addCards([$draw]);
         $game->setGameState();
         $data = [
             'title' => 'Game-Start',
             'game' => $game,
-            'deck' => $game->getDeck(),
+            'deck' => $myDeck,
             'player' => $player
         ];
         $session->set("myGame", $game);
