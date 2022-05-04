@@ -4,19 +4,22 @@ namespace App\Cards;
 
 class Deck
 {
-    protected $deck;
+    /** @var array<string> */
+    protected array $deck;
 
     public function __construct()
     {
-        $this->deck = new \App\Cards\Card();
-        $this->deck = $this->deck->getSet();
+        $newDeck = new \App\Cards\Card();
+        $this->deck = $newDeck->getSet();
     }
 
+    /** @return array<string> */
     public function get(): array
     {
         return $this->deck;
     }
 
+    /** @return array<string> */
     public function shuffleDeck(): array
     {
         shuffle($this->deck);
@@ -36,7 +39,7 @@ class Deck
 
     public function reset(): void
     {
-        $this->deck = new \App\Cards\Card();
-        $this->deck = $this->deck->getSet();
+        $newDeck = new \App\Cards\Card();
+        $this->deck = $newDeck->getSet();
     }
 }

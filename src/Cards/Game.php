@@ -36,7 +36,7 @@ class Game
         echo($scoreState);
     }
 
-    private function setScore()
+    private function setScore(): void
     {
         
         $cards = $this->player->getCards();

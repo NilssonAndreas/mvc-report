@@ -4,14 +4,19 @@ namespace App\Cards;
 
 class Card
 {
-    protected $FULL_SET = [];
-    protected $SUITS = [
+    /** @var array<string> */
+    protected array $FULL_SET = [];
+
+    /** @var array<string> */
+    protected array $SUITS = [
         "♥",
         "♦",
         "♣",
         "♠",
     ];
-    protected $RANKS = [
+
+    /** @var array<string> */
+    protected array $RANKS = [
             "A",
             "2",
             "3",
@@ -36,16 +41,19 @@ class Card
         }
     }
 
+    /** @return array<string> */
     public function getSet(): array
     {
         return $this->FULL_SET;
     }
 
+    /** @return array<string> */
     public function getSuits(): array
     {
         return $this->SUITS;
     }
 
+    /** @return array<string> */
     public function getRanks(): array
     {
         return $this->RANKS;

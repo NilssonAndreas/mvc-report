@@ -20,7 +20,7 @@ class GameController extends AbstractController
     {
         $player = new \App\Cards\Player();
         $deck = new \App\Cards\Deck();
-        $game = new \App\Cards\Game($player, $deck);
+        $game = new \App\Cards\Game( $player, $deck);
         $data = [
             'title' => 'Game'
         ];
@@ -33,7 +33,7 @@ class GameController extends AbstractController
      */
     public function start(SessionInterface $session): Response
     {
-        $game = $session->get("myGame") ?? new \App\Cards\Game($player, $deck);
+        $game = $session->get("myGame");
         $game->setGameState();
         $data = [
             'title' => 'Game-Start',

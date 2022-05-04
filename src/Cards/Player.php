@@ -4,7 +4,7 @@ namespace App\Cards;
 
 class Player
 {
-    protected object $hand;
+    protected $hand;
     protected int $score;
 
     public function __construct()
@@ -18,11 +18,13 @@ class Player
         return sizeof($this->hand->showHand());
     }
 
+    /** @return array<string> */
     public function getCards(): array
     {
         return $this->hand->showHand();
     }
 
+    /** @param array<string> $cards */
     public function addCards($cards): void
     {
         $this->hand->addCardToHand($cards);
