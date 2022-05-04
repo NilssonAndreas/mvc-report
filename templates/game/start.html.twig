@@ -25,28 +25,20 @@
 
     <div>
         
-        {{ game.addScoreToPlayer(1, 5)}}
-        <h1> POINTS PLAYER 1 <br>
-            {{ game.getScoreForPlayer(2)}}
-        </h1>
-        
-        <h1>
-            POINTS BANK
-            <br>
-        {{ game.getScoreForPlayer(1)}}
-        </h1>
-    </div>
-    <div> TESTA DRA:
-        
             <button>
-               
                 <a href="{{ url("game-start") }}"> Draw</a>
             </button>
         
             {% for cards in player.cards %}
                 <td class="cards">{{cards}}</td>
-                {% endfor %}
+            {% endfor %}
             
     </div>
+
+</div>
+<div >
+    {% for cards in deck.get %}
+            <td class="cards">{{cards}}</td>
+    {% endfor %}
 </div>
 {% endblock %}

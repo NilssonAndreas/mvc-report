@@ -36,17 +36,16 @@ class GameController extends AbstractController
     {
         $game = $session->get("myGame") ?? new \App\Cards\Game($player, 2, $deck);
         $myDeck = $game->getDeck();
-        $draw = $myDeck->draw();
+        $game->addCardsToPlayer(1, 1);
         $player = $game->getSpecificPlayer(1);
-        $player->addCards([$draw]);
+        $game->setGameState();
         $data = [
             'title' => 'Game-Start',
             'game' => $game,
             'deck' => $game->getDeck(),
-            'player' => $player,
-            'draw' => $draw
+            'player' => $player
         ];
-        
+        $session->set("myGame", $game);
         return $this->render('game/start.html.twig', $data);
     }
 

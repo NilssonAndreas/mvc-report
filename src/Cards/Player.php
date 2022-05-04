@@ -28,7 +28,7 @@ class Player
         $this->hand->addCardToHand($cards);
     }
 
-    public function addScore($scoreToAdd): void
+    public function addScore(int $scoreToAdd): void
     {
         $this->score += $scoreToAdd;
     }
