@@ -6,6 +6,7 @@ class Game
 {
 
     protected $players = [];
+    protected $bank;
     protected $deck;
     
     public function __construct( Player $player, int $numberOfPlayers, Deck $newDeck)
@@ -53,6 +54,11 @@ class Game
 
     public function setGameState(): void
     {
+        $this->setScore();
+    }
+
+    private function setScore()
+    {
         foreach ($this->players as $key=>$value){
             $cards = $value->getCards();
             $value->resetScore();
@@ -80,10 +86,17 @@ class Game
                         break;
                 }
             }
-            echo($value->getScore());
         };
+    }
 
-
-
+    private function checkScore(int $id): string
+    {
+        $player = $this->getSpecificPlayer($id);
+        $score = $player->getScore();
+        if($score > 21){
+            return "Bust";
+        }
+        return "score: $score";
+        
     }
 }
