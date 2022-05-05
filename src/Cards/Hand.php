@@ -24,14 +24,6 @@ class Hand
         return $this->hand;
     }
 
-    /** @param string $card */
-    public function removeCardFromHand($card): void
-    {
-        if (($key = array_search($card, $this->hand)) !== false) {
-            unset($this->hand[$key]);
-        }
-    }
-
     public function clearHand(): void
     {
         $this->hand = [];
