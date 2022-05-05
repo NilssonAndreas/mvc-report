@@ -32,16 +32,13 @@ class Game
         $this->player->addCards([$draw]);
         $this->setScore($this->player);
         $scoreState = $this->checkIfBust($this->player);
-        echo($scoreState);
-        if ($this->player->getBust() == true) {
-            echo("   NOW IS FALSE");
-        }
     }
 
-    public function endState()
+    public function endState(): string
     {
         $this->drawAi();
-
+        $endMessage = $this->checkWinner();
+        return $endMessage;
     }
 
     /** @param Player $entity */
@@ -80,7 +77,7 @@ class Game
         $score = $entity->getScore();
         if ($score > 21) {
             $entity->setBust(true);
-            return "Bust";
+            return "Bust: $score";
         }
         return "score: $score";
     }
@@ -93,9 +90,16 @@ class Game
             $this->setScore($this->bank);
             $this->checkIfBust($this->bank);
         }
-        echo($this->bank->getScore());
-        echo("     ---------      ");
-        echo($this->bank->getBust());
     }
-    
+
+    private function checkWinner(): string
+    {
+        $playerScore = $this->player->getScore();
+        $bankScore = $this->bank->getScore();
+
+        if ($bankScore > $playerScore && $this->bank->getBust() == false) {
+            return "Bank wins with: $bankScore vs $playerScore";
+        }
+        return "You win with: $playerScore vs $bankScore";
+    }
 }

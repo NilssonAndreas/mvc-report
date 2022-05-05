@@ -51,10 +51,11 @@ class GameController extends AbstractController
     public function result(SessionInterface $session): Response
     {
         $game = $session->get("myGame");
-        $game->endState();
+        $endMessage = $game->endState();
         $data = [
             'title' => 'Result',
             'game' => $game,
+            'end' =>$endMessage
         ];
         $session->set("myGame", $game);
         return $this->render('game/result.html.twig', $data);

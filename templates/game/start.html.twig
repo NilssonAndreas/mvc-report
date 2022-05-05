@@ -22,7 +22,7 @@
                 <a href="{{ url("game-start") }}"> Draw</a>
             </button>
         
-            {% for cards in game.getPlayer().getCards() %}
+            {% for cards in game.player.getCards() %}
                 <td class="cards">{{cards}}</td>
             {% endfor %}
             
