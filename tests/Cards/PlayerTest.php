@@ -9,7 +9,6 @@ use PHPUnit\Framework\TestCase;
  */
 class PlayerTest extends TestCase
 {
-
     /**
      * Construct object and verify that the object has the expected
      * properties, use no arguments.
@@ -61,7 +60,6 @@ class PlayerTest extends TestCase
     {
         $player = new Player();
         $this->assertIsBool($player->getBust());
-        
     }
 
     /**
@@ -75,7 +73,6 @@ class PlayerTest extends TestCase
         $this->assertEquals($bust, false);
         $player->setBust(true);
         $this->assertEquals($player->getBust(), true);
-        
     }
 
     /**
@@ -126,6 +123,5 @@ class PlayerTest extends TestCase
         $this->assertEquals($player->getScore(), 10);
         $player->resetScore();
         $this->assertEquals($player->getScore(), 0);
-
     }
 }

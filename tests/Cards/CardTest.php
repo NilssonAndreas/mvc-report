@@ -24,5 +24,4 @@ class CardTest extends TestCase
         $rank = $card->getRanks();
         $this->assertNotEmpty($rank);
     }
-
 }

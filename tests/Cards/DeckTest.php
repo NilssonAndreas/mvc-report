@@ -9,7 +9,6 @@ use PHPUnit\Framework\TestCase;
  */
 class DeckTest extends TestCase
 {
-
     /**
      * Construct object and verify that the object has the expected
      * properties, use no arguments.
@@ -69,5 +68,4 @@ class DeckTest extends TestCase
         $count = $deck->countCards();
         $this->assertIsInt($count);
     }
-
 }

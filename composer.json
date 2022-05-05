@@ -100,6 +100,7 @@
         ],
         "phpdoc": "tools/phpdoc/phpdoc ",
         "csfix": "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src",
+        "csfixt": "tools/php-cs-fixer/vendor/bin/php-cs-fixer --config=.php-cs-fixer.dist.php fix src tests",
         "phpcs": "tools/php-codesniffer/vendor/bin/phpcs --standard=PSR12 src",
         "phpcbf": "tools/php-codesniffer/vendor/bin/phpcbf --standard=PSR12 src",
         "phpstan": "tools/phpstan/vendor/bin/phpstan analyse -l 5 src || true",

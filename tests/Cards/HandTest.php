@@ -9,7 +9,6 @@ use PHPUnit\Framework\TestCase;
  */
 class HandTest extends TestCase
 {
-
     /**
      * Construct object and verify that the object has the expected
      * properties, use no arguments.
@@ -56,5 +55,4 @@ class HandTest extends TestCase
         $hand->clearHand();
         $this->assertEmpty($hand->showHand());
     }
-
 }

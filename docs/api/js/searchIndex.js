@@ -176,11 +176,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Cards-Hand.html#method_showHand"
         },                {
-            "fqsen": "\\App\\Cards\\Hand\u003A\u003AremoveCardFromHand\u0028\u0029",
-            "name": "removeCardFromHand",
-            "summary": "",
-            "url": "classes/App-Cards-Hand.html#method_removeCardFromHand"
-        },                {
             "fqsen": "\\App\\Cards\\Hand\u003A\u003AclearHand\u0028\u0029",
             "name": "clearHand",
             "summary": "",

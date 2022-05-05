@@ -18,5 +18,4 @@ class JokerTest extends TestCase
         $joker = new DeckWith2Jokers();
         $this->assertInstanceOf("\App\Cards\DeckWith2Jokers", $joker);
     }
-
 }
