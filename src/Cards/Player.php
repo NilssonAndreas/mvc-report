@@ -6,6 +6,7 @@ class Player
 {
     protected $hand;
     protected int $score;
+    protected bool $bust = false;
 
     public function __construct()
     {
@@ -22,6 +23,16 @@ class Player
     public function getCards(): array
     {
         return $this->hand->showHand();
+    }
+
+    public function getBust(): bool
+    {
+        return $this->bust;
+    }
+
+    public function setBust(bool $val): void
+    {
+        $this->bust = $val;
     }
 
     /** @param array<string> $cards */

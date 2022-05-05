@@ -43,40 +43,22 @@ class GameController extends AbstractController
         return $this->render('game/start.html.twig', $data);
     }
 
-    // /**
-    //  * @Route("/card/deck/shuffle", name="deck-shuffle")
-    //  */
-    // public function shuffle(SessionInterface $session): Response
-    // {
-    //     $deck = new \App\Cards\Deck();
-    //     $deck->shuffleDeck();
-    //     $shuffle = $deck->get();
-    //     $data = [
-    //         'title' => 'Current-Deck',
-    //         'deck' => $deck->get()
-    //     ];
-    //     $session->set("myDeck", $deck);
-    //     return $this->render('card/card.html.twig', $data);
-    // }
-
-    // /**
-    // * @Route(
-    // * "/card/deck/draw",
-    // *  name="deck-draw")
-    // */
-    // public function draw(SessionInterface $session): Response
-    // {
-    //     $deck = $session->get("myDeck") ?? new \App\Cards\Deck();
-    //     $card = $deck->draw();
-    //     $count = $deck->countCards();
-    //     $data = [
-    //         'title' => 'Your Draw',
-    //         'draw' => $card,
-    //         'count' => $count
-    //     ];
-    //     $session->set("myDeck", $deck);
-    //     return $this->render('card/draw.html.twig', $data);
-    // }
+    /**
+    * @Route(
+    * "/game/result",
+    *  name="game-result")
+    */
+    public function result(SessionInterface $session): Response
+    {
+        $game = $session->get("myGame");
+        $game->endState();
+        $data = [
+            'title' => 'Result',
+            'game' => $game,
+        ];
+        $session->set("myGame", $game);
+        return $this->render('game/result.html.twig', $data);
+    }
 
     // /**
     //  * @Route("/card/deck/draw/{numRolls}", name="deck-multiRoll")

@@ -7,14 +7,14 @@
 
 <h3>Game in progress</h3>
 
-{% if game.bust == false %}
+{% if game.player.getBust() == false %}
     
 
 <div style="gap: 7px; display: flex;">
     <p>
         Take card
     </p>
-    <button><a href="{{ url("game-home") }}"> Stop</a></button>
+    <button><a href="{{ url("game-result") }}"> Stop</a></button>
 
     <div>
         

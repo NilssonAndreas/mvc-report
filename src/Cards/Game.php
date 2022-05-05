@@ -7,11 +7,11 @@ class Game
     protected $player;
     protected $bank;
     protected $deck;
-    protected bool $bust = false;
 
     public function __construct(Player $newPlayer, Deck $newDeck)
     {
         $this->player = new $newPlayer();
+        $this->bank = new $newPlayer();
         $this->deck = new $newDeck();
         $this->deck->shuffleDeck();
     }
@@ -26,59 +26,76 @@ class Game
         return $this->deck;
     }
 
-    public function getBust(): bool
-    {
-        return $this->bust;
-    }
-
     public function setGameState(): void
     {
         $draw = $this->deck->draw();
         $this->player->addCards([$draw]);
-        $this->setScore();
-        $scoreState = $this->checkIfBust();
+        $this->setScore($this->player);
+        $scoreState = $this->checkIfBust($this->player);
         echo($scoreState);
-        if ($this->bust == true){
+        if ($this->player->getBust() == true) {
             echo("   NOW IS FALSE");
         }
     }
 
-    private function setScore(): void
+    public function endState()
     {
-        $cards = $this->player->getCards();
-        $this->player->resetScore();
+        $this->drawAi();
+
+    }
+
+    /** @param Player $entity */
+    private function setScore($entity): void
+    {
+        $cards = $entity->getCards();
+        $entity->resetScore();
         foreach ($cards as $card) {
             if (intval($card[0]) > 1) {
-                $this->player->addScore(intval($card[0]));
+                $entity->addScore(intval($card[0]));
             }
 
             switch ($card[0]) {
                 case 'A':
-                    $this->player->addScore(1);
+                    $entity->addScore(1);
                     break;
                 case 'K':
-                    $this->player->addScore(13);
+                    $entity->addScore(13);
                     break;
                 case 'Q':
-                    $this->player->addScore(12);
+                    $entity->addScore(12);
                     break;
                 case 'J':
-                    $this->player->addScore(11);
+                    $entity->addScore(11);
                     break;
                 case 1:
-                    $this->player->addScore(10);
+                    $entity->addScore(10);
                     break;
             }
         }
     }
 
-    private function checkIfBust(): string
+    /** @param Player $entity */
+    private function checkIfBust($entity): string
     {
-        $score = $this->player->getScore();
+        $score = $entity->getScore();
         if ($score > 21) {
-            $this->bust = true;
+            $entity->setBust(true);
             return "Bust";
         }
         return "score: $score";
     }
+
+    private function drawAi(): void
+    {
+        while ($this->bank->getScore() < 17) {
+            $draw = $this->deck->draw();
+            $this->bank->addCards([$draw]);
+            $this->setScore($this->bank);
+            $this->checkIfBust($this->bank);
+        }
+        echo($this->bank->getScore());
+        echo("     ---------      ");
+        echo($this->bank->getBust());
+    }
+    
 }
