@@ -154,6 +154,12 @@ body {
     align-self: center;
 }
 
+.indent {
+    margin-left: 1.5rem;
+}
+.indent-m {
+    margin-left: 3rem;
+}
 @media screen and (max-width: 600px) {
     .h-div {
         height: 20%;

@@ -1,0 +1,38 @@
+{% extends "base.html.twig" %}
+
+{% block title %}21{% endblock %}
+
+{% block body %}
+
+<div class="wrapper" style="margin-top: 1rem;">
+    <div class="flow">
+        <img src="{{ asset("img/f.png") }}" alt="Bild av flowChart">
+    </div>
+    <div class="psudo">
+
+    <h2>Psudo</h2>
+
+        <p>new Game():</p>
+        <p class="indent">player = new Player<br>
+            bank = new Player<br>
+            deck = new Deck</p>
+        <p>round()</p>
+        <p class="indent">deck.draw()<br>
+            player.addcard()<br>
+            checkScore()</p>
+        <p>if draw:</p>
+        <p class="indent">round()</p>
+        <p>if stop:</p>
+        <p class="indent">while bank < 17</p>
+        <p class="indent-m">bank.draw</p>
+        <p class="indent-m">checkScore()</p>
+        <p class="indent">resultState()</p>
+    </div>
+</div>
+<h2>Klasser</h2>
+<p> Game: logik för att spela 21, använder sig utav Player och Deck</p>
+<p> Player: håller koll på spelarnas state (hand, score och bust). </p>
+<p> Hand: används av Player för att hålla koll på dess kort</p>
+<p> Deck: Håller koll på alla kort som finns att tillgå</p>
+<p> Card: Bestämmer vilka kort som spelas med</p>
+{% endblock %}

@@ -78,6 +78,36 @@
             TIL: Håll dig till uppgiften, sväva inte iväg och skapa massa onödigt.
         </p>
         <h4>Kmom03</h4>
+
+        <p>
+            Jag tycker att det gick rätt bra med FlowCharten, slutprodukten blev liknande. <br> Psudo koden blev rätt torftig och var lite knepigare. Jag visste ungefär hur jag ville strukturera programmet men det var svårt att få ner i ord.
+        </p>
+        <p>
+            Det är alltid bra att ha en plan innan man börjar, och att ha något att jobba efter. Jag fick bra hjälp av FlowCharten och till viss del Psudokoden.
+        </p>
+        <p>
+            Jag valde att implementera en klass för att hantera spelet. Game använder sig utav Player för både spelaren och banken. Jag funderade på att skapa en klass AI som skulle ärva ifrån Player. Men jag kom fram till att den lilla logik jag behövde kunde lika gärna ligga i en funktion. Om jag ville ha en liten smaratare Ai som skulle göra fler saker så hade jag gjort det till en egen klass.
+        </p>
+            
+            Jag valde att ha en funtion som hanterar en runda av spelet. Den drar ett kort ger det till spelaren, kollar poängen och om man är över 21.
+            När man kommer till Landningssidan så sparas Game objectet i en session och när man sedan trycker start så  routas man till game/start och en runda körs.<br>
+            Knappen "Ta kort" routar tillbaka till sig själv och så körs en ny runda.
+            Twig filen kollar om man är över 21 och i så fall visas ett meddelande och man kan inte ta fler kort
+        <p>
+        <p>
+            Det finns så klart stor förbättringsmöjlighet för spelet. Stylen och layouten har mycket mer att önska.<br> Sen är det inte så snyggt att det dras ett kort så for man trycker start, snyggare hade varit om det drogs först vid klick på "dra kort". <br>
+            Eftersom jag ligger efter i kursen så försökte jag verkligen att hålla mig till "KISS". Jag valde därför att göra det så simplet jag kunde, att Ess bara är värt 1 var ett medvetet val för att spara lite tid och hålla det lätt. Men det är så klart snyggare om ess kan vara värt antigen 1 eller 14 <br>
+        </p>
+        <p>
+            En annan förbättringsmöjlighet är att fixa sättet att kolla score för Player. Som det är nu resetar jag score och loopar sedan igenom hela handen och sätter ett nytt score. Det är både prestanda krävande och inte alls snyggt. Sen används även en loop och en switch för att bestämma poängen, ett bättre alternativ hade nog varit att sätta poängen redan i Card-klassen. Sedan skickat med dom som key/value där key är kortet och value är värdet.
+        </p>
+        <p>
+            Jag tycker att det går väldigt bra att använda Symfony. Det finns säkert massor av smarta funktioner som jag inte använder mig utav men det är lätt att sätta sig in i och komma igång. Det fungerar väldigt bra tillsammans med Twig.
+        </p>
+        <p>
+            TIL: "Measure Twice, Cut Once", Bra förarbete underlättar och sparar tid.
+        </p>
+        </p>
         <h4>Kmom04</h4>
         <h4>Kmom05</h4>
         <h4>Kmom06</h4>
