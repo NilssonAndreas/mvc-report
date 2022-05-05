@@ -3,9 +3,7 @@
 namespace App\Controller\game;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -22,7 +20,7 @@ class GameController extends AbstractController
         $deck = new \App\Cards\Deck();
         $game = new \App\Cards\Game($player, $deck);
         $data = [
-            'title' => 'Game'
+            'title' => '21'
         ];
         $session->set("myGame", $game);
         return $this->render('game/home.html.twig', $data);
@@ -36,7 +34,7 @@ class GameController extends AbstractController
         $game = $session->get("myGame");
         $game->setGameState();
         $data = [
-            'title' => 'Game-Start',
+            'title' => 'Spela',
             'game' => $game,
         ];
         $session->set("myGame", $game);
@@ -53,82 +51,11 @@ class GameController extends AbstractController
         $game = $session->get("myGame");
         $endMessage = $game->endState();
         $data = [
-            'title' => 'Result',
+            'title' => 'Resultat',
             'game' => $game,
             'end' =>$endMessage
         ];
         $session->set("myGame", $game);
         return $this->render('game/result.html.twig', $data);
     }
-
-    // /**
-    //  * @Route("/card/deck/draw/{numRolls}", name="deck-multiRoll")
-    //  */
-    // public function multiDraw(int $numRolls, SessionInterface $session): Response
-    // {
-    //     $deck = $session->get("myDeck") ?? new \App\Cards\Deck();
-
-    //     $draw = [];
-    //     for ($i = 1; $i <= $numRolls; $i++) {
-    //         $draw[] = $deck->draw();
-    //     }
-    //     $count = $deck->countCards();
-    //     $data = [
-    //         'title' => 'This is your draw',
-    //         'numRolls' => $numRolls,
-    //         'draw' => $draw,
-    //         'count' => $count
-    //     ];
-    //     $session->set("myDeck", $deck);
-    //     return $this->render('card/draw.html.twig', $data);
-    // }
-
-    // /**
-    //  * @Route(
-    //  * "/card/deck/deal/{numPlayer}/{numCards}",
-    //  *  name="deck-deal")
-    //  * )
-    //  */
-    // public function playerDeal(int $numPlayer, int $numCards): Response
-    // {
-    //     $deck = new \App\Cards\Deck();
-    //     $deck->shuffleDeck();
-    //     $players = [];
-    //     for ($i = 1; $i <= $numPlayer; $i++) {
-    //         $newPlayer = new \App\Cards\Player();
-    //         $cards = [];
-    //         for ($x = 1; $x <= $numCards; $x++) {
-    //             $cards[] = $deck->draw();
-    //         }
-    //         $newPlayer->addCards($cards);
-    //         $players[] = [
-    //             'name' => "Player: {$i}",
-    //             'cards' => $newPlayer->getCards()
-    //         ];
-    //     }
-
-    //     $count = $deck->countCards();
-    //     $data = [
-    //         'title' => 'Deal',
-    //         'numPlayer' => $numPlayer,
-    //         'numCards' => $numCards,
-    //         'players' => $players,
-    //         'count' => $count
-    //     ];
-
-    //     return $this->render('card/deal.html.twig', $data);
-    // }
-
-    // /**
-    //  * @Route("/card/deck2", name="card-deck2")
-    //  */
-    // public function deck2(): Response
-    // {
-    //     $deck = new \App\Cards\DeckWith2Jokers();
-    //     $data = [
-    //         'title' => 'Joker',
-    //         'deck' => $deck->get()
-    //     ];
-    //     return $this->render('card/card.html.twig', $data);
-    // }
 }

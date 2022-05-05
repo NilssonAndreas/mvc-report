@@ -97,9 +97,9 @@ class Game
         $playerScore = $this->player->getScore();
         $bankScore = $this->bank->getScore();
 
-        if ($bankScore > $playerScore && $this->bank->getBust() == false) {
-            return "Bank wins with: $bankScore vs $playerScore";
+        if ($bankScore >= $playerScore && $this->bank->getBust() == false) {
+            return "Banken vinner med: $bankScore vs $playerScore";
         }
-        return "You win with: $playerScore vs $bankScore";
+        return "Du vinner med: $playerScore vs $bankScore";
     }
 }

@@ -1,15 +1,52 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Game{% endblock %}
+{% block title %}21{% endblock %}
 
 {% block body %}
-<h1>{{ title }}</h1>
 
-<h3>Play a game?.</h3>
-<p>
-    Some Text about rules and stuff
-</p>
-<div style="gap: 7px; display: flex;">
-    <button><a href="{{ url("game-start") }}"> Start</a></button>
+<div>
+<h2 class="center">{{title}}</h2>
+<div class="wrapper">
+    <div class="regler">
+        <h3>Regler</h3>
+        <p>
+            Målet med spelet är att komma så nära 21 poäng som möjligt.<br>
+            Du drar ett kort åt gången. Tryck stopp när du känner dig nöjd.<br>
+            Efter det är det bankens tur att göra samma sak.<br>
+            Hamnar du över 21 poäng så förlorar du. <br>
+            Vid samma poäng så vinner banken
+        </p>
+    </div>
+
+    <div class="korten">
+
+        <table class="kort-t">
+            <tr>
+                <th> kort </th>
+                <th> Värde </th>
+            </tr>
+            <tr>
+                <td>K</td>
+                <td>13</td>
+            </tr>
+            <tr>
+                <td>Q</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>J</td>
+                <td>11</td>
+            </tr>
+            <tr>
+                <td>A</td>
+                <td>1</td>
+            </tr>
+
+        </table>
+    </div>
 </div>
+<div class="center">
+    <button class="start-b"><a href="{{ url("game-start") }}"> Start</a></button>
+</div>
+
 {% endblock %}

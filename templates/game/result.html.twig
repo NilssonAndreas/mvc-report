@@ -3,13 +3,12 @@
 {% block title %}Result{% endblock %}
 
 {% block body %}
-<h1>{{ title }}</h1>
 
-<h3>Result</h3>
+<div class="center">
+<h1>{{ title }}</h1>
 <p>
-    This is Result {{ end}}
+    Slutligt resultat {{ end}}
 </p>
-<div style="gap: 7px; display: flex;">
-    <button><a href="{{ url("game-home") }}"> Home</a></button>
+    <button><a href="{{ url("game-home") }}"> Tillbaka</a></button>
 </div>
 {% endblock %}

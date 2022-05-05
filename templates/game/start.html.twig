@@ -3,41 +3,29 @@
 {% block title %}In game{% endblock %}
 
 {% block body %}
-<h1>{{ title }}</h1>
+<h1 class="center">{{ title }}</h1>
 
-<h3>Game in progress</h3>
-
-{% if game.player.getBust() == false %}
-    
-
-<div style="gap: 7px; display: flex;">
-    <p>
-        Take card
-    </p>
-    <button><a href="{{ url("game-result") }}"> Stop</a></button>
-
-    <div>
+    <div class="center">
+       <h3>Poäng: {{ game.player.score}}</h3>
+       <h3>Kort: 
+       
+        {% for kort in game.player.cards %}
+            {{ kort }}
+        {% endfor %}
+        </h3>
         
-            <button>
-                <a href="{{ url("game-start") }}"> Draw</a>
-            </button>
-        
-            {% for cards in game.player.getCards() %}
-                <td class="cards">{{cards}}</td>
-            {% endfor %}
-            
+        {% if game.player.getBust() == false %}    
+
+        <div>
+                <button><a href="{{ url("game-start") }}"> Ta Kort</a></button>
+                <button><a href="{{ url("game-result") }}"> Stopp</a></button>
+        </div>
+        {% else %}
+        <h1> Du förlorade</h1>
+        <div class="center">
+            <button><a href="{{ url("game-home") }}"> Tillbaka</a></button>
+        </div>
+
+        {% endif %}
     </div>
-
-</div>
-<div >
-    {% for cards in game.getDeck().get() %}
-            <td class="cards">{{cards}}</td>
-    {% endfor %}
-</div>
-{% else %}
-
-<h1>GAME OVER MAN</h1>
-<button><a href="{{ url("game-home") }}"> Return</a></button>
-{% endif %}
-
 {% endblock %}

@@ -114,6 +114,46 @@ body {
     background-color: bisque;
 }
 
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.regler {
+    max-width: 60%;
+}
+.korten {
+    margin-left: 5%;
+
+}
+.kort-t{
+    border: 2px solid black;
+    border-spacing: 5px 10px;
+    text-align: center;
+
+}
+
+.kort-t td {
+    padding: 5px;
+}
+.kort-t th {
+    padding: 5px;
+    text-decoration: underline;
+}
+
+.center {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.start-b {
+    padding: 10px;
+    align-self: center;
+}
+
 @media screen and (max-width: 600px) {
     .h-div {
         height: 20%;
