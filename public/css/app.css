@@ -210,6 +210,9 @@ body {
     margin: 1rem;
     border: 1px solid black;
 }
+.button:hover {
+    background-color: #04AA6D;
+}
 @media screen and (max-width: 600px) {
     .h-div {
         height: 20%;
