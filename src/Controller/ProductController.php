@@ -19,7 +19,7 @@ class ProductController extends AbstractController
         ]);
     }
 
-    
+
     /**
      * @Route("/product/create", name="create_product")
      */

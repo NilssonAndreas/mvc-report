@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Create{% endblock %}
+{% block title %}Ändra{% endblock %}
 
 {% block body %}
 
@@ -9,41 +9,41 @@
     <fieldset >
         <div class="wrapper">
             <div>
-                <legend>Lägg till på leaderboard</legend>
+                <legend>Ändra Spelare</legend>
                 <p>
                     <label>Namn:
-                        <input type="text" name="namn" value="" required>
+                        <input type="text" name="namn" value="{{leaderboard.namn}}" required>
                         
                     </label>
                 </p>
                 <p>
                     <label>Alias:
-                        <input type="text" name="alias" value="" required>
+                        <input type="text" name="alias" value="{{leaderboard.alias}}" required>
                     </label>
                 </p>
                 <p>
                     <label>Land:
-                        <input type="text" name="land" value="" required>
+                        <input type="text" name="land" value="{{leaderboard.land}}" required>
                         
                     </label>
                 </p>
                 <p>
                     <label>Score:
-                        <input type="number" name="score" required>
+                        <input type="number" name="score" value="{{leaderboard.score}}" required>
                     </label>
                 </p>
             </div>
             <div>
             <p >
                 <label for="textarea"  >Bio:
-                    <textarea id="textarea" name="bio" rows="8" cols="50" placeholder="Skriv lite om dig själv" required></textarea>
+                    <textarea id="textarea" name="bio" rows="8" cols="50"  required>{{leaderboard.bio}}</textarea>
                 </label>
             </p>
             </div>
         </div>
         
             <p class="center">
-                <input type="submit" value="Lägg till">
+                <input type="submit" value="uppdatera">
             </p>
        
     </fieldset>

@@ -27,15 +27,16 @@ class LeaderboardController extends AbstractController
         LeaderboardRepository $leaderboardRepository
     ): Response {
         $leaderboard = $leaderboardRepository
-            ->findBy(array(),array('score' => 'DESC'));;
-    
+            ->findBy(array(), array('score' => 'DESC'));
+        ;
+
         $data = [
             'title' => 'Show Leaderboard',
             'leaderboard' => $leaderboard
         ];
 
         return $this->render('leaderboard/show.html.twig', $data);
-    // return $this->json($leaderboard);
+        // return $this->json($leaderboard);
     }
 
     /**
@@ -94,22 +95,22 @@ class LeaderboardController extends AbstractController
     ): Response {
         $leaderboard = $leaderboardRepository
             ->find($id);
-        
+
         $data = [
             'title' => 'Player Info',
             'leaderboard' => $leaderboard
         ];
-            return $this->render('leaderboard/info.html.twig', $data);
+        return $this->render('leaderboard/info.html.twig', $data);
     }
 
-    
-     /**
-     * @Route(
-     *      "/leaderboard/delete",
-     *      name="leaderboard-delete",
-     *      methods={"GET","HEAD"}
-     * )
-     */
+
+    /**
+    * @Route(
+    *      "/leaderboard/delete",
+    *      name="leaderboard-delete",
+    *      methods={"GET","HEAD"}
+    * )
+    */
     public function delete(): Response
     {
         return $this->render('leaderboard/delete.html.twig');
@@ -141,5 +142,63 @@ class LeaderboardController extends AbstractController
         return $this->redirectToRoute('leaderboard_show_all');
     }
 
-    
+
+    /**
+     * @Route(
+     *      "/leaderboard/update/{id}",
+     *      name="leaderboard-update",
+     *      methods={"GET","HEAD"}
+     * )
+     */
+    public function updatePlayer(
+        LeaderboardRepository $leaderboardRepository,
+        int $id
+    ): Response
+    {
+        $leaderboard = $leaderboardRepository
+            ->find($id);
+
+        $data = [
+            'title' => 'Update Info',
+            'leaderboard' => $leaderboard
+        ];
+
+        return $this->render('leaderboard/update.html.twig', $data);
+    }
+
+
+    /**
+     * @Route("/leaderboard/update/{id}",
+     *  name="leaderboard-update-process"),
+     *  methods={"POST"}
+     */
+    public function updatePlayerPost(
+        ManagerRegistry $doctrine,
+        Request $request,
+        int $id
+    ): Response {
+        $namn = $request->request->get('namn');
+        $alias  = $request->request->get('alias');
+        $land  = $request->request->get('land');
+        $score  = $request->request->get('score');
+        $bio  = $request->request->get('bio');
+
+        $entityManager = $doctrine->getManager();
+        $leaderboard = $entityManager->getRepository(Leaderboard::class)->find($id);
+
+        if (!$leaderboard) {
+            throw $this->createNotFoundException(
+                'No Player found for id '.$id
+            );
+        }
+
+        $leaderboard->setNamn($namn);
+        $leaderboard->setAlias($alias);
+        $leaderboard->setLand($land);
+        $leaderboard->setScore($score);
+        $leaderboard->setBio($bio);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('leaderboard_show_all');
+    }
 }
