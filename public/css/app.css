@@ -204,6 +204,12 @@ body {
     padding: 14px;
     border: solid black 4px;
 }
+
+.button {
+    padding: 10px;
+    margin: 1rem;
+    border: 1px solid black;
+}
 @media screen and (max-width: 600px) {
     .h-div {
         height: 20%;

@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Delete{% endblock %}
+
+{% block body %}
+
+
+<form method="post">
+    <fieldset >
+        
+                <legend>Ta bort spelare från leaderboard</legend>
+                <p>
+                    <label>id:
+                        <input type="text" name="id" value="" required>
+                    </label>
+                </p>
+
+            <p >
+                <input type="submit" value="Ta bort">
+            </p>
+       
+    </fieldset>
+</form>
+
+
+{% endblock %}

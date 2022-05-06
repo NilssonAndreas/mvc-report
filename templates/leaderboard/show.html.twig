@@ -12,6 +12,8 @@
             <th>Alias</th>
             <th>Land</th>
             <th>Score</th>
+            <th>info</th>
+            <th>Ändra</th>
         </tr>
     </thead>
     <tbody>
@@ -21,7 +23,8 @@
             <td>{{ item.alias }}</td>
             <td>{{ item.land }}</td>
             <td>{{ item.score }}</td>
-            <td><a href='{{ url('lederboard/show/'~ "id") }}'> Se info</a></td>
+            <td><a href="show/{{item.id}}"> Se info</a></td>
+            <td><a href="update/{{item.id}}"> Ändra</a></td>
         </tr>
         
         {% endfor %}

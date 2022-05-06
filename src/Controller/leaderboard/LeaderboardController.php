@@ -27,8 +27,8 @@ class LeaderboardController extends AbstractController
         LeaderboardRepository $leaderboardRepository
     ): Response {
         $leaderboard = $leaderboardRepository
-            ->findAll();
-        
+            ->findBy(array(),array('score' => 'DESC'));;
+    
         $data = [
             'title' => 'Show Leaderboard',
             'leaderboard' => $leaderboard
@@ -97,25 +97,41 @@ class LeaderboardController extends AbstractController
         
         $data = [
             'title' => 'Player Info',
-            'leaderboard' => $leaderboard,
-            'id' => $id
+            'leaderboard' => $leaderboard
         ];
             return $this->render('leaderboard/info.html.twig', $data);
     }
 
-    /**
-     * @Route("/leaderboard/delete/{id}", name="leaderboard_delete_by_id")
+    
+     /**
+     * @Route(
+     *      "/leaderboard/delete",
+     *      name="leaderboard-delete",
+     *      methods={"GET","HEAD"}
+     * )
      */
-    public function deleteId(
+    public function delete(): Response
+    {
+        return $this->render('leaderboard/delete.html.twig');
+    }
+
+
+    /**
+     * @Route("/leaderboard/delete",
+     *  name="leaderboard_delete_by_id-process"),
+     * methods={"POST"}
+     */
+    public function deletePost(
         ManagerRegistry $doctrine,
-        int $id
+        Request $request
     ): Response {
+        $id = $request->request->get('id');
         $entityManager = $doctrine->getManager();
         $leaderboard = $entityManager->getRepository(Leaderboard::class)->find($id);
 
         if (!$leaderboard) {
             throw $this->createNotFoundException(
-                'No product found for id '.$id
+                'No Player found for id '.$id
             );
         }
 
@@ -124,4 +140,6 @@ class LeaderboardController extends AbstractController
 
         return $this->redirectToRoute('leaderboard_show_all');
     }
+
+    
 }
