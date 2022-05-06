@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Create{% endblock %}
+
+{% block body %}
+
+
+<form method="post">
+    <fieldset>
+    <legend>Lägg till på leaderboard</legend>
+    <p>
+        <label>Namn:
+            <input type="text" name="namn" value="" required>
+            
+        </label>
+    </p>
+    <p>
+        <label>Alias:
+            <input type="text" name="alias" value="" required>
+        </label>
+    </p>
+    <p>
+        <label>Land:
+            <input type="text" name="land" value="" required>
+            
+        </label>
+    </p>
+    <p>
+        <label>Score:
+            <input type="number" name="score" required>
+        </label>
+    </p>
+    <p>
+        <input type="submit" value="Lägg till">
+    </p>
+    </fieldset>
+</form>
+
+
+{% endblock %}
