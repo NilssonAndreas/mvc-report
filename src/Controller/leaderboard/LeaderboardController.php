@@ -23,16 +23,20 @@ class LeaderboardController extends AbstractController
     /**
     * @Route("/leaderboard/show", name="leaderboard_show_all")
     */
-    public function showAllProduct(
+    public function showLeaderboard(
         LeaderboardRepository $leaderboardRepository
     ): Response {
         $leaderboard = $leaderboardRepository
             ->findAll();
-    // return $this->render('leaderboard/show.html.twig');
-    return $this->json($leaderboard);
+        
+        $data = [
+            'title' => 'Show Leaderboard',
+            'leaderboard' => $leaderboard
+        ];
+
+        return $this->render('leaderboard/show.html.twig', $data);
+    // return $this->json($leaderboard);
     }
-
-
 
     /**
      * @Route(
@@ -60,6 +64,7 @@ class LeaderboardController extends AbstractController
         $alias  = $request->request->get('alias');
         $land  = $request->request->get('land');
         $score  = $request->request->get('score');
+        $bio  = $request->request->get('bio');
 
         $entityManager = $doctrine->getManager();
 
@@ -68,6 +73,7 @@ class LeaderboardController extends AbstractController
         $leaderboard->setAlias($alias);
         $leaderboard->setLand($land);
         $leaderboard->setScore($score);
+        $leaderboard->setBio($bio);
 
         // tell Doctrine you want to (eventually) save the Product
         // (no queries yet)
@@ -79,6 +85,23 @@ class LeaderboardController extends AbstractController
         return $this->redirectToRoute('leaderboard_show_all');
     }
 
+    /**
+     * @Route("/leaderboard/show/{id}", name="leaderboard_by_id")
+     */
+    public function showPlayerById(
+        LeaderboardRepository $leaderboardRepository,
+        int $id
+    ): Response {
+        $leaderboard = $leaderboardRepository
+            ->find($id);
+        
+        $data = [
+            'title' => 'Player Info',
+            'leaderboard' => $leaderboard,
+            'id' => $id
+        ];
+            return $this->render('leaderboard/info.html.twig', $data);
+    }
 
     /**
      * @Route("/leaderboard/delete/{id}", name="leaderboard_delete_by_id")

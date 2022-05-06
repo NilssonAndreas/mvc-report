@@ -161,6 +161,49 @@ body {
 .indent-m {
     margin-left: 3rem;
 }
+
+#leaderboard {
+    margin-top: 3%;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #leaderboard td, #leaderboard th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #leaderboard tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #leaderboard tr:hover {background-color: rgb(222, 150, 150);}
+  
+  #leaderboard th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
+
+.info-v {
+    width: 30%;
+    margin-top: 1rem;
+    border: solid black 4px;
+    display: flex;
+    flex-direction: column;
+    
+}
+.info-v td,tr {
+    padding: 5px;
+    border: solid black 1px;
+}
+.info-h {
+    width: 40%;
+    margin-top: 1rem;
+    padding: 14px;
+    border: solid black 4px;
+}
 @media screen and (max-width: 600px) {
     .h-div {
         height: 20%;

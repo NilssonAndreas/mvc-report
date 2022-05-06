@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Show All{% endblock %}
+
+{% block body %}
+
+<div>
+<table id="leaderboard">
+    <thead>
+        <tr>
+            <th>Namn</th>
+            <th>Alias</th>
+            <th>Land</th>
+            <th>Score</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in leaderboard %}
+        <tr>
+            <td>{{ item.namn }}</td>
+            <td>{{ item.alias }}</td>
+            <td>{{ item.land }}</td>
+            <td>{{ item.score }}</td>
+            <td><a href='{{ url('lederboard/show/'~ "id") }}'> Se info</a></td>
+        </tr>
+        
+        {% endfor %}
+    </tbody>
+
+</table>
+
+</div>
+{% endblock %}

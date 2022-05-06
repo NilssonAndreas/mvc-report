@@ -25,6 +25,9 @@ class Leaderboard
     #[ORM\Column(type: 'integer')]
     private $score;
 
+    #[ORM\Column(type: 'text', nullable: true)]
+    private $bio;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -74,6 +77,18 @@ class Leaderboard
     public function setScore($score): self
     {
         $this->score = $score;
+
+        return $this;
+    }
+
+    public function getBio(): ?string
+    {
+        return $this->bio;
+    }
+
+    public function setBio($bio): self
+    {
+        $this->bio = $bio;
 
         return $this;
     }

@@ -1,0 +1,51 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Player info{% endblock %}
+
+{% block body %}
+
+<div class="wrapper">
+
+    <div class="info-v">
+        <table >
+          
+              <h2 class="center">Spelar information</h2>
+           
+        
+        <tr>
+            <td>   Namn: {{ leaderboard.namn }}</td>
+        </tr>
+         
+        
+        <tr>
+            <td>
+                Alias: {{ leaderboard.alias }}
+            </td>
+        </tr>
+            
+        
+        <tr>
+            <td>
+                Land: {{ leaderboard.land }}
+            </td>
+        </tr>
+           
+        
+        <tr>
+            <td>
+                Score: {{ leaderboard.score }}
+            </td>
+        </tr>
+            
+        
+        </table>
+    </div>
+    <div class="info-h">
+        <h2 class="center">Bio</h2>
+        <p>
+            {{ leaderboard.bio }}
+        </p>
+    </div>
+
+</div>
+{% endblock %}

@@ -6,33 +6,46 @@
 
 
 <form method="post">
-    <fieldset>
-    <legend>Lägg till på leaderboard</legend>
-    <p>
-        <label>Namn:
-            <input type="text" name="namn" value="" required>
-            
-        </label>
-    </p>
-    <p>
-        <label>Alias:
-            <input type="text" name="alias" value="" required>
-        </label>
-    </p>
-    <p>
-        <label>Land:
-            <input type="text" name="land" value="" required>
-            
-        </label>
-    </p>
-    <p>
-        <label>Score:
-            <input type="number" name="score" required>
-        </label>
-    </p>
-    <p>
-        <input type="submit" value="Lägg till">
-    </p>
+    <fieldset >
+        <div class="wrapper">
+            <div>
+                <legend>Lägg till på leaderboard</legend>
+                <p>
+                    <label>Namn:
+                        <input type="text" name="namn" value="" required>
+                        
+                    </label>
+                </p>
+                <p>
+                    <label>Alias:
+                        <input type="text" name="alias" value="" required>
+                    </label>
+                </p>
+                <p>
+                    <label>Land:
+                        <input type="text" name="land" value="" required>
+                        
+                    </label>
+                </p>
+                <p>
+                    <label>Score:
+                        <input type="number" name="score" required>
+                    </label>
+                </p>
+            </div>
+            <div>
+            <p >
+                <label for="textarea"  >Bio:
+                    <textarea id="textarea" name="bio" rows="8" cols="50"></textarea>
+                </label>
+            </p>
+            </div>
+        </div>
+        
+            <p class="center">
+                <input type="submit" value="Lägg till">
+            </p>
+       
     </fieldset>
 </form>
 
