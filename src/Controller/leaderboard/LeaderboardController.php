@@ -132,7 +132,7 @@ class LeaderboardController extends AbstractController
 
         if (!$leaderboard) {
             throw $this->createNotFoundException(
-                'No Player found for id '.$id
+                'No Player found for id ' . $id
             );
         }
 
@@ -153,8 +153,7 @@ class LeaderboardController extends AbstractController
     public function updatePlayer(
         LeaderboardRepository $leaderboardRepository,
         int $id
-    ): Response
-    {
+    ): Response {
         $leaderboard = $leaderboardRepository
             ->find($id);
 
@@ -188,7 +187,7 @@ class LeaderboardController extends AbstractController
 
         if (!$leaderboard) {
             throw $this->createNotFoundException(
-                'No Player found for id '.$id
+                'No Player found for id ' . $id
             );
         }
 

@@ -39,7 +39,7 @@ class MyTwigController extends AbstractController
         'today' => $today,
         // 'advice' => $response['slip']['advice'],
 
-    ]);
+        ]);
     }
 
     /**

@@ -66,7 +66,7 @@ class GameController extends AbstractController
         $data = [
             'title' => 'Resultat',
             'game' => $game,
-            'end' =>$endMessage
+            'end' => $endMessage
         ];
         $session->set("myGame", $game);
         return $this->render('game/result.html.twig', $data);
