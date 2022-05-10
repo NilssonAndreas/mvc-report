@@ -1,0 +1,80 @@
+{% extends "base.html.twig" %}
+
+    {% block body %}
+        
+
+<div class="content">
+    <h1>Introduktion</h1>
+    <h3>Coverage:</h3>
+    <p> 
+        Är ett procentuellt mått på i vilken grad källkoden för ett program exekveras när en viss test suite körs. Ett program med hög testtäckning har mer av sin källkod körd under testning, vilket tyder på att det har en lägre chans att innehålla oupptäckta programvarubuggar jämfört med ett program med låg testtäckning</p>
+    
+        Jag har låg coverage då jag inte testar mina controllers. Kollar man på klasserna för Game/Card så ligger coverage mellan 80-100%. <br>
+        Här finns det förbättingsmöjlighet genom att även testa Controllers.<br>
+        <img src="https://scrutinizer-ci.com/g/NilssonAndreas/mvc-report/badges/coverage.png?b=main" alt="Code Coverage 23" />
+
+    <h3>Complexity</h3>
+    <p>
+        Den cyklomatiska komplexiteten för en sektion av källkoden är antalet linjärt oberoende vägar inom den - en uppsättning vägar är linjärt beroende om det finns en delmängd av en eller flera sökvägar där den symmetriska skillnaden mellan deras kantuppsättningar är tom. <br>
+        Om koden hade en IF-sats med ett villkor skulle det finnas två vägar genom koden: en där IF-satsen utvärderas till TRUE och en annan där den utvärderas till FALSE, så skulle komplexiteten vara 2. Två nestlade IF:satserer med enstaka villkor, eller en OM med två villkor, skulle ge en komplexitet på 3.<br> Lägre complexitet gör det lättare att sätta sig in i koden och förstå den, det leder till färre missförstånd när andra läser koden.<br> <br>
+        Min App\Cards\Game har en complexity på 20 i Scrutinizer och en cyclomatic complexity på 12 i Phpmetrics. Det har troligtvis att göra med att jag har en switch som kollar poängen från korten. Jag får även lite sämre maintainabillity för att jag har dåligt med dockblock-kommentarer.
+    </p>
+    <h3>Cohesion</h3>
+    <p> 
+        Avser i vilken grad elementen i en modul hör ihop. I en mening är det ett mått på styrkan i förhållandet mellan metoder och data för en klass och något förenande syfte eller koncept som tjänas av den klassen. I en annan mening är det ett mått på styrkan i förhållandet mellan klassens metoder och data i sig.</p>
+
+    <h3>Coupling</h3>
+    <p>
+        Är graden av ömsesidigt beroende mellan programvarumoduler; ett mått på hur nära sammankopplade två rutiner eller moduler är; styrkan i relationerna mellan moduler. Koppling och sammanhållning
+        
+        Coupling kontrasteras vanligtvis med cohesion. Låg coupling korrelerar ofta med hög cohesion, och vice versa. Låg coupling anses ofta vara ett tecken på ett välstrukturerat datorsystem och en bra design, och i kombination med hög cohesion stöder det de allmänna målen om hög läsbarhet och underhållbarhet<br>
+
+        Min game-klass har högst Efferent coupling på: 4 (Om man inte räknar med controllers).<br>
+        Min deck-klass har högst Afferent coupling på: 5.<br>
+    </p>
+
+    <h1>Phpmetrics</h1>
+    <p>
+        Kollar man komplexiteten i min kod så finns det lite att jobba med.<br> Game har en cyclomatic complexity på 12 och maintainability index på 47. Här kan jag få bättre maintainability genom att använda dockblock-kommentarer. Jag kan även sänka complexiteten lite genom att ändra hur jag hanterar poängen.<br>
+        <img class="sm-img"src="{{ asset("img/complexity.png") }}" alt="komplexitet och maintainability">
+        <br>
+    </p>
+    <p>
+        Kollar jag coupling så har 
+        min game-klass har högst Efferent coupling på: 4 (Om man inte räknar med controllers).
+        Min deck-klass har högst Afferent coupling på: 5.
+        Här finns det nog inte så mycket jag kan ändra på.
+    </p>
+    <p>
+        Jag har bra coverage på mina klasser som jag skrivit. Här hittar jag ingen data i Phpmetrics. Men kollar jag tidigare rapporter så ligger det mellan 80-100%
+    </p>
+
+    <p>
+        Game-klassen har en mycket högre score på Defects: 1.04. Det låter onekligen inte så bra. Jag hittar ingen bra förklaring på hur det räknas ut. Möjligen hittar jag problem när jag kollar igenom game-klasser och håller ögonen öppna.
+    </p>
+    <p>
+        Som det ser ut så är det Game-klassen jag behöver kika närmre på och se om jag kan få bättre maintainability och sänka komplexiteten lite.
+    </p>
+
+    <h1>Scrutinizer</h1>
+    <p>
+        <img src="https://scrutinizer-ci.com/g/NilssonAndreas/mvc-report/badges/quality-score.png?b=main" alt="scrutinizer 9.95"> <br>
+    </p>
+    <p>
+        Scrutinizer hitta en coverage på 80-100% på mina klasser.<br>
+        Klassen med högst komplexitet var även här Game-klassen med 20 i komplexitet.<br>
+        Kollar man metoderna så fick alla A i rank förutom setScore() i game.
+        Den metoden använder en switch för att sätta poäng vilket säkerligen drar ner poängen lite.
+    </p>
+        <p>
+            En bra sak med scrutinizer är att den letar upp buggar. Jag har 6 issues varav 3 är buggar och 3 är oanvänd kod. Här ska jag plocka bort koden som inte används.
+        </p>
+    <h1>Förbättringar</h1>
+    <p>
+        Jag ska lägga in dockblock-kommentarer för att försöka öka maintainability score. Förjoppnigsvis kan jag få game att bli gul men även någon av dom gula att bli görna.
+    </p>
+    <p>
+        Jag ska kolla igenom Game-klassen och skriva om metoden för att sätta poäng i hopp om att sänka komplexiteten.
+    </p>
+</div>
+{% endblock body %}

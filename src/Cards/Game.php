@@ -16,11 +16,13 @@ class Game
         $this->deck->shuffleDeck();
     }
 
+    /** @return Player */
     public function getPlayer(): object
     {
         return $this->player;
     }
 
+    /** @return object */
     public function getDeck(): object
     {
         return $this->deck;
