@@ -113,12 +113,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Cards\\Game\u003A\u003AsetGameState\u0028\u0029",
             "name": "setGameState",
-            "summary": "",
+            "summary": "Handles\u0020one\u0020round\u0020of\u002021.",
             "url": "classes/App-Cards-Game.html#method_setGameState"
         },                {
             "fqsen": "\\App\\Cards\\Game\u003A\u003AendState\u0028\u0029",
             "name": "endState",
-            "summary": "",
+            "summary": "Handles\u0020end\u0020of\u0020game.",
             "url": "classes/App-Cards-Game.html#method_endState"
         },                {
             "fqsen": "\\App\\Cards\\Game\u003A\u003AsetScore\u0028\u0029",
@@ -133,7 +133,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Cards\\Game\u003A\u003AdrawAi\u0028\u0029",
             "name": "drawAi",
-            "summary": "",
+            "summary": "Ai\u0020for\u002021",
             "url": "classes/App-Cards-Game.html#method_drawAi"
         },                {
             "fqsen": "\\App\\Cards\\Game\u003A\u003AcheckWinner\u0028\u0029",
@@ -521,6 +521,276 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Kernel.html"
         },                {
+            "fqsen": "\\App\\Controller\\leaderboard\\LeaderboardController",
+            "name": "LeaderboardController",
+            "summary": "",
+            "url": "classes/App-Controller-leaderboard-LeaderboardController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\leaderboard\\LeaderboardController\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "",
+            "url": "classes/App-Controller-leaderboard-LeaderboardController.html#method_index"
+        },                {
+            "fqsen": "\\App\\Controller\\leaderboard\\LeaderboardController\u003A\u003AshowLeaderboard\u0028\u0029",
+            "name": "showLeaderboard",
+            "summary": "",
+            "url": "classes/App-Controller-leaderboard-LeaderboardController.html#method_showLeaderboard"
+        },                {
+            "fqsen": "\\App\\Controller\\leaderboard\\LeaderboardController\u003A\u003Ainsert\u0028\u0029",
+            "name": "insert",
+            "summary": "",
+            "url": "classes/App-Controller-leaderboard-LeaderboardController.html#method_insert"
+        },                {
+            "fqsen": "\\App\\Controller\\leaderboard\\LeaderboardController\u003A\u003AinsertLeaderboard\u0028\u0029",
+            "name": "insertLeaderboard",
+            "summary": "",
+            "url": "classes/App-Controller-leaderboard-LeaderboardController.html#method_insertLeaderboard"
+        },                {
+            "fqsen": "\\App\\Controller\\leaderboard\\LeaderboardController\u003A\u003AshowPlayerById\u0028\u0029",
+            "name": "showPlayerById",
+            "summary": "",
+            "url": "classes/App-Controller-leaderboard-LeaderboardController.html#method_showPlayerById"
+        },                {
+            "fqsen": "\\App\\Controller\\leaderboard\\LeaderboardController\u003A\u003Adelete\u0028\u0029",
+            "name": "delete",
+            "summary": "",
+            "url": "classes/App-Controller-leaderboard-LeaderboardController.html#method_delete"
+        },                {
+            "fqsen": "\\App\\Controller\\leaderboard\\LeaderboardController\u003A\u003AdeletePost\u0028\u0029",
+            "name": "deletePost",
+            "summary": "",
+            "url": "classes/App-Controller-leaderboard-LeaderboardController.html#method_deletePost"
+        },                {
+            "fqsen": "\\App\\Controller\\leaderboard\\LeaderboardController\u003A\u003AupdatePlayer\u0028\u0029",
+            "name": "updatePlayer",
+            "summary": "",
+            "url": "classes/App-Controller-leaderboard-LeaderboardController.html#method_updatePlayer"
+        },                {
+            "fqsen": "\\App\\Controller\\leaderboard\\LeaderboardController\u003A\u003AupdatePlayerPost\u0028\u0029",
+            "name": "updatePlayerPost",
+            "summary": "",
+            "url": "classes/App-Controller-leaderboard-LeaderboardController.html#method_updatePlayerPost"
+        },                {
+            "fqsen": "\\App\\Controller\\metrics\\MetricsController",
+            "name": "MetricsController",
+            "summary": "",
+            "url": "classes/App-Controller-metrics-MetricsController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\metrics\\MetricsController\u003A\u003Ahome\u0028\u0029",
+            "name": "home",
+            "summary": "",
+            "url": "classes/App-Controller-metrics-MetricsController.html#method_home"
+        },                {
+            "fqsen": "\\App\\Controller\\ProductController",
+            "name": "ProductController",
+            "summary": "",
+            "url": "classes/App-Controller-ProductController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\ProductController\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "",
+            "url": "classes/App-Controller-ProductController.html#method_index"
+        },                {
+            "fqsen": "\\App\\Controller\\ProductController\u003A\u003AcreateProduct\u0028\u0029",
+            "name": "createProduct",
+            "summary": "",
+            "url": "classes/App-Controller-ProductController.html#method_createProduct"
+        },                {
+            "fqsen": "\\App\\Controller\\ProductController\u003A\u003AshowAllProduct\u0028\u0029",
+            "name": "showAllProduct",
+            "summary": "",
+            "url": "classes/App-Controller-ProductController.html#method_showAllProduct"
+        },                {
+            "fqsen": "\\App\\Controller\\ProductController\u003A\u003AshowProductById\u0028\u0029",
+            "name": "showProductById",
+            "summary": "",
+            "url": "classes/App-Controller-ProductController.html#method_showProductById"
+        },                {
+            "fqsen": "\\App\\Controller\\ProductController\u003A\u003AdeleteProductById\u0028\u0029",
+            "name": "deleteProductById",
+            "summary": "",
+            "url": "classes/App-Controller-ProductController.html#method_deleteProductById"
+        },                {
+            "fqsen": "\\App\\Controller\\ProductController\u003A\u003AupdateProduct\u0028\u0029",
+            "name": "updateProduct",
+            "summary": "",
+            "url": "classes/App-Controller-ProductController.html#method_updateProduct"
+        },                {
+            "fqsen": "\\App\\Entity\\Leaderboard",
+            "name": "Leaderboard",
+            "summary": "",
+            "url": "classes/App-Entity-Leaderboard.html"
+        },                {
+            "fqsen": "\\App\\Entity\\Leaderboard\u003A\u003AgetId\u0028\u0029",
+            "name": "getId",
+            "summary": "",
+            "url": "classes/App-Entity-Leaderboard.html#method_getId"
+        },                {
+            "fqsen": "\\App\\Entity\\Leaderboard\u003A\u003AgetNamn\u0028\u0029",
+            "name": "getNamn",
+            "summary": "",
+            "url": "classes/App-Entity-Leaderboard.html#method_getNamn"
+        },                {
+            "fqsen": "\\App\\Entity\\Leaderboard\u003A\u003AsetNamn\u0028\u0029",
+            "name": "setNamn",
+            "summary": "",
+            "url": "classes/App-Entity-Leaderboard.html#method_setNamn"
+        },                {
+            "fqsen": "\\App\\Entity\\Leaderboard\u003A\u003AgetAlias\u0028\u0029",
+            "name": "getAlias",
+            "summary": "",
+            "url": "classes/App-Entity-Leaderboard.html#method_getAlias"
+        },                {
+            "fqsen": "\\App\\Entity\\Leaderboard\u003A\u003AsetAlias\u0028\u0029",
+            "name": "setAlias",
+            "summary": "",
+            "url": "classes/App-Entity-Leaderboard.html#method_setAlias"
+        },                {
+            "fqsen": "\\App\\Entity\\Leaderboard\u003A\u003AgetLand\u0028\u0029",
+            "name": "getLand",
+            "summary": "",
+            "url": "classes/App-Entity-Leaderboard.html#method_getLand"
+        },                {
+            "fqsen": "\\App\\Entity\\Leaderboard\u003A\u003AsetLand\u0028\u0029",
+            "name": "setLand",
+            "summary": "",
+            "url": "classes/App-Entity-Leaderboard.html#method_setLand"
+        },                {
+            "fqsen": "\\App\\Entity\\Leaderboard\u003A\u003AgetScore\u0028\u0029",
+            "name": "getScore",
+            "summary": "",
+            "url": "classes/App-Entity-Leaderboard.html#method_getScore"
+        },                {
+            "fqsen": "\\App\\Entity\\Leaderboard\u003A\u003AsetScore\u0028\u0029",
+            "name": "setScore",
+            "summary": "",
+            "url": "classes/App-Entity-Leaderboard.html#method_setScore"
+        },                {
+            "fqsen": "\\App\\Entity\\Leaderboard\u003A\u003AgetBio\u0028\u0029",
+            "name": "getBio",
+            "summary": "",
+            "url": "classes/App-Entity-Leaderboard.html#method_getBio"
+        },                {
+            "fqsen": "\\App\\Entity\\Leaderboard\u003A\u003AsetBio\u0028\u0029",
+            "name": "setBio",
+            "summary": "",
+            "url": "classes/App-Entity-Leaderboard.html#method_setBio"
+        },                {
+            "fqsen": "\\App\\Entity\\Leaderboard\u003A\u003A\u0024id",
+            "name": "id",
+            "summary": "",
+            "url": "classes/App-Entity-Leaderboard.html#property_id"
+        },                {
+            "fqsen": "\\App\\Entity\\Leaderboard\u003A\u003A\u0024namn",
+            "name": "namn",
+            "summary": "",
+            "url": "classes/App-Entity-Leaderboard.html#property_namn"
+        },                {
+            "fqsen": "\\App\\Entity\\Leaderboard\u003A\u003A\u0024alias",
+            "name": "alias",
+            "summary": "",
+            "url": "classes/App-Entity-Leaderboard.html#property_alias"
+        },                {
+            "fqsen": "\\App\\Entity\\Leaderboard\u003A\u003A\u0024land",
+            "name": "land",
+            "summary": "",
+            "url": "classes/App-Entity-Leaderboard.html#property_land"
+        },                {
+            "fqsen": "\\App\\Entity\\Leaderboard\u003A\u003A\u0024score",
+            "name": "score",
+            "summary": "",
+            "url": "classes/App-Entity-Leaderboard.html#property_score"
+        },                {
+            "fqsen": "\\App\\Entity\\Leaderboard\u003A\u003A\u0024bio",
+            "name": "bio",
+            "summary": "",
+            "url": "classes/App-Entity-Leaderboard.html#property_bio"
+        },                {
+            "fqsen": "\\App\\Entity\\Product",
+            "name": "Product",
+            "summary": "",
+            "url": "classes/App-Entity-Product.html"
+        },                {
+            "fqsen": "\\App\\Entity\\Product\u003A\u003AgetId\u0028\u0029",
+            "name": "getId",
+            "summary": "",
+            "url": "classes/App-Entity-Product.html#method_getId"
+        },                {
+            "fqsen": "\\App\\Entity\\Product\u003A\u003AgetName\u0028\u0029",
+            "name": "getName",
+            "summary": "",
+            "url": "classes/App-Entity-Product.html#method_getName"
+        },                {
+            "fqsen": "\\App\\Entity\\Product\u003A\u003AsetName\u0028\u0029",
+            "name": "setName",
+            "summary": "",
+            "url": "classes/App-Entity-Product.html#method_setName"
+        },                {
+            "fqsen": "\\App\\Entity\\Product\u003A\u003AgetValue\u0028\u0029",
+            "name": "getValue",
+            "summary": "",
+            "url": "classes/App-Entity-Product.html#method_getValue"
+        },                {
+            "fqsen": "\\App\\Entity\\Product\u003A\u003AsetValue\u0028\u0029",
+            "name": "setValue",
+            "summary": "",
+            "url": "classes/App-Entity-Product.html#method_setValue"
+        },                {
+            "fqsen": "\\App\\Entity\\Product\u003A\u003A\u0024id",
+            "name": "id",
+            "summary": "",
+            "url": "classes/App-Entity-Product.html#property_id"
+        },                {
+            "fqsen": "\\App\\Entity\\Product\u003A\u003A\u0024name",
+            "name": "name",
+            "summary": "",
+            "url": "classes/App-Entity-Product.html#property_name"
+        },                {
+            "fqsen": "\\App\\Entity\\Product\u003A\u003A\u0024value",
+            "name": "value",
+            "summary": "",
+            "url": "classes/App-Entity-Product.html#property_value"
+        },                {
+            "fqsen": "\\App\\Repository\\LeaderboardRepository",
+            "name": "LeaderboardRepository",
+            "summary": "",
+            "url": "classes/App-Repository-LeaderboardRepository.html"
+        },                {
+            "fqsen": "\\App\\Repository\\LeaderboardRepository\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/App-Repository-LeaderboardRepository.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Repository\\LeaderboardRepository\u003A\u003Aadd\u0028\u0029",
+            "name": "add",
+            "summary": "",
+            "url": "classes/App-Repository-LeaderboardRepository.html#method_add"
+        },                {
+            "fqsen": "\\App\\Repository\\LeaderboardRepository\u003A\u003Aremove\u0028\u0029",
+            "name": "remove",
+            "summary": "",
+            "url": "classes/App-Repository-LeaderboardRepository.html#method_remove"
+        },                {
+            "fqsen": "\\App\\Repository\\ProductRepository",
+            "name": "ProductRepository",
+            "summary": "",
+            "url": "classes/App-Repository-ProductRepository.html"
+        },                {
+            "fqsen": "\\App\\Repository\\ProductRepository\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/App-Repository-ProductRepository.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Repository\\ProductRepository\u003A\u003Aadd\u0028\u0029",
+            "name": "add",
+            "summary": "",
+            "url": "classes/App-Repository-ProductRepository.html#method_add"
+        },                {
+            "fqsen": "\\App\\Repository\\ProductRepository\u003A\u003Aremove\u0028\u0029",
+            "name": "remove",
+            "summary": "",
+            "url": "classes/App-Repository-ProductRepository.html#method_remove"
+        },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
@@ -551,6 +821,16 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/app-controller-game.html"
         },                {
+            "fqsen": "\\App\\Controller\\leaderboard",
+            "name": "leaderboard",
+            "summary": "",
+            "url": "namespaces/app-controller-leaderboard.html"
+        },                {
+            "fqsen": "\\App\\Controller\\metrics",
+            "name": "metrics",
+            "summary": "",
+            "url": "namespaces/app-controller-metrics.html"
+        },                {
             "fqsen": "\\App\\Controller",
             "name": "Controller",
             "summary": "",
@@ -561,9 +841,19 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/app-dice.html"
         },                {
+            "fqsen": "\\App\\Entity",
+            "name": "Entity",
+            "summary": "",
+            "url": "namespaces/app-entity.html"
+        },                {
             "fqsen": "\\App",
             "name": "App",
             "summary": "",
             "url": "namespaces/app.html"
+        },                {
+            "fqsen": "\\App\\Repository",
+            "name": "Repository",
+            "summary": "",
+            "url": "namespaces/app-repository.html"
         }            ]
 );

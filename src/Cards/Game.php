@@ -22,12 +22,17 @@ class Game
         return $this->player;
     }
 
-    /** @return object */
+    /** @return Deck */
     public function getDeck(): object
     {
         return $this->deck;
     }
 
+    /**
+     * Handles one round of 21.
+     * draws then gives card to player.
+     * Sets score and checks if bust
+     */
     public function setGameState(): void
     {
         $draw = $this->deck->draw();
@@ -36,6 +41,9 @@ class Game
         $scoreState = $this->checkIfBust($this->player);
     }
 
+    /**
+     * Handles end of game.
+     */
     public function endState(): string
     {
         $this->drawAi();
@@ -43,7 +51,9 @@ class Game
         return $endMessage;
     }
 
-    /** @param Player $entity */
+    /** @param Player $entity
+     * Sets score for $entity
+    */
     private function setScore($entity): void
     {
         $cards = $entity->getCards();
@@ -73,7 +83,9 @@ class Game
         }
     }
 
-    /** @param Player $entity */
+    /** @param Player $entity
+     *  @return string $score for $entity
+    */
     private function checkIfBust($entity): string
     {
         $score = $entity->getScore();
@@ -84,6 +96,9 @@ class Game
         return "score: $score";
     }
 
+    /**
+     * Ai for 21
+     */
     private function drawAi(): void
     {
         while ($this->bank->getScore() < 17) {
@@ -94,6 +109,10 @@ class Game
         }
     }
 
+
+    /**
+    * @return string winner of $PlayerScore and $BankScore
+    */
     private function checkWinner(): string
     {
         $playerScore = $this->player->getScore();
