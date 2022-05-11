@@ -40,7 +40,7 @@ class DeckTest extends TestCase
         $test = $deck->get();
         $deck->shuffleDeck();
         $shuffled = $deck->get();
-        $this->assertNotEquals($test, $shuffled);
+        $this->assertNotEquals(array_keys($test), array_keys($shuffled));
     }
 
     /**
@@ -51,9 +51,9 @@ class DeckTest extends TestCase
     {
         $deck = new Deck();
         $draw = $deck->draw();
-        $this->assertIsString($draw);
+        $this->assertIsArray($draw);
         $pre = $deck->get();
-        $draw = $deck->draw();
+        $deck->draw();
         $after = $deck->get();
         $this->assertLessThan(count($pre), count($after));
     }

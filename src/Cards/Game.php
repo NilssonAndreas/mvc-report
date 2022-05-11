@@ -38,7 +38,7 @@ class Game
         $draw = $this->deck->draw();
         $this->player->addCards($draw);
         $this->setScore($this->player);
-        $scoreState = $this->checkIfBust($this->player);
+        $this->checkIfBust($this->player);
     }
 
     /**
