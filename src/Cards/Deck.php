@@ -20,22 +20,24 @@ class Deck
     }
 
 
+    /**
+     * Shuffles deck.
+     */
     public function shuffleDeck(): void
     {
         $keys = array_keys($this->deck);
-
+        $new = [];
         shuffle($keys);
 
-        foreach($keys as $key) {
+        foreach ($keys as $key) {
             $new[$key] = $this->deck[$key];
         }
         $this->deck = $new;
-
     }
 
     public function draw(): ?array
     {
-        $result = array_splice( $this->deck, 0, 1 );
+        $result = array_splice($this->deck, 0, 1);
         return $result;
     }
 
@@ -49,5 +51,4 @@ class Deck
         $newDeck = new \App\Cards\Card();
         $this->deck = $newDeck->getSet();
     }
-
 }

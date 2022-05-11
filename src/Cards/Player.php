@@ -45,8 +45,7 @@ class Player
     {
         $tempScore = 0;
         $myHand = $this->getCards();
-        foreach ($myHand as $key => $value)
-        {
+        foreach ($myHand as $key => $value) {
             $tempScore += $value;
         }
         $this->score = $tempScore;

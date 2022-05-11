@@ -15,7 +15,7 @@ class Card
         "♠",
     ];
 
-    /** @var array<string> */
+    /** @var array<int|string, int> */
     protected array $RANKS = [
             "A" => 1,
             "2" => 2,
@@ -53,7 +53,7 @@ class Card
         return $this->SUITS;
     }
 
-    /** @return array<string> */
+    /** @return  array<int|string, int> */
     public function getRanks(): array
     {
         return $this->RANKS;

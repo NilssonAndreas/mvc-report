@@ -104,7 +104,7 @@ class CardController extends AbstractController
         $deck = new \App\Cards\Deck();
         $deck->shuffleDeck();
         $players = [];
-        
+
         for ($i = 1; $i <= $numPlayer; $i++) {
             $newPlayer = new \App\Cards\Player();
             $cards = [];
