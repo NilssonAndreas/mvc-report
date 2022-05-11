@@ -44,7 +44,6 @@ class CardController extends AbstractController
     {
         $deck = new \App\Cards\Deck();
         $deck->shuffleDeck();
-        $shuffle = $deck->get();
         $data = [
             'title' => 'Current-Deck',
             'deck' => $deck->get()
@@ -105,11 +104,13 @@ class CardController extends AbstractController
         $deck = new \App\Cards\Deck();
         $deck->shuffleDeck();
         $players = [];
+        
         for ($i = 1; $i <= $numPlayer; $i++) {
             $newPlayer = new \App\Cards\Player();
             $cards = [];
             for ($x = 1; $x <= $numCards; $x++) {
-                $cards[] = $deck->draw();
+                $card = $deck->draw();
+                $cards[array_key_first($card)] = array_values($card)[0];
             }
             $newPlayer->addCards($cards);
             $players[] = [
@@ -117,7 +118,6 @@ class CardController extends AbstractController
                 'cards' => $newPlayer->getCards()
             ];
         }
-
         $count = $deck->countCards();
         $data = [
             'title' => 'Deal',

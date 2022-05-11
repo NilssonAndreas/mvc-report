@@ -9,8 +9,8 @@
        <h3>Poäng: {{ game.player.score}}</h3>
        <h3>Kort: 
        
-        {% for kort in game.player.cards %}
-            {{ kort }}
+        {% for key, value in game.player.cards %}
+            {{ key }}
         {% endfor %}
         </h3>
         

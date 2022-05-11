@@ -6,10 +6,11 @@
 <h1>{{ title }}</h1>
 
 <table class="deck-table">
+    
     {% for suits in deck|batch(13) %}
         <tr>
-            {% for cards in suits %}
-                <td>{{ cards }}</td>
+            {% for key,value in suits %}
+                <td>{{ key }}</td>
             {% endfor %}
         </tr>
   

@@ -14,8 +14,8 @@
             </div>
             
             <tr>
-                {% for cards in player.cards %}
-                <td class="cards">{{cards}}</td>
+                {% for key,value in player.cards %}
+                        <td class="cards">{{ key }}</td>
                 {% endfor %}
             </tr>
         </table>

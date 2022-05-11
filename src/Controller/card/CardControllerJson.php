@@ -41,8 +41,9 @@ class CardControllerJson
     public function shuffleDeck(): Response
     {
         $this->deck = new \App\Cards\Deck();
+        $this->deck->shuffleDeck();
         $data = [
-            'deck' => $this->deck->shuffleDeck()
+            'deck' => $this->deck->get()
         ];
 
         $response = new Response();

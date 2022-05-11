@@ -41,9 +41,15 @@ class Player
         $this->hand->addCardToHand($cards);
     }
 
-    public function addScore(int $scoreToAdd): void
+    public function setScore(): void
     {
-        $this->score += $scoreToAdd;
+        $tempScore = 0;
+        $myHand = $this->getCards();
+        foreach ($myHand as $key => $value)
+        {
+            $tempScore += $value;
+        }
+        $this->score = $tempScore;
     }
 
     public function getScore(): int

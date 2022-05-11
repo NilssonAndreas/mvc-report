@@ -8,8 +8,8 @@
 <table class="deck-table">
     {% for suits in deck|batch(13, 'No item') %}
         <tr>
-            {% for cards in suits %}
-                <td>{{ cards }}</td>
+            {% for key,value in suits %}
+                <td>{{ key }}</td>
             {% endfor %}
         </tr>
   

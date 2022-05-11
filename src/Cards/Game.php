@@ -36,7 +36,7 @@ class Game
     public function setGameState(): void
     {
         $draw = $this->deck->draw();
-        $this->player->addCards([$draw]);
+        $this->player->addCards($draw);
         $this->setScore($this->player);
         $scoreState = $this->checkIfBust($this->player);
     }
@@ -56,44 +56,17 @@ class Game
     */
     private function setScore($entity): void
     {
-        $cards = $entity->getCards();
-        $entity->resetScore();
-        foreach ($cards as $card) {
-            if (intval($card[0]) > 1) {
-                $entity->addScore(intval($card[0]));
-            }
-
-            switch ($card[0]) {
-                case 'A':
-                    $entity->addScore(1);
-                    break;
-                case 'K':
-                    $entity->addScore(13);
-                    break;
-                case 'Q':
-                    $entity->addScore(12);
-                    break;
-                case 'J':
-                    $entity->addScore(11);
-                    break;
-                case 1:
-                    $entity->addScore(10);
-                    break;
-            }
-        }
+        $entity->setScore();
     }
 
     /** @param Player $entity
-     *  @return string $score for $entity
     */
-    private function checkIfBust($entity): string
+    private function checkIfBust($entity)
     {
         $score = $entity->getScore();
         if ($score > 21) {
             $entity->setBust(true);
-            return "Bust: $score";
         }
-        return "score: $score";
     }
 
     /**
@@ -103,7 +76,7 @@ class Game
     {
         while ($this->bank->getScore() < 17) {
             $draw = $this->deck->draw();
-            $this->bank->addCards([$draw]);
+            $this->bank->addCards($draw);
             $this->setScore($this->bank);
             $this->checkIfBust($this->bank);
         }

@@ -19,17 +19,24 @@ class Deck
         return $this->deck;
     }
 
-    /** @return array<string> */
-    public function shuffleDeck(): array
+
+    public function shuffleDeck(): void
     {
-        shuffle($this->deck);
-        return $this->deck;
+        $keys = array_keys($this->deck);
+
+        shuffle($keys);
+
+        foreach($keys as $key) {
+            $new[$key] = $this->deck[$key];
+        }
+        $this->deck = $new;
+
     }
 
-    public function draw(): ?string
+    public function draw(): ?array
     {
-        $removed = array_shift($this->deck);
-        return $removed;
+        $result = array_splice( $this->deck, 0, 1 );
+        return $result;
     }
 
     public function countCards(): ?int
@@ -42,4 +49,5 @@ class Deck
         $newDeck = new \App\Cards\Card();
         $this->deck = $newDeck->getSet();
     }
+
 }
