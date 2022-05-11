@@ -58,7 +58,7 @@
 
     <h1>Scrutinizer</h1>
     <p>
-        <img src="https://scrutinizer-ci.com/g/NilssonAndreas/mvc-report/badges/quality-score.png?b=main" alt="scrutinizer 9.95"> <br>
+        Scrutinizer Score: 9.95
     </p>
     <p>
         Scrutinizer hitta en coverage på 80-100% på mina klasser.<br>
@@ -78,6 +78,38 @@
     </p>
     <p>
         Jag ska ta bort oanvänd kod och bli av med 3st issues
+    </p>
+    <h3>Efter Ändringar</h3>
+    <p>
+        Enligt Phpmetrics så sänkte jag "Average relative System complexity" med -3.72. <br>
+        Game-klassen har sänkt cyclomatic complexity till 5.<br>
+        Game fick ifrån 47 maintainability till 76.67 och blev då gul.<br>
+        <img class="sm-img"src="{{ asset("img/newmetric.png") }}" alt="komplexitet och maintainability">
+    </p>
+       
+    <p>
+        Scrutinizer score fick från 9.95 till 10.<br>
+        <img src="https://scrutinizer-ci.com/g/NilssonAndreas/mvc-report/badges/quality-score.png?b=main" alt="scrutinizer badge"> <br>
+        Game::setScore() gick från B till A.
+    </p>
+    <p>
+        Games complexity gick från 20 till 13.
+    </p>
+    <p>
+        Jag fick bort raderna med ovanänd kod.
+    </p>
+    <h1>Diskussion</h1>
+    <p>
+        Jag tycker absolut att man kan jobba med kodkvalitet på det här viset. Det är behändigt att så snabbt kunna gå igenom koden och kunna hitta fel och brister.
+    </p>
+    <p>
+        Sen får man ta ställning till om man tycker det är rimligt att ändra koden efter varningarna man får. Kanske är det inte alltid till det bättre.
+    </p>
+    <p>
+        I mitt fall tycker jag det var bra varningar. Att game var onödigt complex visste jag sedan innan. Ett problem som kan uppstå är bara att man flyttar problemet till någon annan klass. I mitt fall blev det till det bättre. Dock så blev det fel i mina tester eftersom jag helt plötsligt ändrade hur jag hanterade poängen. I testerna skickade jag in poängen som en int, men nu räknar den ut det ifrån handen. 
+    </p>
+    <p>
+        Jag hade helt glömt att ändra testerna men jag fick en bra påminnelse av rapporterna utav koden.
     </p>
 </div>
 {% endblock body %}

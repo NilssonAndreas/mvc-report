@@ -98,10 +98,9 @@ class PlayerTest extends TestCase
             "10" => 10
         ];
         $player = new Player();
-        $test = 10;
         $this->assertEquals($player->getScore(), 0);
         $player->addCards($cards);
-        $player->setScore($test);
+        $player->setScore();
         $this->assertEquals($player->getScore(), 10);
     }
 
@@ -125,9 +124,8 @@ class PlayerTest extends TestCase
             "10" => 10
         ];
         $player = new Player();
-        $test = 10;
         $player->addCards($cards);
-        $player->setScore($test);
+        $player->setScore();
         $this->assertEquals($player->getScore(), 10);
         $player->resetScore();
         $this->assertEquals($player->getScore(), 0);
