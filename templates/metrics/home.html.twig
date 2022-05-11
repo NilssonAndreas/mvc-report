@@ -88,7 +88,7 @@
     </p>
        
     <p>
-        Scrutinizer score fick från 9.95 till 10.<br>
+        Scrutinizer score gick från 9.95 till 10.<br>
         <img src="https://scrutinizer-ci.com/g/NilssonAndreas/mvc-report/badges/quality-score.png?b=main" alt="scrutinizer badge"> <br>
         Game::setScore() gick från B till A.
     </p>
@@ -103,13 +103,13 @@
         Jag tycker absolut att man kan jobba med kodkvalitet på det här viset. Det är behändigt att så snabbt kunna gå igenom koden och kunna hitta fel och brister.
     </p>
     <p>
-        Sen får man ta ställning till om man tycker det är rimligt att ändra koden efter varningarna man får. Kanske är det inte alltid till det bättre.
+        Sen får man ta ställning till om man tycker det är rimligt att ändra koden efter varningarna man får. Möjligen kan man lägga tiden på något bättre om det bara är marginella förbättringar.
     </p>
     <p>
-        I mitt fall tycker jag det var bra varningar. Att game var onödigt complex visste jag sedan innan. Ett problem som kan uppstå är bara att man flyttar problemet till någon annan klass. I mitt fall blev det till det bättre. Dock så blev det fel i mina tester eftersom jag helt plötsligt ändrade hur jag hanterade poängen. I testerna skickade jag in poängen som en int, men nu räknar den ut det ifrån handen. 
+        I mitt fall tycker jag det var bra varningar. Att game var onödigt complex visste jag sedan innan. Ett problem som kan uppstå är att man bara flyttar problemet till någon annan klass. I mitt fall blev det till det bättre. Dock så blev det fel i mina tester eftersom jag helt plötsligt ändrade hur jag hanterade poängen. I testerna skickade jag in poängen som en int, men nu räknar den ut det ifrån handen. 
     </p>
     <p>
-        Jag hade helt glömt att ändra testerna men jag fick en bra påminnelse av rapporterna utav koden.
+        Jag hade helt glömt att ändra testerna men jag fick en bra påminnelse av rapporterna utav koden så att jag kunde fixa det med.
     </p>
 </div>
 {% endblock body %}
