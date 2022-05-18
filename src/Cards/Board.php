@@ -38,13 +38,18 @@ class Board
      * @param int $number
      * fills slot with card $card
     */
-    public function setSlot($number, $card): void
+    public function setSlot($number, $card): bool
     {
         if ($number != 0){
-            $this->board[$number] = $card;
-            $this->slotsLeft -= 1;
+            if( $this->board[$number] == " ")
+            {
+                $this->board[$number] = $card;
+                $this->slotsLeft -= 1;
+                return true;
+            }
+            return false;
         }
-        
+        return true;
     }
 
 }

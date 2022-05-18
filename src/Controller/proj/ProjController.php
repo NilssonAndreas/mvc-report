@@ -66,21 +66,15 @@ class ProjController extends AbstractController
     {
         $game = $session->get("myGame");
         $slot = $session->get("card");
+    
+        $roundData = $game->round($id, $slot);
+        $session->set("card", $roundData['card']);
 
-        $board = $game->getBoard();
-        $board->setSlot($id, $slot);
-        $boardArray = $board->getBoard();
-        $slotsLeft = $board->getSlots();
-
-        $deck = $game->getDeck();
-        $draw = $deck->draw();
-        $session->set("card", $draw);
-        
         $data = [
             'title' => 'Poker Square',
-            'board' => $boardArray,
+            'board' => $roundData['board'],
             'card' => $session->get("card"),
-            'slots' => $slotsLeft
+            'slots' => $roundData['slots']
         ];
 
         return $this->render('proj/start.html.twig', $data);
@@ -94,9 +88,10 @@ class ProjController extends AbstractController
     public function result(SessionInterface $session): Response
     {
         $game = $session->get("myGame");
+        $score = $game->finnish();
         $data = [
             'title' => 'Resultat',
-            'game' => $game,
+            'score' => $score,
         ];
         return $this->render('proj/result.html.twig', $data);
     }
