@@ -1,0 +1,40 @@
+{% extends "./proj/base.html.twig" %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+<h1>{{ title }}</h1>
+
+<div class="gamecontainer">
+
+    <div class="information">
+        <p>
+            Skriv Något här.<br>
+            Visa kort: <br>
+            Poäng?: <br>
+        </p>
+    </div>
+
+
+    <div class="board">
+        <table class="deck-table">
+    
+            {% for key, value in board|batch(5, " ") %}
+                <tr>
+                    {% for slot in value %}
+                        {% if slot == " " %}
+                        <td><a href="start/{{loop.parent.loop.index0 * 5 + loop.index}}"></a></td>
+                        {% else %}
+                        <td>{{ slot }}</td>
+                        {% endif %}
+                        
+                    {% endfor %}
+            
+                </tr>
+          
+            {% endfor %}
+        </table>
+    </div>
+
+</div>
+{% endblock %}

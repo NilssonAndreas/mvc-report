@@ -1,0 +1,29 @@
+{% extends "./proj/base.html.twig" %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+<div>
+<h2 class="center">{{title}}</h2>
+<div class="wrapper">
+    <div class="regler">
+        <h3>Regler</h3>
+        <p>
+            Målet med spelet är att komma så nära 21 poäng som möjligt.<br>
+            Du drar ett kort åt gången. Tryck stopp när du känner dig nöjd.<br>
+            Efter det är det bankens tur att göra samma sak.<br>
+            Hamnar du över 21 poäng så förlorar du. <br>
+            Vid samma poäng så vinner banken
+        </p>
+    </div>
+
+    <div class="korten">
+    </div>
+</div>
+<div class="center">
+    <button class="start-b"><a href="{{ url("proj-start") }}"> Start</a></button>
+    <button class="start-b"><a href="{{ url("proj-doc") }}"> Doc</a></button>
+</div>
+
+{% endblock %}

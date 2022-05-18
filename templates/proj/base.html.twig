@@ -4,27 +4,19 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block css %}
-            <link rel="stylesheet" href="{{ asset("css/app.css") }}">
+            <link rel="stylesheet" href="{{ asset("css/proj.css") }}">
         {% endblock css %}
 
     </head>
     <body>
         <header>
             <div class="h-div">
-                {# <img class="h-image" src="img/php.png" alt="Bild av php + elefant"> #}
                 <div class="h-text">
                     <h1>MVC</h1>
-                    <p>annt21</p>
                 </div>
             </div>
             <nav class="navbar">
                 <a href="{{ url("home") }}"> Home</a>
-                <a href="{{ url("about") }}"> About</a>
-                <a href="{{ url("report") }}"> Report </a>
-                <a href="{{ url("card-home") }}"> Card </a>
-                <a href="{{ url("game-home") }}"> Game </a>
-                <a href="{{ url("app_leaderboard") }}"> Leaderboard </a>
-                <a href="{{ url("metrics-home") }}"> Metrics </a>
                 <a href="{{ url("proj-home") }}"> Proj </a>
             </nav>
         </header>
