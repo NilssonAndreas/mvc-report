@@ -86,21 +86,18 @@ class ProjController extends AbstractController
         return $this->render('proj/start.html.twig', $data);
     }
 
-    // /**
-    // * @Route(
-    // * "/game/result",
-    // *  name="game-result")
-    // */
-    // public function result(SessionInterface $session): Response
-    // {
-    //     $game = $session->get("myGame");
-    //     $endMessage = $game->endState();
-    //     $data = [
-    //         'title' => 'Resultat',
-    //         'game' => $game,
-    //         'end' => $endMessage
-    //     ];
-    //     $session->set("myGame", $game);
-    //     return $this->render('game/result.html.twig', $data);
-    // }
+    /**
+    * @Route(
+    * "/proj/result",
+    *  name="proj-result")
+    */
+    public function result(SessionInterface $session): Response
+    {
+        $game = $session->get("myGame");
+        $data = [
+            'title' => 'Resultat',
+            'game' => $game,
+        ];
+        return $this->render('proj/result.html.twig', $data);
+    }
 }

@@ -8,23 +8,25 @@
 <div class="gamecontainer">
 
     <div class="information">
-        {{slots}}
         {% if slots > 0 %}
-            
         <p>
-            Skriv Något här.<br>
-            Visa kort: {{dump(card)}}  <br>
-            Poäng?: <br>
+            {% for key, value in card %}
+            {% if key|last == '♥' or key|last == '♦'  %}
+            <h1 style="color: red ;">{{key}}</h1>
+            {% else %}
+            <h1>{{key}}</h1>
+            {% endif %}
+                
+            {% endfor %}
         </p>
         {% else %}
-            <p>NU ÄR DET FAN SLUT</p>
+        <button class="start-b"><a href="{{ url("proj-result") }}"> Räkna ut poäng</a></button>
         {% endif %}
     </div>
 
 
     <div class="board">
         <table class="deck-table">
-            {{dump(board)}}
             {% for index in board|batch(5, " ") %}
                 <tr>
                     {% for key, value in index %}
@@ -32,7 +34,12 @@
                         <td><a href="{{loop.parent.loop.index0 * 5 + loop.index}}"></a></td>
                         {% else %}
                             {% for key, value in value %}
-                                <td>{{ key }}</td>
+                                {% if key|last == '♥' or key|last == '♦'  %}
+                                <td style="color: red ;">{{ key }}</td>
+                                {% else %}
+                                <td s>{{ key }}</td>
+                                {% endif %}
+                               
                             {% endfor %}
                         
                         {% endif %}
