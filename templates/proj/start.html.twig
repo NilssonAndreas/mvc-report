@@ -8,11 +8,17 @@
 <div class="gamecontainer">
 
     <div class="information">
+        {{slots}}
+        {% if slots > 0 %}
+            
         <p>
             Skriv Något här.<br>
-            Visa kort:  <br>
+            Visa kort: {{dump(card)}}  <br>
             Poäng?: <br>
         </p>
+        {% else %}
+            <p>NU ÄR DET FAN SLUT</p>
+        {% endif %}
     </div>
 
 

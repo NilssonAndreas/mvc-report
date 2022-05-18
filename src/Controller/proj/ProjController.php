@@ -19,10 +19,15 @@ class ProjController extends AbstractController
         $board = new \App\Cards\Board();
         $deck = new \App\Cards\Deck();
         $game = new \App\Cards\Square($deck, $board);
+
+        $myDeck = $game->getDeck();
+        $draw = $myDeck->draw();
+        
         $data = [
             'title' => 'Poker Square'
         ];
         $session->set("myGame", $game);
+        $session->set("card", $draw);
         return $this->render('proj/home.html.twig', $data);
     }
 
@@ -61,9 +66,12 @@ class ProjController extends AbstractController
     {
         $game = $session->get("myGame");
         $slot = $session->get("card");
+
         $board = $game->getBoard();
         $board->setSlot($id, $slot);
         $boardArray = $board->getBoard();
+        $slotsLeft = $board->getSlots();
+
         $deck = $game->getDeck();
         $draw = $deck->draw();
         $session->set("card", $draw);
@@ -71,7 +79,10 @@ class ProjController extends AbstractController
         $data = [
             'title' => 'Poker Square',
             'board' => $boardArray,
+            'card' => $session->get("card"),
+            'slots' => $slotsLeft
         ];
+
         return $this->render('proj/start.html.twig', $data);
     }
 

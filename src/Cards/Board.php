@@ -6,12 +6,14 @@ class Board
 {
     /** @var array<string> */
     protected array $board = [];
+    protected int $slotsLeft = 0;
 
     public function __construct()
     {
         for ($i = 1 ; $i < 26; $i++)
         {
              $this->board[$i] = " ";
+             $this->slotsLeft += 1;
         }
     }
 
@@ -23,6 +25,15 @@ class Board
         return $this->board;
     }
 
+    /** @return int 
+     * Used to get available slots
+    */
+    public function getSlots(): int
+    {
+        return $this->slotsLeft;
+    }
+
+
      /** @param string $card
      * @param int $number
      * fills slot with card $card
@@ -31,6 +42,7 @@ class Board
     {
         if ($number != 0){
             $this->board[$number] = $card;
+            $this->slotsLeft -= 1;
         }
         
     }
