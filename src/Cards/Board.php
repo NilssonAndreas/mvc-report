@@ -29,7 +29,10 @@ class Board
     */
     public function setSlot($number, $card): void
     {
-        $this->board[$number] = $card;
+        if ($number != 0){
+            $this->board[$number] = $card;
+        }
+        
     }
 
 }

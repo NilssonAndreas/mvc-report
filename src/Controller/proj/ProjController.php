@@ -16,9 +16,9 @@ class ProjController extends AbstractController
      */
     public function home(SessionInterface $session): Response
     {
-        $player = new \App\Cards\Player();
+        $board = new \App\Cards\Board();
         $deck = new \App\Cards\Deck();
-        $game = new \App\Cards\Game($player, $deck);
+        $game = new \App\Cards\Square($deck, $board);
         $data = [
             'title' => 'Poker Square'
         ];
@@ -55,18 +55,22 @@ class ProjController extends AbstractController
     }
 
     /**
-     * @Route("/proj/start", name="proj-start")
+     * @Route("/proj/start/{id}", name="proj-start")
      */
-    public function start(SessionInterface $session): Response
+    public function start(string $id, SessionInterface $session): Response
     {
-
-        $board = new \App\Cards\Board();
-        $test = "5♥";
-        $board->setSlot(5, $test);
+        $game = $session->get("myGame");
+        $slot = $session->get("card");
+        $board = $game->getBoard();
+        $board->setSlot($id, $slot);
         $boardArray = $board->getBoard();
+        $deck = $game->getDeck();
+        $draw = $deck->draw();
+        $session->set("card", $draw);
+        
         $data = [
             'title' => 'Poker Square',
-            'board' => $boardArray
+            'board' => $boardArray,
         ];
         return $this->render('proj/start.html.twig', $data);
     }

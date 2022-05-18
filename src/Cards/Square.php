@@ -5,11 +5,13 @@ namespace App\Cards;
 class Square
 {
     protected $deck;
-    protected $score;
+    protected int $score;
+    protected $board;
 
-    public function __construct(Deck $newDeck)
+    public function __construct(Deck $newDeck, Board $newBoard)
     {
         $this->deck = new $newDeck();
+        $this->board = new $newBoard();
         $this->deck->shuffleDeck();
     }
 
@@ -19,10 +21,20 @@ class Square
         return $this->deck;
     }
 
+    /** @return Board */
+    public function getBoard(): object
+    {
+        return $this->board;
+    }
+
+
+    /**
+     * Ends game and calculate score
+     */
     public function finnish(): int
     {
-        $result = 0;
-        return $result;
+        
+        return $this->score;
     }
 
 }

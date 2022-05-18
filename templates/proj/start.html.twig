@@ -10,7 +10,7 @@
     <div class="information">
         <p>
             Skriv Något här.<br>
-            Visa kort: <br>
+            Visa kort:  <br>
             Poäng?: <br>
         </p>
     </div>
@@ -18,14 +18,17 @@
 
     <div class="board">
         <table class="deck-table">
-    
-            {% for key, value in board|batch(5, " ") %}
+            {{dump(board)}}
+            {% for index in board|batch(5, " ") %}
                 <tr>
-                    {% for slot in value %}
-                        {% if slot == " " %}
-                        <td><a href="start/{{loop.parent.loop.index0 * 5 + loop.index}}"></a></td>
+                    {% for key, value in index %}
+                        {% if value == " " %}
+                        <td><a href="{{loop.parent.loop.index0 * 5 + loop.index}}"></a></td>
                         {% else %}
-                        <td>{{ slot }}</td>
+                            {% for key, value in value %}
+                                <td>{{ key }}</td>
+                            {% endfor %}
+                        
                         {% endif %}
                         
                     {% endfor %}
