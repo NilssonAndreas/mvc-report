@@ -86,3 +86,8 @@ td a:hover {
 .board  {
     width:60%;
 }
+
+.result {
+    display: flex;
+    justify-content: center;
+}
