@@ -16,6 +16,19 @@ class Score
     /** @var array<mixed> */
     protected array $score;
 
+    /** @var array<mixed> */
+    protected array $scoreChart = [
+        "Royal flush" => 100,
+        "Straight flush" => 75,
+        "Four of a kind" => 50,
+        "Full house" => 25,
+        "Flush" => 20,
+        "Straight" => 15,
+        "Three of a kind" => 10,
+        "Two pairs" => 5,
+        "One pair" => 2,
+    ];
+
 
     public function __construct()
     {
@@ -29,15 +42,32 @@ class Score
     {
         $index = 0;
         $this->checkSuit($handsToCheck);
+        $this->checkStraight($handsToCheck);
         foreach($handsToCheck as $hand)
         {
-            // KOLLA OM STEGE SEDAN BESTÄM TRUE ELLER FALSE
-            $handScore = $this->whenFlush($hand, false);
+            
+            if ($this->suits[$index] == true)
+            {
+                $straightBool = $this->straight[$index];
+                $handScore = $this->whenFlush($hand, $straightBool);
+                $this->score[$index] = $handScore;
+                continue;
+            }
 
+
+            if ($this->straight[$index] == true)
+            {
+                $this->score[$index] = 15;
+                continue;
+            }
+
+            // TEMP
+            $handScore = 10;
             $this->score[$index] = $handScore;
             $index += 1;
-            error_log(print_r($handScore, true));
+            // error_log(print_r($handScore, true));
         }
+        // error_log(print_r($this->score, true));
         error_log(print_r($this->score, true));
         return $this->score;
     }
@@ -78,12 +108,12 @@ class Score
      */
     private function whenFlush($hand, bool $straight): int
     {   
-        $valueTotal = 0;
+        $valueTotal = array_count_values($hand);
         
-        foreach($hand as $card)
-        {
-            $valueTotal += $card;
-        }
+        // foreach($hand as $card)
+        // {
+        //     $valueTotal += $card;
+        // }
 
         //Kolla om Royal flush 
         if( $valueTotal == 60) {
@@ -93,6 +123,7 @@ class Score
         //Kolla stege
         if ( $straight == true)
         {
+            error_log(print_r("NU------",true));
             return 75;
         }
         //Annars Flush
@@ -102,9 +133,53 @@ class Score
     /** @param array<array> $handsToCheck
      * Checks if straight
      */
-    private function checkStraight()
+    private function checkStraight($handsToCheck)
     {
         
+        $outerIndex = 0;
+        foreach($handsToCheck as $hand)
+        {
+            //Skapa array av värden
+            $handIndex = 0;
+            $tempArray = [];
+            foreach($hand as $value)
+            {
+                $tempArray[$handIndex] = $value;
+                $handIndex +=1;
+            }
+
+            // Kolla om 5 olika
+            $tempArray = array_unique($tempArray);
+            if( count($tempArray) != 5)
+            {
+                $this->straight[$outerIndex] = false;
+                $outerIndex += 1;
+                continue;
+            }
+
+            // kolla om i rad
+            $maxValue = max($tempArray);
+            $minValue = min($tempArray);
+
+            if($maxValue - $minValue == 4)
+            {
+                $this->straight[$outerIndex] = true;
+                $outerIndex += 1;
+                continue;
+            }
+            
+            // Kolla om stege (A - 5)
+            if($maxValue == 14 && array_sum($tempArray) == 28)
+            {
+                $this->straight[$outerIndex] = true;
+                $outerIndex += 1;
+                continue;
+            }
+
+            // Ingen stege Hittad
+            $this->straight[$outerIndex] = false;
+            $outerIndex += 1;
+        }
     }
 }
 
