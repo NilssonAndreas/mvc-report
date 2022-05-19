@@ -10,14 +10,13 @@ class Board
 
     public function __construct()
     {
-        for ($i = 1 ; $i < 26; $i++)
-        {
-             $this->board[$i] = " ";
-             $this->slotsLeft += 1;
+        for ($i = 1 ; $i < 26; $i++) {
+            $this->board[$i] = " ";
+            $this->slotsLeft += 1;
         }
     }
 
-    /** @return array<string> 
+    /** @return array<string>
      * Used to get whole board
     */
     public function getBoard(): array
@@ -25,7 +24,7 @@ class Board
         return $this->board;
     }
 
-    /** @return int 
+    /** @return int
      * Used to get available slots
     */
     public function getSlots(): int
@@ -34,22 +33,17 @@ class Board
     }
 
 
-     /** @param string $card
-     * @param int $number
-     * fills slot with card $card
+    /** @param string $card
+    * @param int $number
+    * fills slot with card $card
     */
-    public function setSlot($number, $card): bool
+    public function setSlot($number, $card): void
     {
-        if ($number != 0){
-            if( $this->board[$number] == " ")
-            {
+        if ($number != 0) {
+            if ($this->board[$number] == " ") {
                 $this->board[$number] = $card;
                 $this->slotsLeft -= 1;
-                return true;
             }
-            return false;
         }
-        return true;
     }
-
 }

@@ -19,7 +19,6 @@ class Deck
         return $this->deck;
     }
 
-
     /**
      * Shuffles deck.
      */
@@ -51,4 +50,16 @@ class Deck
         $newDeck = new \App\Cards\Card();
         $this->deck = $newDeck->getSet();
     }
+
+    /**
+     * Changes value of A to 14
+     */
+    public function aceMax(): void
+    {
+        $this->deck['A♦'] = 14;
+        $this->deck['A♥'] = 14;
+        $this->deck['A♣'] = 14;
+        $this->deck['A♠'] = 14;
+    }
+
 }

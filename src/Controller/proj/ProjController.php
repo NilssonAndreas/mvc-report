@@ -18,11 +18,12 @@ class ProjController extends AbstractController
     {
         $board = new \App\Cards\Board();
         $deck = new \App\Cards\Deck();
-        $game = new \App\Cards\Square($deck, $board);
+        $score = new \App\Cards\Score();
+        $game = new \App\Cards\Square($deck, $board, $score);
 
         $myDeck = $game->getDeck();
         $draw = $myDeck->draw();
-        
+
         $data = [
             'title' => 'Poker Square'
         ];
@@ -66,7 +67,7 @@ class ProjController extends AbstractController
     {
         $game = $session->get("myGame");
         $slot = $session->get("card");
-    
+
         $roundData = $game->round($id, $slot);
         $session->set("card", $roundData['card']);
 
