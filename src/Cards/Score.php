@@ -55,30 +55,11 @@ class Score
             if ($this->suits[$index] == true)
             {
                 $straightBool = $this->straight[$index];
-                $handScore = $this->whenFlush($hand, $straightBool);
-                $this->score[$index] = $handScore;
+                $this->whenFlush($hand, $straightBool, $index);
                 $index += 1;
                 continue;
             }
-
-            // Kolla 4 i rad
-            if(max($this->occurrence[$index]) == 4)
-            {
-                $this->score[$index] = $this->scoreChart["Four of a kind"];
-                $index += 1;
-                continue;
-            }
-
-            //Kolla FullHouse
-            if(end($this->occurrence[$index]) == 3 && prev($this->occurrence[$index]) == 2)
-            {
-                error_log(print_r("NU ÄR DET FULL HOUSE", true));
-                $this->score[$index] = $this->scoreChart["Full house"];
-                $index += 1;
-                continue;
-            }
-
-            
+        
             // Kolla om Stege
             if ($this->straight[$index] == true)
             {
@@ -87,33 +68,13 @@ class Score
                 continue;
             }
 
-            //Three
-            if(max($this->occurrence[$index]) == 3)
-            {
-                error_log(print_r("NU ÄR DET 3 VA FAN", true));
-                $this->score[$index] = $this->scoreChart["Three of a kind"];
-                $index += 1;
-                continue;
-            }
+            $this->CheckPairs($index);
 
-            //Two pairs
-            if (end($this->occurrence[$index]) == 2 && prev($this->occurrence[$index]) == 2)
+            if($this->score[$index] == false)
             {
-                error_log(print_r("NU ÄR DET TVÅ PAR", true));
-                $this->score[$index] = $this->scoreChart["Two pairs"];
-                $index += 1;
-                continue;
+                $this->score[$index] = $this->scoreChart["No hand"];
             }
-
-            //One pair
-            if(max($this->occurrence[$index]) == 2)
-            {
-                $this->score[$index] = $this->scoreChart["One pair"];
-                $index += 1;
-                continue;
-            }
-    
-            $this->score[$index] = $this->scoreChart["No hand"];
+            
             $index += 1;
         }
 
@@ -123,7 +84,7 @@ class Score
     }
 
 
-    /** @param array<array> $handsToCheck
+    /** @param array<array> $hand
      * @param int $index
      * Checks if same suit
      */
@@ -151,28 +112,32 @@ class Score
     }
 
     /** @param array<mixed> $hand
-     * @param bool $straight)
+     * @param bool $straight
+     * @param int $index
      * Checks score when all suits is the same
      */
-    private function whenFlush($hand, bool $straight): int
+    private function whenFlush($hand, bool $straight, int $index): void
     {   
         $valueTotal = array_sum($hand);
         
         //Kolla om Royal flush 
         if( $valueTotal == 60) {
-            return $this->scoreChart["Royal flush"];
+            $this->score[$index] = $this->scoreChart["Royal flush"];
+            return;
         }
 
         //Kolla stege
         if ( $straight == true)
         {
-            return $this->scoreChart["Straight flush"];
+            $this->score[$index] = $this->scoreChart["Straight flush"];
+            return;
         }
         //Annars Flush
-        return $this->scoreChart["Flush"];
+        $this->score[$index] = $this->scoreChart["Flush"];
+        return;
     }
 
-    /** @param array<array> $handsToCheck
+    /** @param array<array> $hand
      * @param int $index
      * Checks if straight
      */
@@ -218,7 +183,7 @@ class Score
         
     }
 
-    /** @param array<array> $handsToCheck
+    /** @param array<array> $hand
     * @param int $index
     * Check occurrence
     */
@@ -234,6 +199,43 @@ class Score
         $tempArray = array_count_values($tempArray);
         sort($tempArray);
         $this->occurrence[$index] = $tempArray;
+    }
+
+    /** @param int $index
+    * Check paris and score points
+    */
+    private function CheckPairs(int $index):void
+    {
+
+            if(max($this->occurrence[$index]) == 4)
+            {
+                $this->score[$index] = $this->scoreChart["Four of a kind"];
+                return;
+            }
+
+            if(end($this->occurrence[$index]) == 3 && prev($this->occurrence[$index]) == 2)
+            {
+                $this->score[$index] = $this->scoreChart["Full house"];
+                return;
+            }
+
+            if(max($this->occurrence[$index]) == 3)
+            {
+                $this->score[$index] = $this->scoreChart["Three of a kind"];
+                return;
+            }
+
+            if (end($this->occurrence[$index]) == 2 && prev($this->occurrence[$index]) == 2)
+            {
+                $this->score[$index] = $this->scoreChart["Two pairs"];
+                return;
+            }
+
+            if(max($this->occurrence[$index]) == 2)
+            {
+                $this->score[$index] = $this->scoreChart["One pair"];
+                return;
+            }
     }
 
 }
