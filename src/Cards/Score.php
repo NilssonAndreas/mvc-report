@@ -27,6 +27,7 @@ class Score
         "Three of a kind" => 10,
         "Two pairs" => 5,
         "One pair" => 2,
+        "No hand" => 0,
     ];
 
     /** @var array<mixed> */
@@ -60,8 +61,7 @@ class Score
                 continue;
             }
 
-
-            // KOlla 4 i rad
+            // Kolla 4 i rad
             if(max($this->occurrence[$index]) == 4)
             {
                 $this->score[$index] = $this->scoreChart["Four of a kind"];
@@ -72,6 +72,7 @@ class Score
             //Kolla FullHouse
             if(end($this->occurrence[$index]) == 3 && prev($this->occurrence[$index]) == 2)
             {
+                error_log(print_r("NU ÄR DET FULL HOUSE", true));
                 $this->score[$index] = $this->scoreChart["Full house"];
                 $index += 1;
                 continue;
@@ -86,19 +87,34 @@ class Score
                 continue;
             }
 
-            //3
+            //Three
+            if(max($this->occurrence[$index]) == 3)
+            {
+                error_log(print_r("NU ÄR DET 3 VA FAN", true));
+                $this->score[$index] = $this->scoreChart["Three of a kind"];
+                $index += 1;
+                continue;
+            }
 
+            //Two pairs
+            if (end($this->occurrence[$index]) == 2 && prev($this->occurrence[$index]) == 2)
+            {
+                error_log(print_r("NU ÄR DET TVÅ PAR", true));
+                $this->score[$index] = $this->scoreChart["Two pairs"];
+                $index += 1;
+                continue;
+            }
 
-            //2
-
-
-            //1
-
-            // TEMP
-            $handScore = 10;
-            $this->score[$index] = $handScore;
+            //One pair
+            if(max($this->occurrence[$index]) == 2)
+            {
+                $this->score[$index] = $this->scoreChart["One pair"];
+                $index += 1;
+                continue;
+            }
+    
+            $this->score[$index] = $this->scoreChart["No hand"];
             $index += 1;
-            
         }
 
         error_log(print_r($this->score, true));
