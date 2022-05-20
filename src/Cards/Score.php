@@ -29,6 +29,9 @@ class Score
         "One pair" => 2,
     ];
 
+    /** @var array<mixed> */
+    protected array $occurrence;
+
 
     public function __construct()
     {
@@ -41,47 +44,64 @@ class Score
     public function checkScore($handsToCheck): array
     {
         $index = 0;
-        $this->checkSuit($handsToCheck);
-        $this->checkStraight($handsToCheck);
+        
         foreach($handsToCheck as $hand)
         {
-            
+            $this->checkSuit($hand, $index);
+            $this->checkStraight($hand, $index);
+            // Kolla om Färg
             if ($this->suits[$index] == true)
             {
                 $straightBool = $this->straight[$index];
                 $handScore = $this->whenFlush($hand, $straightBool);
                 $this->score[$index] = $handScore;
+                $index += 1;
                 continue;
             }
 
 
+            // KOlla 4 i rad
+
+
+            //Kolla FullHouse
+
+            
+            // Kolla om Stege
             if ($this->straight[$index] == true)
             {
-                $this->score[$index] = 15;
+                $this->score[$index] = $this->scoreChart["Straight"];
+                $index += 1;
                 continue;
             }
+
+            //3
+
+
+            //2
+
+
+            //1
 
             // TEMP
             $handScore = 10;
             $this->score[$index] = $handScore;
             $index += 1;
-            // error_log(print_r($handScore, true));
+            
         }
-        // error_log(print_r($this->score, true));
+
         error_log(print_r($this->score, true));
         return $this->score;
     }
 
 
     /** @param array<array> $handsToCheck
+     * @param int $index
      * Checks if same suit
      */
-    private function checkSuit($handsToCheck)
+    private function checkSuit($hand, int $index)
     {
         // FYLL MED ID OCH BOOL
-        $index = 0;
-        foreach($handsToCheck as $hand)
-        {
+        
             $tempArray = [];
             foreach($hand as $key => $value)
             {
@@ -95,50 +115,41 @@ class Score
             if(count($tempArray) == 1)
             {
                 $this->suits[$index] = true;
-                $index += 1;
             } else {
                 $this->suits[$index] = false;
-                $index += 1;
             }
-        }
+        
     }
 
     /** @param array<mixed> $hand
+     * @param bool $straight)
      * Checks score when all suits is the same
      */
     private function whenFlush($hand, bool $straight): int
     {   
-        $valueTotal = array_count_values($hand);
+        $valueTotal = array_sum($hand);
         
-        // foreach($hand as $card)
-        // {
-        //     $valueTotal += $card;
-        // }
-
         //Kolla om Royal flush 
         if( $valueTotal == 60) {
-            return 100;
+            return $this->scoreChart["Royal flush"];
         }
 
         //Kolla stege
         if ( $straight == true)
         {
-            error_log(print_r("NU------",true));
-            return 75;
+            return $this->scoreChart["Straight flush"];
         }
         //Annars Flush
-        return 20;
+        return $this->scoreChart["Flush"];
     }
 
     /** @param array<array> $handsToCheck
+     * @param int $index
      * Checks if straight
      */
-    private function checkStraight($handsToCheck)
+    private function checkStraight($hand, $index): void
     {
         
-        $outerIndex = 0;
-        foreach($handsToCheck as $hand)
-        {
             //Skapa array av värden
             $handIndex = 0;
             $tempArray = [];
@@ -152,9 +163,8 @@ class Score
             $tempArray = array_unique($tempArray);
             if( count($tempArray) != 5)
             {
-                $this->straight[$outerIndex] = false;
-                $outerIndex += 1;
-                continue;
+                $this->straight[$index] = false;
+                return;
             }
 
             // kolla om i rad
@@ -163,24 +173,31 @@ class Score
 
             if($maxValue - $minValue == 4)
             {
-                $this->straight[$outerIndex] = true;
-                $outerIndex += 1;
-                continue;
+                $this->straight[$index] = true;
+                return;
             }
             
             // Kolla om stege (A - 5)
             if($maxValue == 14 && array_sum($tempArray) == 28)
             {
-                $this->straight[$outerIndex] = true;
-                $outerIndex += 1;
-                continue;
+                $this->straight[$index] = true;
+                return;
             }
 
             // Ingen stege Hittad
-            $this->straight[$outerIndex] = false;
-            $outerIndex += 1;
-        }
+            $this->straight[$index] = false;
+        
     }
+
+    /** @param array<array> $handsToCheck
+    * @param int $index
+    * Check occurrence
+    */
+    private function findOccurrence($hand, $index)
+    {
+        
+    }
+
 }
 
 
