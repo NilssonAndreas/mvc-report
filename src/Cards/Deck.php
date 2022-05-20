@@ -61,5 +61,4 @@ class Deck
         $this->deck['A♣'] = 14;
         $this->deck['A♠'] = 14;
     }
-
 }
