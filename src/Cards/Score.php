@@ -49,6 +49,7 @@ class Score
         {
             $this->checkSuit($hand, $index);
             $this->checkStraight($hand, $index);
+            $this->findOccurrence($hand, $index);
             // Kolla om Färg
             if ($this->suits[$index] == true)
             {
@@ -61,9 +62,20 @@ class Score
 
 
             // KOlla 4 i rad
-
+            if(max($this->occurrence[$index]) == 4)
+            {
+                $this->score[$index] = $this->scoreChart["Four of a kind"];
+                $index += 1;
+                continue;
+            }
 
             //Kolla FullHouse
+            if(end($this->occurrence[$index]) == 3 && prev($this->occurrence[$index]) == 2)
+            {
+                $this->score[$index] = $this->scoreChart["Full house"];
+                $index += 1;
+                continue;
+            }
 
             
             // Kolla om Stege
@@ -90,6 +102,7 @@ class Score
         }
 
         error_log(print_r($this->score, true));
+        // error_log(print_r($this->occurrence, true));
         return $this->score;
     }
 
@@ -195,7 +208,16 @@ class Score
     */
     private function findOccurrence($hand, $index)
     {
-        
+        $handIndex = 0;
+        $tempArray = [];
+        foreach($hand as $card)
+        {
+            $tempArray[$handIndex] = $card;
+            $handIndex += 1;
+        }
+        $tempArray = array_count_values($tempArray);
+        sort($tempArray);
+        $this->occurrence[$index] = $tempArray;
     }
 
 }
