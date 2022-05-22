@@ -1,17 +1,26 @@
-{% extends "./proj/base.html.twig" %}
+{% extends "./proj/bg-base.html.twig" %}
 
 {% block title %}Result{% endblock %}
 
 {% block body %}
 {% set myLoopIndex = 1 %}
 
-<div class="result">
-    <div class="result-screen">
-        <h1>{{ result }}</h1>
+<div class="wrapper">
+   
+    <div class="score">
+        <h1> Total Score: {{ result }}</h1>
+        <table class="score-chart">
+            {% for key, value in hands %}
+            <tr>
+                <td> {{ key }} : {{value}}st</td>
+             </tr>
+            {% endfor %}
+         </table>
     </div>
 
-    <div class="post-form">
+    <div class="score">
         <form method="post">
+            <h1>Leaderboard</h1>
             <fieldset >
                 <div>
                     <div>
@@ -19,18 +28,11 @@
                         <p>
                             <label>Namn:
                                 <input type="text" name="namn" value="" required>
-                                
                             </label>
                         </p>
                         <p>
                             <label>Alias:
                                 <input type="text" name="alias" value="" required>
-                            </label>
-                        </p>
-                        <p>
-                            <label>Land:
-                                <input type="text" name="land" value="" required>
-                                
                             </label>
                         </p>
                     </div>
@@ -44,29 +46,8 @@
         </form>
     </div>
 
-    <div>
-        <table class="result-table">
-            
-            {% for index in hands|batch(5, " ") %}
+  
 
-                    {% for key,value in index %}
-                        
-                    <tr>
-                    {% for key,value in value %}
-                        {% if key|last == '♥' or key|last == '♦'  %}
-                        <td style="color: red ;">{{ key }}</td>
-                        {% else %}
-                        <td s>{{ key }}</td>
-                        {% endif %}
-                        
-                    {% endfor %}
-                    </tr>
-                    
-                    {% endfor %}
-                
-                
-            {% endfor %}
-        </table>
-    </div>
+
 </div>
 {% endblock %}

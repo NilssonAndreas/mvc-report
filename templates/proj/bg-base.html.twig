@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html class="bg-div">
+    
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
@@ -8,13 +9,13 @@
         {% endblock css %}
 
     </head>
-    <div class="bg-div">
+    
     <body>
         <header>
             <nav class="navbar">
                 <a href="{{ url("home") }}"> Home</a>
                 <a href="{{ url("proj-home") }}"> Square </a>
-                <a href="{{ url("proj-home") }}"> Leaderboard </a>
+                <a href="{{ url("leaderboard_show_all") }}"> Leaderboard </a>
                 <div class="animation start-home"></div>
             </nav>
         </header>
@@ -24,7 +25,7 @@
         {% endblock %}
         </div>
     </body>
-    </div>
-    {% include "footer.twig" %}
     
+    {% include "./proj/proj-footer.html.twig" %}
+   
 </html>

@@ -4,8 +4,12 @@ namespace App\Controller\proj;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Proj;
+use Doctrine\Persistence\ManagerRegistry;
+use App\Repository\ProjRepository;
 
 class ProjController extends AbstractController
 {
@@ -29,6 +33,7 @@ class ProjController extends AbstractController
         ];
         $session->set("myGame", $game);
         $session->set("card", $draw);
+        $session->set("done", false);
         return $this->render('proj/home.html.twig', $data);
     }
 
@@ -65,8 +70,10 @@ class ProjController extends AbstractController
      */
     public function start(string $id, SessionInterface $session): Response
     {
+
         $game = $session->get("myGame");
         $slot = $session->get("card");
+      
 
         $roundData = $game->round($id, $slot);
         $session->set("card", $roundData['card']);
@@ -81,23 +88,76 @@ class ProjController extends AbstractController
         return $this->render('proj/start.html.twig', $data);
     }
 
-    /**
-    * @Route(
-    * "/proj/result",
-    *  name="proj-result")
-    */
+   /**
+     * @Route(
+     *      "/proj/result",
+     *      name="proj-result",
+     *      methods={"GET","HEAD"}
+     * )
+     */
     public function result(SessionInterface $session): Response
     {
+        $done = $session->get("done");
         $game = $session->get("myGame");
-        $hands = $game->finnish();
+        if($done == false) {
+            $hands = $game->finnish();
+            $session->set("done", true);
+            $session->set("hands", $hands);
+        }
+        $hand = $session->get("hands");
         $board = $game->getBoard()->getBoard();
-        $score =  $game->getResult();
+        $score =  $game->getTotalScore();
         $data = [
             'title' => 'Resultat',
-            'hands' => $hands,
+            'hands' => $hand,
             'board' => $board,
             'result' => $score
         ];
         return $this->render('proj/result.html.twig', $data);
     }
+
+  /**
+     * @Route(
+     *      "/proj/result",
+     *      name="proj-result-process",
+     *      methods={"POST"}
+     * )
+     */
+    public function insertResult(Request $request, ManagerRegistry $doctrine, SessionInterface $session): Response
+    {
+        
+        $game = $session->get("myGame");
+        $score =  $game->getTotalScore();
+        $namn = $request->request->get('namn');
+        $alias  = $request->request->get('alias');
+        $entityManager = $doctrine->getManager();
+        
+        $proj = new Proj();
+    
+        $proj->setNamn($namn);
+        $proj->setAlias($alias);
+        $proj->setScore($score);
+
+        $entityManager->persist($proj);
+        $entityManager->flush();
+        return $this->redirectToRoute('leaderboard_show_all');
+    }
+
+    /**
+    * @Route("/proj/show", name="leaderboard_show_all")
+    */
+    public function showLeaderboard(
+        ProjRepository $projRepository
+    ): Response {
+        $leaderboard = $projRepository
+            ->findBy(array(), array('score' => 'DESC'));
+        ;
+
+        $data = [
+            'title' => 'Show Leaderboard',
+            'leaderboard' => $leaderboard
+        ];
+        return $this->render('proj/show.html.twig', $data);
+    }
+
 }

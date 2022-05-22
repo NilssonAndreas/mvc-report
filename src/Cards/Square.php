@@ -9,7 +9,7 @@ class Square
     protected $board;
     protected $card;
     protected $usedSlots;
-    protected $result;
+    protected $totalScore;
 
     public function __construct(Deck $newDeck, Board $newBoard, Score $newScore)
     {
@@ -34,9 +34,9 @@ class Square
     }
 
     /** @return int */
-    public function getResult(): int
+    public function getTotalScore(): int
     {
-        return $this->result;
+        return $this->totalScore;
     }
 
     /**
@@ -75,9 +75,9 @@ class Square
     {
         $hands = $this->getHands();
         $flatHands = $this->flattenHand($hands);
-        
-        $this->result = array_sum($this->score->checkScore($flatHands));
-        return $flatHands;
+        $this->totalScore = array_sum($this->score->checkScore($flatHands));
+        $scoreFrequency = $this->score->getScoreFrequency();
+        return $scoreFrequency;
     }
 
     /**

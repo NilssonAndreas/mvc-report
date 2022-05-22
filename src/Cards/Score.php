@@ -30,6 +30,21 @@ class Score
         "No hand" => 0,
     ];
 
+    /** @var array<string,int> */
+    protected array $scoreFrequency = [
+        "Royal flush" => 0,
+        "Straight flush" => 0,
+        "Four of a kind" => 0,
+        "Full house" => 0,
+        "Flush" => 0,
+        "Straight" => 0,
+        "Three of a kind" => 0,
+        "Two pairs" => 0,
+        "One pair" => 0,
+        "No hand" => 0,
+    ];
+    
+
     /** @var array<mixed> */
     protected array $occurrence;
 
@@ -62,6 +77,7 @@ class Score
             // Kolla om Stege
             if ($this->straight[$index] == true) {
                 $this->score[$index] = $this->scoreChart["Straight"];
+                $this->scoreFrequency["Straight"]++;
                 $index += 1;
                 continue;
             }
@@ -70,12 +86,22 @@ class Score
 
             if (! array_key_exists($index, $this->score )) {
                 $this->score[$index] = $this->scoreChart["No hand"];
+                $this->scoreFrequency["No hand"]++;
             }
 
             $index += 1;
         }
 
         return $this->score;
+    }
+
+    /**
+     * @return array<string,int>
+     * Returns ScoreFrequency
+     */
+    public function getScoreFrequency(): array
+    {
+        return $this->scoreFrequency;
     }
 
     /** @param array<mixed> $hand
@@ -111,16 +137,20 @@ class Score
         //Kolla om Royal flush
         if ($valueTotal == 60) {
             $this->score[$index] = $this->scoreChart["Royal flush"];
+            $this->scoreFrequency["Royal flush"]++;
+            
             return;
         }
 
         //Kolla stege
         if ($straight == true) {
             $this->score[$index] = $this->scoreChart["Straight flush"];
+            $this->scoreFrequency["Straight flush"]++;
             return;
         }
         //Annars Flush
         $this->score[$index] = $this->scoreChart["Flush"];
+        $this->scoreFrequency["Flush"]++;
         return;
     }
 
@@ -188,26 +218,31 @@ class Score
     {
         if (max($this->occurrence[$index]) == 4) {
             $this->score[$index] = $this->scoreChart["Four of a kind"];
+            $this->scoreFrequency["Four of a kind"]++;
             return;
         }
 
         if (end($this->occurrence[$index]) == 3 && prev($this->occurrence[$index]) == 2) {
             $this->score[$index] = $this->scoreChart["Full house"];
+            $this->scoreFrequency["Full house"]++;
             return;
         }
 
         if (max($this->occurrence[$index]) == 3) {
             $this->score[$index] = $this->scoreChart["Three of a kind"];
+            $this->scoreFrequency["Three of a kind"]++;
             return;
         }
 
         if (end($this->occurrence[$index]) == 2 && prev($this->occurrence[$index]) == 2) {
             $this->score[$index] = $this->scoreChart["Two pairs"];
+            $this->scoreFrequency["Two pairs"]++;
             return;
         }
 
         if (max($this->occurrence[$index]) == 2) {
             $this->score[$index] = $this->scoreChart["One pair"];
+            $this->scoreFrequency["One pair"]++;
             return;
         }
     }

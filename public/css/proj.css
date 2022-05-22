@@ -2,11 +2,14 @@ html {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
 }
-
-body {
-    background: rgb(22,36,0);
-    background: linear-gradient(90deg, rgba(22,36,0,1) 0%, rgba(11,121,9,1) 73%, rgba(2,124,11,1) 100%);
+.body {
+    min-height: 600px;
 }
+.normal {
+    background: rgb(22,36,0);
+    background: linear-gradient(90deg, rgb(0, 81, 6) 0%, rgba(11,121,9,1) 73%, rgba(2,124,11,1) 100%);
+}
+
 .bg-div {
     background: url("../img/sidepoker.jpg") no-repeat center center fixed; 
     -webkit-background-size: cover;
@@ -134,9 +137,15 @@ nav .start-blog, a:nth-child(3):hover~.animation {
 }
 
 .footer {
-    background-color: black;
+    background-color: rgb(5, 102, 20);
     color: blanchedalmond;
     padding: 20px;
+    display: flex;
+    justify-content: space-around;
+
+}
+.footer a:visited {
+    color: inherit;
 }
 
 .wrapper {
@@ -190,21 +199,44 @@ nav .start-blog, a:nth-child(3):hover~.animation {
 .sm-img-circle {
     max-width: 100px;
     border-radius: 50%;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+
+.sm-img-circle:hover {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
 }
 
 .inside-box {
     padding: 10px;
 }
 
-.result-table {
-    border-spacing: 2px;
-    border-collapse: separate;
-    text-align: center;
-}
-
-.result-table td{
-    border: 2px solid black;
-    width: 20px;
-    height: 20px;
-    background-color: #b8c1b8;
-}
+#leaderboard {
+    margin-top: 3%;
+    margin-bottom: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    color: bisque;
+  }
+  
+  #leaderboard td, #leaderboard th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    background-color: rgb(5, 102, 20);
+  }
+  
+  #leaderboard tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #leaderboard tr:hover {background-color: rgb(222, 150, 150);}
+  
+  #leaderboard th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
