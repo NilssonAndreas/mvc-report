@@ -43,7 +43,7 @@ class Score
         "One pair" => 0,
         "No hand" => 0,
     ];
-    
+
 
     /** @var array<mixed> */
     protected array $occurrence;
@@ -84,7 +84,7 @@ class Score
 
             $this->CheckPairs($index);
 
-            if (! array_key_exists($index, $this->score )) {
+            if (! array_key_exists($index, $this->score)) {
                 $this->score[$index] = $this->scoreChart["No hand"];
                 $this->scoreFrequency["No hand"]++;
             }
@@ -138,7 +138,7 @@ class Score
         if ($valueTotal == 60) {
             $this->score[$index] = $this->scoreChart["Royal flush"];
             $this->scoreFrequency["Royal flush"]++;
-            
+
             return;
         }
 

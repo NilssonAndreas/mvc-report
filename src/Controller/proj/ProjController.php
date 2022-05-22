@@ -70,10 +70,9 @@ class ProjController extends AbstractController
      */
     public function start(string $id, SessionInterface $session): Response
     {
-
         $game = $session->get("myGame");
         $slot = $session->get("card");
-      
+
 
         $roundData = $game->round($id, $slot);
         $session->set("card", $roundData['card']);
@@ -88,18 +87,18 @@ class ProjController extends AbstractController
         return $this->render('proj/start.html.twig', $data);
     }
 
-   /**
-     * @Route(
-     *      "/proj/result",
-     *      name="proj-result",
-     *      methods={"GET","HEAD"}
-     * )
-     */
+    /**
+      * @Route(
+      *      "/proj/result",
+      *      name="proj-result",
+      *      methods={"GET","HEAD"}
+      * )
+      */
     public function result(SessionInterface $session): Response
     {
         $done = $session->get("done");
         $game = $session->get("myGame");
-        if($done == false) {
+        if ($done == false) {
             $hands = $game->finnish();
             $session->set("done", true);
             $session->set("hands", $hands);
@@ -116,24 +115,23 @@ class ProjController extends AbstractController
         return $this->render('proj/result.html.twig', $data);
     }
 
-  /**
-     * @Route(
-     *      "/proj/result",
-     *      name="proj-result-process",
-     *      methods={"POST"}
-     * )
-     */
+    /**
+       * @Route(
+       *      "/proj/result",
+       *      name="proj-result-process",
+       *      methods={"POST"}
+       * )
+       */
     public function insertResult(Request $request, ManagerRegistry $doctrine, SessionInterface $session): Response
     {
-        
         $game = $session->get("myGame");
         $score =  $game->getTotalScore();
         $namn = $request->request->get('namn');
         $alias  = $request->request->get('alias');
         $entityManager = $doctrine->getManager();
-        
+
         $proj = new Proj();
-    
+
         $proj->setNamn($namn);
         $proj->setAlias($alias);
         $proj->setScore($score);
@@ -159,5 +157,4 @@ class ProjController extends AbstractController
         ];
         return $this->render('proj/show.html.twig', $data);
     }
-
 }
