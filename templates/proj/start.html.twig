@@ -8,7 +8,7 @@
 
     <div class="information">
         {% if slots > 0 %}
-        <h1>Kort att lägga:</h1>
+        <h1 style="color: bisque;">Kort att lägga:</h1>
         <div class="info-div">
             {% for key, value in card %}
             {% if key|last == '♥' or key|last == '♦'  %}
@@ -22,6 +22,7 @@
             {% endfor %}
         </div>
         {% else %}
+        <h1 style="color: bisque;">Bra jobbat!</h1>
         <button class="start-b"><a href="{{ url("proj-result") }}"> Räkna ut poäng</a></button>
         {% endif %}
     </div>

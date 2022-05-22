@@ -125,6 +125,7 @@ class Square
     {
         $index = 0;
         $newHand = [];
+
         foreach ($hand as $item) {
             $flat = array_merge(...$hand[$index]);
             $newHand[$index] = $flat;
