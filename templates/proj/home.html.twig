@@ -1,29 +1,84 @@
-{% extends "./proj/base.html.twig" %}
+{% extends "./proj/bg-base.html.twig" %}
 
-{% block title %}{% endblock %}
+{% block title %} Square{% endblock %}
 
 {% block body %}
 
-<div>
-<h2 class="center">{{title}}</h2>
+
+
 <div class="wrapper">
-    <div class="regler">
-        <h3>Regler</h3>
-        <p>
-            Målet med spelet är att komma så nära 21 poäng som möjligt.<br>
-            Du drar ett kort åt gången. Tryck stopp när du känner dig nöjd.<br>
-            Efter det är det bankens tur att göra samma sak.<br>
-            Hamnar du över 21 poäng så förlorar du. <br>
-            Vid samma poäng så vinner banken
-        </p>
+        
+    <div class="score">
+            <h1 class="center">Poängtabell</h1>
+            <table class="score-chart">
+                <tr>
+                    <th>Hand</th>
+                    <th>Poäng</th>
+                </tr>
+                <tr>
+                    <td>Royal Flush</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>Straight Flush</td>
+                    <td>75</td>
+                </tr>
+                <tr>
+                    <td>Four of a kid</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>Full house</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>Flush</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>Straight</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>Three of a kind</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>Two pairs</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>One pair</td>
+                    <td>2</td>
+                </tr>
+            </table>
     </div>
 
-    <div class="korten">
+    <div class="regler">
+        <h1 class="center">Regler</h3>
+        <p>
+            Korten placeras ett i taget och när ett kort väl har placerats på rutnätet kan det inte längre flyttas. När alla 25 korten har delats ut, poängsätts händerna bildade på 5 kort  horisontellt i rader eller vertikalt i kolumner
+        </p>
     </div>
-</div>
-<div class="center">
-    <button class="start-b"><a href="{{ url("proj-start",{'id': '0'})}}"> Start</a></button>
-    <button class="start-b"><a href="{{ url("proj-doc") }}"> Doc</a></button>
+    <div class="regler">
+        
+        <div class="img-holder">
+            <div class="inside-box">
+                <h3 class="center">Play</h3>
+                <a href="{{ url("proj-start",{'id': '0'})}}">
+                    <img class="sm-img-circle" src="{{ asset("img/play.jpg") }}" alt="Play button">
+                </a>
+            </div>
+            <div class="inside-box">
+                <h3 class="center">Doc</h3>
+                <a href="{{ url("proj-doc") }}">
+                    <img class="sm-img-circle" src="{{ asset("img/doc.png") }}" alt="Play button">
+                </a>
+            </div>
+        </div>
+        
+    </div>
+        
 </div>
 
 {% endblock %}

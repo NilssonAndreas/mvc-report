@@ -91,10 +91,12 @@ class ProjController extends AbstractController
         $game = $session->get("myGame");
         $hands = $game->finnish();
         $board = $game->getBoard()->getBoard();
+        $score =  $game->getResult();
         $data = [
             'title' => 'Resultat',
-            'score' => $hands,
+            'hands' => $hands,
             'board' => $board,
+            'result' => $score
         ];
         return $this->render('proj/result.html.twig', $data);
     }

@@ -1,22 +1,56 @@
 {% extends "./proj/base.html.twig" %}
 
-{% block title %}{% endblock %}
+{% block title %}Result{% endblock %}
 
 {% block body %}
 {% set myLoopIndex = 1 %}
 
-<h2 class="center">{{title}}</h2>
 <div class="result">
+    <div class="result-screen">
+        <h1>{{ result }}</h1>
+    </div>
+
+    <div class="post-form">
+        <form method="post">
+            <fieldset >
+                <div>
+                    <div>
+                        <legend>Lägg till på leaderboard</legend>
+                        <p>
+                            <label>Namn:
+                                <input type="text" name="namn" value="" required>
+                                
+                            </label>
+                        </p>
+                        <p>
+                            <label>Alias:
+                                <input type="text" name="alias" value="" required>
+                            </label>
+                        </p>
+                        <p>
+                            <label>Land:
+                                <input type="text" name="land" value="" required>
+                                
+                            </label>
+                        </p>
+                    </div>
+                </div>
+                
+                    <p class="center">
+                        <input type="submit" value="Lägg till">
+                    </p>
+               
+            </fieldset>
+        </form>
+    </div>
+
     <div>
-        <table class="deck-table">
+        <table class="result-table">
             
-            {% for index in score|batch(5, " ") %}
+            {% for index in hands|batch(5, " ") %}
 
                     {% for key,value in index %}
-                    <tr>
-                        <th colspan="5">Hand{{myLoopIndex}}</th>
-                        {% set myLoopIndex = myLoopIndex + 1 %}
-                    </tr>
+                        
                     <tr>
                     {% for key,value in value %}
                         {% if key|last == '♥' or key|last == '♦'  %}

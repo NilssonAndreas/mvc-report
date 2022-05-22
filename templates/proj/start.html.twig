@@ -1,24 +1,26 @@
 {% extends "./proj/base.html.twig" %}
 
-{% block title %}{% endblock %}
+{% block title %} Play{% endblock %}
 
 {% block body %}
-<h1 class="center">{{ title }}</h1>
 
 <div class="gamecontainer">
 
     <div class="information">
         {% if slots > 0 %}
-        <p>
+        <h1>Kort att lägga:</h1>
+        <div class="info-div">
             {% for key, value in card %}
             {% if key|last == '♥' or key|last == '♦'  %}
-            <h1 style="color: red ;">{{key}}</h1>
+            <h1 style="color: red ;">
+                {{key}}</h1> 
+    
             {% else %}
             <h1>{{key}}</h1>
             {% endif %}
                 
             {% endfor %}
-        </p>
+        </div>
         {% else %}
         <button class="start-b"><a href="{{ url("proj-result") }}"> Räkna ut poäng</a></button>
         {% endif %}
@@ -31,13 +33,13 @@
                 <tr>
                     {% for key, value in index %}
                         {% if value == " " %}
-                        <td><a href="{{loop.parent.loop.index0 * 5 + loop.index}}"></a></td>
+                        <td ><a href="{{loop.parent.loop.index0 * 5 + loop.index}}"></a></td>
                         {% else %}
                             {% for key, value in value %}
                                 {% if key|last == '♥' or key|last == '♦'  %}
-                                <td style="color: red ;">{{ key }}</td>
+                                <td  style="color: red ;">{{ key }}</td>
                                 {% else %}
-                                <td s>{{ key }}</td>
+                                <td >{{ key }}</td>
                                 {% endif %}
                                
                             {% endfor %}

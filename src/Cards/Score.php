@@ -14,7 +14,7 @@ class Score
     protected array $straight;
 
     /** @var array<int,int> */
-    protected array $score;
+    protected array $score = [];
 
     /** @var array<string,int> */
     protected array $scoreChart = [
@@ -68,15 +68,13 @@ class Score
 
             $this->CheckPairs($index);
 
-            if ($this->score[$index] == false) {
+            if (! array_key_exists($index, $this->score )) {
                 $this->score[$index] = $this->scoreChart["No hand"];
             }
 
             $index += 1;
         }
 
-        error_log(print_r($this->score, true));
-        // error_log(print_r($this->occurrence, true));
         return $this->score;
     }
 
