@@ -7,6 +7,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Suppress all rules containing "Missing" in this
+ * class
+ *
+ * @SuppressWarnings("Missing")
+ */
 class GameController extends AbstractController
 {
     /**

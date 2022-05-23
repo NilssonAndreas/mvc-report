@@ -16,6 +16,12 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Proj[]    findAll()
  * @method Proj[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
+/**
+ * This will suppress all the PMD warnings in
+ * this class.
+ *
+ * @SuppressWarnings(PHPMD)
+ */
 class ProjRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)

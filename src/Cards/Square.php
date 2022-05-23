@@ -2,6 +2,13 @@
 
 namespace App\Cards;
 
+/**
+ * Suppress all rules containing "Unused or short" in this
+ * class
+ *
+ * @SuppressWarnings("Unused")
+ * @SuppressWarnings("Short")
+ */
 class Square
 {
     protected object $deck;

@@ -10,6 +10,12 @@ use App\Entity\Leaderboard;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Repository\LeaderboardRepository;
 
+/**
+ * This will suppress all the PMD warnings in
+ * this class.
+ *
+ * @SuppressWarnings(PHPMD)
+ */
 class LeaderboardController extends AbstractController
 {
     #[Route('/leaderboard', name: 'app_leaderboard')]

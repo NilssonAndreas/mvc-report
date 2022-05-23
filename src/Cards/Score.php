@@ -2,6 +2,12 @@
 
 namespace App\Cards;
 
+/**
+ * Suppress all rules containing "Unused" in this
+ * class
+ *
+ * @SuppressWarnings("Unused")
+ */
 class Score
 {
     // /** @var array<mixed> */
@@ -121,7 +127,7 @@ class Score
             $this->suits[$index] = true;
             return;
         }
-        
+
         $this->suits[$index] = false;
         
     }

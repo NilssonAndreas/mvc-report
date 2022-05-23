@@ -2,6 +2,12 @@
 
 namespace App\Cards;
 
+/**
+ * Suppress all rules containing "Unused" in this
+ * class
+ *
+ * @SuppressWarnings("Unused")
+ */
 class Player
 {
     protected $hand;

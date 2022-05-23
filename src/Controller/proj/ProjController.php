@@ -11,6 +11,13 @@ use App\Entity\Proj;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Repository\ProjRepository;
 
+/**
+ * Suppress all rules containing "Missing" in this
+ * class
+ *
+ * @SuppressWarnings("Missing")
+ * @SuppressWarnings("Short")
+ */
 class ProjController extends AbstractController
 {
     /**

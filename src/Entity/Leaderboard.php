@@ -6,6 +6,12 @@ use App\Repository\LeaderboardRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: LeaderboardRepository::class)]
+/**
+ * This will suppress all the PMD warnings in
+ * this class.
+ *
+ * @SuppressWarnings(PHPMD)
+ */
 class Leaderboard
 {
     #[ORM\Id]

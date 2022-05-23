@@ -6,6 +6,12 @@ use App\Repository\ProjRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ProjRepository::class)]
+/**
+ * This will suppress all the PMD warnings in
+ * this class.
+ *
+ * @SuppressWarnings(PHPMD)
+ */
 class Proj
 {
     #[ORM\Id]

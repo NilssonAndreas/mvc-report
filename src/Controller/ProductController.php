@@ -9,6 +9,12 @@ use App\Entity\Product;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Repository\ProductRepository;
 
+/**
+ * This will suppress all the PMD warnings in
+ * this class.
+ *
+ * @SuppressWarnings(PHPMD)
+ */
 class ProductController extends AbstractController
 {
     #[Route('/product', name: 'app_product')]

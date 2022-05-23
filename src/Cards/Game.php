@@ -2,6 +2,12 @@
 
 namespace App\Cards;
 
+/**
+     * This will suppress UnusedLocalVariable
+     * warnings in this method
+     *
+     * @SuppressWarnings(PHPMD.MissingImport)
+     */
 class Game
 {
     protected $player;
