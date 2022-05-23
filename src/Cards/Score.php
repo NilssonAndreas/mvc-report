@@ -14,7 +14,7 @@ class Score
     private array $straight;
 
     /** @var array<int,int> */
-    private array $score = [];
+    private array $score;
 
     /** @var array<string,int> */
     protected array $scoreChart = [
@@ -51,6 +51,7 @@ class Score
 
     public function __construct()
     {
+        $this->score = [];
     }
 
     /** @param array<mixed> $handsToCheck
@@ -90,7 +91,6 @@ class Score
 
             $index += 1;
         }
-
         return $this->score;
     }
 
@@ -165,7 +165,7 @@ class Score
         $tempArray = [];
         foreach ($hand as $value) {
             $tempArray[$handIndex] = $value;
-            $handIndex +=1;
+            $handIndex += 1;
         }
 
         // Kolla om 5 olika

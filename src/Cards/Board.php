@@ -10,7 +10,7 @@ class Board
 
     public function __construct()
     {
-        for ($i = 1 ; $i < 26; $i++) {
+        for ($i = 1; $i < 26; $i++) {
             $this->board[$i] = " ";
             $this->slotsLeft += 1;
         }
