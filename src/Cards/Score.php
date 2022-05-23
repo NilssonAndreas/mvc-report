@@ -129,7 +129,6 @@ class Score
         }
 
         $this->suits[$index] = false;
-        
     }
 
     /** @param array<mixed> $hand

@@ -60,16 +60,45 @@ class ProjController extends AbstractController
     /**
      * @Route(
      *      "/proj/reset",
-     *      name="reset")
+     *      name="reset",
+     *      methods={"GET","HEAD"},
+     * )
      */
     public function reset(): Response
     {
-        //SHOULD RESET ORM DATABASE
-        // BARA ANVÄNDA EN TABLE KÖRA DROP TABLE?
         $data = [
             'title' => 'reset'
         ];
-        return $this->render('proj/about.html.twig', $data);
+        return $this->render('proj/reset.html.twig', $data);
+    }
+
+
+    /**
+       * @Route(
+       *      "/proj/reset",
+       *      name="proj-reset-process",
+       *      methods={"POST"},
+       * )
+       */
+    public function resetPost(ManagerRegistry $doctrine): Response
+    {
+        //SHOULD RESET ORM DATABASE
+        // BARA ANVÄNDA EN TABLE KÖRA DROP TABLE?
+        $entityManager = $doctrine->getManager();
+        $leaderboard = $entityManager->getRepository(Proj::class)->findAll();
+
+        if (!$leaderboard) {
+            throw $this->createNotFoundException(
+                'No enties found '
+            );
+        }
+
+        foreach ($leaderboard as $item) {
+            $entityManager->remove($item);
+        }
+
+        $entityManager->flush();
+        return $this->redirectToRoute('leaderboard_show_all');
     }
 
     /**
