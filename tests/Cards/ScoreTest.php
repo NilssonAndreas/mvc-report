@@ -27,7 +27,6 @@ class ScoreTest extends TestCase
     {
         $this->assertClassHasAttribute('score', Score::class);
         $this->assertClassHasAttribute('scoreChart', Score::class);
-        $this->assertClassHasAttribute('hands', Score::class);
         $this->assertClassHasAttribute('scoreFrequency', Score::class);
         $this->assertClassHasAttribute('suits', Score::class);
         $this->assertClassHasAttribute('straight', Score::class);

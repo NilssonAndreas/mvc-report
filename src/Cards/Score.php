@@ -142,7 +142,7 @@ class Score
         }
 
         //Kolla stege
-        if ($straight == true) {
+        if ($straight === true) {
             $this->score[$index] = $this->scoreChart["Straight flush"];
             $this->scoreFrequency["Straight flush"]++;
             return;
