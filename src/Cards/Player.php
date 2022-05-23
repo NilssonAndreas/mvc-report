@@ -10,7 +10,7 @@ class Player
 
     public function __construct()
     {
-        $this->hand = new \App\Cards\Hand();
+        $this->hand = new Hand();
         $this->score = 0;
     }
 
@@ -45,7 +45,7 @@ class Player
     {
         $tempScore = 0;
         $myHand = $this->getCards();
-        foreach ($myHand as $key => $value) {
+        foreach ($myHand as $dummy => $value) {
             $tempScore += $value;
         }
         $this->score = $tempScore;

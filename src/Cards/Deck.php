@@ -9,7 +9,7 @@ class Deck
 
     public function __construct()
     {
-        $newDeck = new \App\Cards\Card();
+        $newDeck = new Card();
         $this->deck = $newDeck->getSet();
     }
 
@@ -47,7 +47,7 @@ class Deck
 
     public function reset(): void
     {
-        $newDeck = new \App\Cards\Card();
+        $newDeck = new Card();
         $this->deck = $newDeck->getSet();
     }
 

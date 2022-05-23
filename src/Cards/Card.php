@@ -5,10 +5,10 @@ namespace App\Cards;
 class Card
 {
     /** @var array<string> */
-    protected array $FULL_SET = [];
+    protected array $fullSett = [];
 
     /** @var array<string> */
-    protected array $SUITS = [
+    protected array $suits = [
         "♥",
         "♦",
         "♣",
@@ -16,7 +16,7 @@ class Card
     ];
 
     /** @var array<int|string, int> */
-    protected array $RANKS = [
+    protected array $ranks = [
             "A" => 1,
             "2" => 2,
             "3" => 3,
@@ -34,9 +34,9 @@ class Card
 
     public function __construct()
     {
-        foreach ($this->SUITS as $suit) {
-            foreach ($this->RANKS as $key => $value) {
-                $this->FULL_SET["{$key}{$suit}"] = $value;
+        foreach ($this->suits as $suit) {
+            foreach ($this->ranks as $key => $value) {
+                $this->fullSett["{$key}{$suit}"] = $value;
             }
         }
     }
@@ -44,18 +44,18 @@ class Card
     /** @return array<string> */
     public function getSet(): array
     {
-        return $this->FULL_SET;
+        return $this->fullSett;
     }
 
     /** @return array<string> */
     public function getSuits(): array
     {
-        return $this->SUITS;
+        return $this->suits;
     }
 
     /** @return  array<int|string, int> */
     public function getRanks(): array
     {
-        return $this->RANKS;
+        return $this->ranks;
     }
 }

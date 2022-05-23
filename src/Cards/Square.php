@@ -116,7 +116,6 @@ class Square
         return $hands;
     }
 
-
     /**
      * @return array<array>
      * flattens array
@@ -126,7 +125,7 @@ class Square
         $index = 0;
         $newHand = [];
 
-        foreach ($hand as $item) {
+        foreach ($hand as $dummy) {
             $flat = array_merge(...$hand[$index]);
             $newHand[$index] = $flat;
             $index += 1;

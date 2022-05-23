@@ -82,7 +82,7 @@ class Score
                 continue;
             }
 
-            $this->CheckPairs($index);
+            $this->checkPairs($index);
 
             if (! array_key_exists($index, $this->score)) {
                 $this->score[$index] = $this->scoreChart["No hand"];
@@ -110,7 +110,7 @@ class Score
     private function checkSuit($hand, int $index): void
     {
         $tempArray = [];
-        foreach ($hand as $key => $value) {
+        foreach ($hand as $key => $dummy) {
             $suit = substr($key, -1);
             if (in_array($suit, $tempArray)) {
                 break;
@@ -119,9 +119,11 @@ class Score
         }
         if (count($tempArray) == 1) {
             $this->suits[$index] = true;
-        } else {
-            $this->suits[$index] = false;
+            return;
         }
+        
+        $this->suits[$index] = false;
+        
     }
 
     /** @param array<mixed> $hand
@@ -213,7 +215,7 @@ class Score
     /** @param int $index
     * Check paris and score points
     */
-    private function CheckPairs(int $index): void
+    private function checkPairs(int $index): void
     {
         if (max($this->occurrence[$index]) == 4) {
             $this->score[$index] = $this->scoreChart["Four of a kind"];

@@ -150,10 +150,7 @@ class ScoreTest extends TestCase
         $straight = $reflector->getProperty( 'straight' );
 		$straight->setAccessible( true );
         $score->checkScore($testArray);
-        $preScore = $score->getScoreFrequency();
-
 		$this->assertEquals( $correctSuitsArray, $suits->getValue( $score ) ); 
-		
 		$this->assertEquals( $correctStraightArray, $straight->getValue( $score ) ); 
 
      

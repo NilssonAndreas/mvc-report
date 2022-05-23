@@ -1,25 +1,55 @@
+{% extends "./proj/bg-base.html.twig" %}
 
-<h1>About</h1>
-<p>
-    som berättar någorlunda utförligt om ditt projekt och vad det handlar om.
-</p>
+{% block title %} Square{% endblock %}
 
-<h1>dokumentation</h1>
-<p>
-    Länk till dokumentationen som är genererad via phpdoc.
-    Länk till rapporten från phpmetrics.
-    Länk till ditt GitHub repo.
-    Länk till Scrutinizer för ditt repo.
-</p>
+{% block body %}
 
-<h1>Summering</h1>
-<p>
-    summering där du berättar om projektets kodkvalitet. Berätta vilka eventuella åtgärder du gjort för att kvalitetssäkra projektet och hur du jobbat med kodkvaliteten och vilka verktyg du använt. Har du fokuserat på några speciella saker, verktyg eller metrics, så kan du berätta om dem.
-</p>
+<div class="col-wrapper">
 
+    <div class="info-col">
+        <h1>Inledning</h1>
+        <p>
+            Det här projektet handlar om att skriva bra och hållbar kod med hjälp av mvc mönstret. <br>
+            Jag valde att göra ett spel som heter Poker Square, till det finns även en leaderboard som är implementerad med hjälp av ORM. 
+        </p>
+        <p>
+            Spelet får ut på att placera korten ett i taget på ett rutnätet. När alla 25 korten har delats ut, poängsätts händerna bildade på 5 kort horisontellt i rader eller vertikalt i kolumner 
+        </p>
+    </div>
 
-<h1>ATT GÖRA:</h1>
-<p>
-    GIT: README.md // förklara kort om repot
-    Din about-sida skall innehålla en länk till GitHub (eller motsvarande).
-</p>
+    <div class="info-col">
+        <h1>Dokumentation</h1>
+        <p>
+            Länk till dokumentationen som är genererad via phpdoc.
+            <a href="{{ absolute_url("http://www.student.bth.se/~annt21/dbwebb-kurser/mvc/me/report/docs/metrics/") }}">Här!</a>
+        </p>
+        <p>
+            Länk till rapporten från phpmetrics.
+            <a href="{{ absolute_url("http://www.student.bth.se/~annt21/dbwebb-kurser/mvc/me/report/docs/api/") }}">Här!</a>
+        </p>
+        <p>
+             Länk till GitHub repo.
+             <a href="https://github.com/NilssonAndreas/mvc-report.git"> Här!</a>
+        </p>
+        <p>
+            Länk till Scrutinizer.
+            <a href="{{ absolute_url("https://scrutinizer-ci.com/g/NilssonAndreas/mvc-report/?branch=main") }}">Här!</a>
+        </p>
+
+    </div>
+
+    <div class="info-col">
+        <h1>Summering</h1>
+        <p>
+           
+            kodkvaliteten för projektet är god. Den enda klassen som kan behöva lite översyn är Score. Klassen har en aning hög komplexitet och är en aning svår att skriva tester till.<br> Komplexiteten är hög tack vara uträkningarna för vilken hand man har. Möjligen finns det smartare sätt att kolla det på än vad jag kom fram till. Ett alternativ hade kanske varit att använda lookup tables men det kändes inte så nödvändigt när det inte ska vara så många som spelar samtidigt.<br>
+            I klassen använder jag många privata metoder vilket gjorde det svårt med testerna.<br>
+            Jag har jobbat med kodkvaliteten genom att generera rapporter med Scrutinizer och phpmetrics. Utefter rapporterna har jag ändrat delar i koden för att få den minde komplex samt åtgärdat issuse som ej använd kod och variabler. <br>
+            Jag försökte att hålla uppe maintainabillity genom dockblock kommentarer.<br>
+            Jag har även skrivit tester för mina klasser och har en coverage på 91.04% på klasserna i /Cards
+
+        </p>
+    </div>
+
+</div>
+{% endblock %}
