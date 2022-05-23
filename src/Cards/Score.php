@@ -61,7 +61,7 @@ class Score
     public function checkScore($handsToCheck): array
     {
         $index = 0;
-
+        
         foreach ($handsToCheck as $hand) {
             $this->checkSuit($hand, $index);
             $this->checkStraight($hand, $index);

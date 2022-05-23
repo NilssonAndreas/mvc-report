@@ -152,7 +152,7 @@ class ProjController extends AbstractController
         ;
 
         $data = [
-            'title' => 'Show Leaderboard',
+            'title' => 'Leaderboard',
             'leaderboard' => $leaderboard
         ];
         return $this->render('proj/show.html.twig', $data);

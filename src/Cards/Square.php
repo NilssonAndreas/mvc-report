@@ -4,12 +4,12 @@ namespace App\Cards;
 
 class Square
 {
-    protected $deck;
-    protected $score;
-    protected $board;
+    protected object $deck;
+    protected object $score;
+    protected object $board;
     protected $card;
     protected $usedSlots;
-    protected $totalScore;
+    protected int $totalScore = 0;
 
     public function __construct(Deck $newDeck, Board $newBoard, Score $newScore)
     {

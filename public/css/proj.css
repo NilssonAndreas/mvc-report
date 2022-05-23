@@ -240,3 +240,8 @@ nav .start-blog, a:nth-child(3):hover~.animation {
     background-color: #04AA6D;
     color: white;
   }
+  #leaderboard caption {
+      font-size: xx-large;
+      font-weight: bolder;
+      text-shadow: 5px 0 0 black;
+  }
