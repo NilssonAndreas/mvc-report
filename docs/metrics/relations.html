@@ -49,7 +49,7 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2022-05-11 09:34:57        , with PHPMetrics v2.8.1 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2022-05-23 12:18:50        , with PHPMetrics v2.8.1 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
@@ -185,6 +185,12 @@
                         Package relations
                     </a>
                 </li>
+                                <li>
+                    <a href="git.html">
+                        <img src="images/logo-git.png" alt="">
+                        Git
+                    </a>
+                </li>
                                 <!--<li>
                     <a href="all.html">
                         <svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24"
@@ -247,6 +253,11 @@
 
     var relations = [
     {
+        "name": "\\App\\Cards\\Board",
+        "size": 3000,
+        "relations": []
+    },
+    {
         "name": "\\App\\Cards\\Card",
         "size": 3000,
         "relations": []
@@ -283,6 +294,26 @@
     },
     {
         "name": "\\App\\Cards\\Hand",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Cards\\Score",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Cards\\Square",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\newBoard",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\newScore",
         "size": 3000,
         "relations": []
     },
@@ -503,6 +534,38 @@
             "\\Doctrine\\Bundle\\DoctrineBundle\\Repository\\ServiceEntityRepository",
             "\\Doctrine\\Persistence\\ManagerRegistry",
             "\\App\\Entity\\Product"
+        ]
+    },
+    {
+        "name": "\\App\\Controller\\proj\\ProjController",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "\\App\\Cards\\Board",
+            "\\App\\Cards\\Deck",
+            "\\App\\Cards\\Score",
+            "\\App\\Cards\\Square",
+            "\\Symfony\\Component\\Routing\\Annotation\\Route",
+            "\\Symfony\\Component\\HttpFoundation\\Request",
+            "\\Doctrine\\Persistence\\ManagerRegistry",
+            "\\App\\Entity\\Proj",
+            "\\App\\Repository\\ProjRepository"
+        ]
+    },
+    {
+        "name": "\\App\\Entity\\Proj",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Repository\\ProjRepository",
+        "size": 3000,
+        "relations": [
+            "\\Doctrine\\Bundle\\DoctrineBundle\\Repository\\ServiceEntityRepository",
+            "\\Doctrine\\Persistence\\ManagerRegistry",
+            "\\App\\Entity\\Proj"
         ]
     },
     {

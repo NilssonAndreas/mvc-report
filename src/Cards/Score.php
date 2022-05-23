@@ -4,17 +4,17 @@ namespace App\Cards;
 
 class Score
 {
-    /** @var array<mixed> */
-    protected array $hands;
+    // /** @var array<mixed> */
+    // private array $hands;
 
     /** @var array<int,bool> */
-    protected array $suits;
+    private array $suits;
 
     /** @var array<int,bool> */
-    protected array $straight;
+    private array $straight;
 
     /** @var array<int,int> */
-    protected array $score = [];
+    private array $score = [];
 
     /** @var array<string,int> */
     protected array $scoreChart = [
@@ -46,12 +46,11 @@ class Score
 
 
     /** @var array<mixed> */
-    protected array $occurrence;
+    private array $occurrence;
 
 
     public function __construct()
     {
-        $this->hands = [];
     }
 
     /** @param array<mixed> $handsToCheck
@@ -61,7 +60,7 @@ class Score
     public function checkScore($handsToCheck): array
     {
         $index = 0;
-        
+
         foreach ($handsToCheck as $hand) {
             $this->checkSuit($hand, $index);
             $this->checkStraight($hand, $index);

@@ -152,8 +152,3 @@ class SquareTest extends TestCase
 
 
 }
-
-        // "♥",
-        // "♦",
-        // "♣",
-        // "♠",

@@ -58,7 +58,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Cards\\Deck\u003A\u003AshuffleDeck\u0028\u0029",
             "name": "shuffleDeck",
-            "summary": "",
+            "summary": "Shuffles\u0020deck.",
             "url": "classes/App-Cards-Deck.html#method_shuffleDeck"
         },                {
             "fqsen": "\\App\\Cards\\Deck\u003A\u003Adraw\u0028\u0029",
@@ -75,6 +75,11 @@ Search.appendIndex(
             "name": "reset",
             "summary": "",
             "url": "classes/App-Cards-Deck.html#method_reset"
+        },                {
+            "fqsen": "\\App\\Cards\\Deck\u003A\u003AaceMax\u0028\u0029",
+            "name": "aceMax",
+            "summary": "Changes\u0020value\u0020of\u0020A\u0020to\u002014",
+            "url": "classes/App-Cards-Deck.html#method_aceMax"
         },                {
             "fqsen": "\\App\\Cards\\Deck\u003A\u003A\u0024deck",
             "name": "deck",
@@ -221,10 +226,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Cards-Player.html#method_addCards"
         },                {
-            "fqsen": "\\App\\Cards\\Player\u003A\u003AaddScore\u0028\u0029",
-            "name": "addScore",
+            "fqsen": "\\App\\Cards\\Player\u003A\u003AsetScore\u0028\u0029",
+            "name": "setScore",
             "summary": "",
-            "url": "classes/App-Cards-Player.html#method_addScore"
+            "url": "classes/App-Cards-Player.html#method_setScore"
         },                {
             "fqsen": "\\App\\Cards\\Player\u003A\u003AgetScore\u0028\u0029",
             "name": "getScore",
@@ -791,6 +796,311 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Repository-ProductRepository.html#method_remove"
         },                {
+            "fqsen": "\\App\\Cards\\Board",
+            "name": "Board",
+            "summary": "",
+            "url": "classes/App-Cards-Board.html"
+        },                {
+            "fqsen": "\\App\\Cards\\Board\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/App-Cards-Board.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Cards\\Board\u003A\u003AgetBoard\u0028\u0029",
+            "name": "getBoard",
+            "summary": "",
+            "url": "classes/App-Cards-Board.html#method_getBoard"
+        },                {
+            "fqsen": "\\App\\Cards\\Board\u003A\u003AgetSlots\u0028\u0029",
+            "name": "getSlots",
+            "summary": "",
+            "url": "classes/App-Cards-Board.html#method_getSlots"
+        },                {
+            "fqsen": "\\App\\Cards\\Board\u003A\u003AsetSlot\u0028\u0029",
+            "name": "setSlot",
+            "summary": "",
+            "url": "classes/App-Cards-Board.html#method_setSlot"
+        },                {
+            "fqsen": "\\App\\Cards\\Board\u003A\u003A\u0024board",
+            "name": "board",
+            "summary": "",
+            "url": "classes/App-Cards-Board.html#property_board"
+        },                {
+            "fqsen": "\\App\\Cards\\Board\u003A\u003A\u0024slotsLeft",
+            "name": "slotsLeft",
+            "summary": "",
+            "url": "classes/App-Cards-Board.html#property_slotsLeft"
+        },                {
+            "fqsen": "\\App\\Cards\\Score",
+            "name": "Score",
+            "summary": "",
+            "url": "classes/App-Cards-Score.html"
+        },                {
+            "fqsen": "\\App\\Cards\\Score\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/App-Cards-Score.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Cards\\Score\u003A\u003AcheckScore\u0028\u0029",
+            "name": "checkScore",
+            "summary": "",
+            "url": "classes/App-Cards-Score.html#method_checkScore"
+        },                {
+            "fqsen": "\\App\\Cards\\Score\u003A\u003AgetScoreFrequency\u0028\u0029",
+            "name": "getScoreFrequency",
+            "summary": "",
+            "url": "classes/App-Cards-Score.html#method_getScoreFrequency"
+        },                {
+            "fqsen": "\\App\\Cards\\Score\u003A\u003AcheckSuit\u0028\u0029",
+            "name": "checkSuit",
+            "summary": "",
+            "url": "classes/App-Cards-Score.html#method_checkSuit"
+        },                {
+            "fqsen": "\\App\\Cards\\Score\u003A\u003AwhenFlush\u0028\u0029",
+            "name": "whenFlush",
+            "summary": "",
+            "url": "classes/App-Cards-Score.html#method_whenFlush"
+        },                {
+            "fqsen": "\\App\\Cards\\Score\u003A\u003AcheckStraight\u0028\u0029",
+            "name": "checkStraight",
+            "summary": "",
+            "url": "classes/App-Cards-Score.html#method_checkStraight"
+        },                {
+            "fqsen": "\\App\\Cards\\Score\u003A\u003AfindOccurrence\u0028\u0029",
+            "name": "findOccurrence",
+            "summary": "",
+            "url": "classes/App-Cards-Score.html#method_findOccurrence"
+        },                {
+            "fqsen": "\\App\\Cards\\Score\u003A\u003ACheckPairs\u0028\u0029",
+            "name": "CheckPairs",
+            "summary": "",
+            "url": "classes/App-Cards-Score.html#method_CheckPairs"
+        },                {
+            "fqsen": "\\App\\Cards\\Score\u003A\u003A\u0024suits",
+            "name": "suits",
+            "summary": "",
+            "url": "classes/App-Cards-Score.html#property_suits"
+        },                {
+            "fqsen": "\\App\\Cards\\Score\u003A\u003A\u0024straight",
+            "name": "straight",
+            "summary": "",
+            "url": "classes/App-Cards-Score.html#property_straight"
+        },                {
+            "fqsen": "\\App\\Cards\\Score\u003A\u003A\u0024score",
+            "name": "score",
+            "summary": "",
+            "url": "classes/App-Cards-Score.html#property_score"
+        },                {
+            "fqsen": "\\App\\Cards\\Score\u003A\u003A\u0024scoreChart",
+            "name": "scoreChart",
+            "summary": "",
+            "url": "classes/App-Cards-Score.html#property_scoreChart"
+        },                {
+            "fqsen": "\\App\\Cards\\Score\u003A\u003A\u0024scoreFrequency",
+            "name": "scoreFrequency",
+            "summary": "",
+            "url": "classes/App-Cards-Score.html#property_scoreFrequency"
+        },                {
+            "fqsen": "\\App\\Cards\\Score\u003A\u003A\u0024occurrence",
+            "name": "occurrence",
+            "summary": "",
+            "url": "classes/App-Cards-Score.html#property_occurrence"
+        },                {
+            "fqsen": "\\App\\Cards\\Square",
+            "name": "Square",
+            "summary": "",
+            "url": "classes/App-Cards-Square.html"
+        },                {
+            "fqsen": "\\App\\Cards\\Square\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/App-Cards-Square.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Cards\\Square\u003A\u003AgetDeck\u0028\u0029",
+            "name": "getDeck",
+            "summary": "",
+            "url": "classes/App-Cards-Square.html#method_getDeck"
+        },                {
+            "fqsen": "\\App\\Cards\\Square\u003A\u003AgetBoard\u0028\u0029",
+            "name": "getBoard",
+            "summary": "",
+            "url": "classes/App-Cards-Square.html#method_getBoard"
+        },                {
+            "fqsen": "\\App\\Cards\\Square\u003A\u003AgetTotalScore\u0028\u0029",
+            "name": "getTotalScore",
+            "summary": "",
+            "url": "classes/App-Cards-Square.html#method_getTotalScore"
+        },                {
+            "fqsen": "\\App\\Cards\\Square\u003A\u003Around\u0028\u0029",
+            "name": "round",
+            "summary": "",
+            "url": "classes/App-Cards-Square.html#method_round"
+        },                {
+            "fqsen": "\\App\\Cards\\Square\u003A\u003Afinnish\u0028\u0029",
+            "name": "finnish",
+            "summary": "",
+            "url": "classes/App-Cards-Square.html#method_finnish"
+        },                {
+            "fqsen": "\\App\\Cards\\Square\u003A\u003AgetHands\u0028\u0029",
+            "name": "getHands",
+            "summary": "",
+            "url": "classes/App-Cards-Square.html#method_getHands"
+        },                {
+            "fqsen": "\\App\\Cards\\Square\u003A\u003AflattenHand\u0028\u0029",
+            "name": "flattenHand",
+            "summary": "",
+            "url": "classes/App-Cards-Square.html#method_flattenHand"
+        },                {
+            "fqsen": "\\App\\Cards\\Square\u003A\u003A\u0024deck",
+            "name": "deck",
+            "summary": "",
+            "url": "classes/App-Cards-Square.html#property_deck"
+        },                {
+            "fqsen": "\\App\\Cards\\Square\u003A\u003A\u0024score",
+            "name": "score",
+            "summary": "",
+            "url": "classes/App-Cards-Square.html#property_score"
+        },                {
+            "fqsen": "\\App\\Cards\\Square\u003A\u003A\u0024board",
+            "name": "board",
+            "summary": "",
+            "url": "classes/App-Cards-Square.html#property_board"
+        },                {
+            "fqsen": "\\App\\Cards\\Square\u003A\u003A\u0024card",
+            "name": "card",
+            "summary": "",
+            "url": "classes/App-Cards-Square.html#property_card"
+        },                {
+            "fqsen": "\\App\\Cards\\Square\u003A\u003A\u0024usedSlots",
+            "name": "usedSlots",
+            "summary": "",
+            "url": "classes/App-Cards-Square.html#property_usedSlots"
+        },                {
+            "fqsen": "\\App\\Cards\\Square\u003A\u003A\u0024totalScore",
+            "name": "totalScore",
+            "summary": "",
+            "url": "classes/App-Cards-Square.html#property_totalScore"
+        },                {
+            "fqsen": "\\App\\Controller\\proj\\ProjController",
+            "name": "ProjController",
+            "summary": "",
+            "url": "classes/App-Controller-proj-ProjController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\proj\\ProjController\u003A\u003Ahome\u0028\u0029",
+            "name": "home",
+            "summary": "",
+            "url": "classes/App-Controller-proj-ProjController.html#method_home"
+        },                {
+            "fqsen": "\\App\\Controller\\proj\\ProjController\u003A\u003Adoc\u0028\u0029",
+            "name": "doc",
+            "summary": "",
+            "url": "classes/App-Controller-proj-ProjController.html#method_doc"
+        },                {
+            "fqsen": "\\App\\Controller\\proj\\ProjController\u003A\u003Areset\u0028\u0029",
+            "name": "reset",
+            "summary": "",
+            "url": "classes/App-Controller-proj-ProjController.html#method_reset"
+        },                {
+            "fqsen": "\\App\\Controller\\proj\\ProjController\u003A\u003Astart\u0028\u0029",
+            "name": "start",
+            "summary": "",
+            "url": "classes/App-Controller-proj-ProjController.html#method_start"
+        },                {
+            "fqsen": "\\App\\Controller\\proj\\ProjController\u003A\u003Aresult\u0028\u0029",
+            "name": "result",
+            "summary": "",
+            "url": "classes/App-Controller-proj-ProjController.html#method_result"
+        },                {
+            "fqsen": "\\App\\Controller\\proj\\ProjController\u003A\u003AinsertResult\u0028\u0029",
+            "name": "insertResult",
+            "summary": "",
+            "url": "classes/App-Controller-proj-ProjController.html#method_insertResult"
+        },                {
+            "fqsen": "\\App\\Controller\\proj\\ProjController\u003A\u003AshowLeaderboard\u0028\u0029",
+            "name": "showLeaderboard",
+            "summary": "",
+            "url": "classes/App-Controller-proj-ProjController.html#method_showLeaderboard"
+        },                {
+            "fqsen": "\\App\\Entity\\Proj",
+            "name": "Proj",
+            "summary": "",
+            "url": "classes/App-Entity-Proj.html"
+        },                {
+            "fqsen": "\\App\\Entity\\Proj\u003A\u003AgetId\u0028\u0029",
+            "name": "getId",
+            "summary": "",
+            "url": "classes/App-Entity-Proj.html#method_getId"
+        },                {
+            "fqsen": "\\App\\Entity\\Proj\u003A\u003AgetNamn\u0028\u0029",
+            "name": "getNamn",
+            "summary": "",
+            "url": "classes/App-Entity-Proj.html#method_getNamn"
+        },                {
+            "fqsen": "\\App\\Entity\\Proj\u003A\u003AsetNamn\u0028\u0029",
+            "name": "setNamn",
+            "summary": "",
+            "url": "classes/App-Entity-Proj.html#method_setNamn"
+        },                {
+            "fqsen": "\\App\\Entity\\Proj\u003A\u003AgetAlias\u0028\u0029",
+            "name": "getAlias",
+            "summary": "",
+            "url": "classes/App-Entity-Proj.html#method_getAlias"
+        },                {
+            "fqsen": "\\App\\Entity\\Proj\u003A\u003AsetAlias\u0028\u0029",
+            "name": "setAlias",
+            "summary": "",
+            "url": "classes/App-Entity-Proj.html#method_setAlias"
+        },                {
+            "fqsen": "\\App\\Entity\\Proj\u003A\u003AgetScore\u0028\u0029",
+            "name": "getScore",
+            "summary": "",
+            "url": "classes/App-Entity-Proj.html#method_getScore"
+        },                {
+            "fqsen": "\\App\\Entity\\Proj\u003A\u003AsetScore\u0028\u0029",
+            "name": "setScore",
+            "summary": "",
+            "url": "classes/App-Entity-Proj.html#method_setScore"
+        },                {
+            "fqsen": "\\App\\Entity\\Proj\u003A\u003A\u0024id",
+            "name": "id",
+            "summary": "",
+            "url": "classes/App-Entity-Proj.html#property_id"
+        },                {
+            "fqsen": "\\App\\Entity\\Proj\u003A\u003A\u0024namn",
+            "name": "namn",
+            "summary": "",
+            "url": "classes/App-Entity-Proj.html#property_namn"
+        },                {
+            "fqsen": "\\App\\Entity\\Proj\u003A\u003A\u0024alias",
+            "name": "alias",
+            "summary": "",
+            "url": "classes/App-Entity-Proj.html#property_alias"
+        },                {
+            "fqsen": "\\App\\Entity\\Proj\u003A\u003A\u0024score",
+            "name": "score",
+            "summary": "",
+            "url": "classes/App-Entity-Proj.html#property_score"
+        },                {
+            "fqsen": "\\App\\Repository\\ProjRepository",
+            "name": "ProjRepository",
+            "summary": "",
+            "url": "classes/App-Repository-ProjRepository.html"
+        },                {
+            "fqsen": "\\App\\Repository\\ProjRepository\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/App-Repository-ProjRepository.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Repository\\ProjRepository\u003A\u003Aadd\u0028\u0029",
+            "name": "add",
+            "summary": "",
+            "url": "classes/App-Repository-ProjRepository.html#method_add"
+        },                {
+            "fqsen": "\\App\\Repository\\ProjRepository\u003A\u003Aremove\u0028\u0029",
+            "name": "remove",
+            "summary": "",
+            "url": "classes/App-Repository-ProjRepository.html#method_remove"
+        },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
@@ -835,6 +1145,11 @@ Search.appendIndex(
             "name": "Controller",
             "summary": "",
             "url": "namespaces/app-controller.html"
+        },                {
+            "fqsen": "\\App\\Controller\\proj",
+            "name": "proj",
+            "summary": "",
+            "url": "namespaces/app-controller-proj.html"
         },                {
             "fqsen": "\\App\\Dice",
             "name": "Dice",
