@@ -155,7 +155,7 @@ nav .start-blog, a:nth-child(3):hover~.animation {
     justify-content: space-around;
     color: beige;
     font-size: large;
-    height: 500px;
+    
 }
 
 .regler {
@@ -174,15 +174,17 @@ nav .start-blog, a:nth-child(3):hover~.animation {
     border-radius: 8px;
     padding: 20px;
     background-color: rgb(5, 102, 20);
+   
 }
 .score-chart {
     border: solid rgb(143, 165, 143) 3px;
     border-spacing: 5px;
-    text-align: center;
+    height: fit-content;
 }
 .score-chart td {
     border: solid rgb(143, 165, 143) 2px;
     pad: 4px;
+    
 }
 
 .play {
@@ -268,4 +270,24 @@ color: white;
     color: bisque;
     margin-top: 30px;
     max-width: 200px;
+}
+
+
+@media screen and (max-width: 700px) {
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .score {
+        align-self: center;
+    }
+
+    .regler {
+        width: 75%;
+    }
+    .body {
+        min-height: auto;
+    }
 }

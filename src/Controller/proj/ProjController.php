@@ -82,8 +82,6 @@ class ProjController extends AbstractController
        */
     public function resetPost(ManagerRegistry $doctrine): Response
     {
-        //SHOULD RESET ORM DATABASE
-        // BARA ANVÄNDA EN TABLE KÖRA DROP TABLE?
         $entityManager = $doctrine->getManager();
         $leaderboard = $entityManager->getRepository(Proj::class)->findAll();
 
@@ -98,7 +96,7 @@ class ProjController extends AbstractController
         }
 
         $entityManager->flush();
-        return $this->redirectToRoute('leaderboard_show_all');
+        return $this->redirectToRoute('leaderboard');
     }
 
     /**
@@ -107,10 +105,10 @@ class ProjController extends AbstractController
     public function start(string $id, SessionInterface $session): Response
     {
         $game = $session->get("myGame");
-        $slot = $session->get("card");
+        $card = $session->get("card");
 
 
-        $roundData = $game->round($id, $slot);
+        $roundData = $game->round($id, $card);
         $session->set("card", $roundData['card']);
 
         $data = [
@@ -174,11 +172,11 @@ class ProjController extends AbstractController
 
         $entityManager->persist($proj);
         $entityManager->flush();
-        return $this->redirectToRoute('leaderboard_show_all');
+        return $this->redirectToRoute('leaderboard');
     }
 
     /**
-    * @Route("/proj/show", name="leaderboard_show_all")
+    * @Route("/proj/leaderboard", name="leaderboard")
     */
     public function showLeaderboard(
         ProjRepository $projRepository
@@ -191,6 +189,6 @@ class ProjController extends AbstractController
             'title' => 'Leaderboard',
             'leaderboard' => $leaderboard
         ];
-        return $this->render('proj/show.html.twig', $data);
+        return $this->render('proj/leaderboard.html.twig', $data);
     }
 }

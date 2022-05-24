@@ -172,6 +172,39 @@
            TIL: När man gör ändringar i koden är det lätt att missa vissa delar. Då är det bra med lite extra hjälp ifrån tex scrutinizer så att man ser att man fixat till allting.
        </p>
         <h4>Kmom10</h4>
+        
+
+    
+        <p>
+            Jag valde att göra Poker Square projektet. Jag återanvände card och deck klasserna.<br>
+            Jag valde att skapa en klass (Square) för att hålla koll på spelets state. Klassen Board för att hålla koll på vart korten läggs och klassen Score för att sätta poäng på alla händer. <br>
+            Square använder klasserna Deck, Board och Score. <br>
+            När spelaren klickar på en plats på brädan tas ett id ut och används i metoden round i Square. Där sparas kortet i objektet board och ett nytt kort dras och returneras.
+            När alla platser är fyllda på brädan så körs metoden finnish i Square klassen. Då hämtas alla 10 händerna ut från brädan och skickas in i checkScore() i Score objektet.<br>
+            Uträkningen för poängen är rätt prestandakrävande då det blir en del iterering och många olika kollar. Jag försökte hålla det nere en del genom att göra vissa kollar först och på så sätt utesluta en del händer. <br>
+            Det kändes inte nödvändigt att försöka sig på att använda lookup tables när spelet inte ska ha så många som spelar samtidigt.<br>
+            När spelet är slut visas poängen och vilka händer man lyckats få ihop.
+        </p>
+         
+        <p>
+            Det finns även en knapp för att posta till leaderboarden.<br>
+            Leaderboarden är sorterad så att högst poäng visas först.<br>
+            på proj/reset kan man nollställa databasen.
+        </p>
+        <p>
+            På about sidan visas dokumentation, det finns länkar till gitrepot samt metrics och scrutinizer. För att komma till about trycker man på länken i footern eller knappen "about" istället för play.
+        </p>
+        <p>
+            Layouten på sidan är poker inspirerad och gjort för att vara lätt att använda.
+        </p>
+
+        <p>
+            Jag tycker det gick bra att göra projektet, det tog rätt lång tid att göra då det var många delar som skulle fixas. Svårast var det att få till logiken på ett ok sätt. Det var smidigt att jobba med symfony och doctrine. Jag tycker absolut att det var ett rimligt projekt för kursen. Det var väldigt kul att det var så fritt med vilket projekt man fick göra. 
+        </p>
+
+        <p>
+            Jag tycker det här var en av dom roligaste kurserna vi har haft. Det var bra artiklar och föreläsningar och uppgifterna var väldigt öppna och gick att lösa på många olika sätt. Tyvärr var jag borta en period i kursen och har inte kunnat lägga den tiden jag velat på extrauppgifter eller fördjupning så där har jag inget att kommentera. Kursen var kanon och jag skulle rekommendera den till alla. 10/10 för kursen. <br>            
+        </p>
     </div>
 </div>
 {% endblock body %}
